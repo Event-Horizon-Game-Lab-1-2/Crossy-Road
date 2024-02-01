@@ -18,7 +18,14 @@ public class InputConponent : MonoBehaviour
     [SerializeField] private KeyCode Down = KeyCode.S;
     [SerializeField] private KeyCode Right = KeyCode.D;
 
+    //Delays between inputs
+    [Header("Movement CoolDown")]
+    [SerializeField] private float InputRecoveryTime = 0.1f;
+
+    //direction of movement
     private Vector3 Direction;
+    //Delay Timer
+    private float CoolDownTimer = 0f;
 
     void Update()
     {
@@ -26,8 +33,16 @@ public class InputConponent : MonoBehaviour
         if (GetInputDirection(out Direction))
             OnDirectionChanged(Direction);
         //check if the chosen direction is confirmed
-        if (IsDirectionConfirmed())
+        if (IsDirectionConfirmed() && CoolDownTimer <= 0f)
+        {
+            //Debug.Log("Direction Confirmed");
+            CoolDownTimer = InputRecoveryTime;
             OnDirectionConfirmed();
+        }
+
+        //Decrease input timer
+        if(CoolDownTimer > 0)
+            CoolDownTimer -= Time.deltaTime;
     }
 
     private bool GetInputDirection(out Vector3 direction)
