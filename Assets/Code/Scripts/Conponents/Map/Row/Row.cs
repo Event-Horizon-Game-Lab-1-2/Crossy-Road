@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raw : MonoBehaviour
+public class Row : MonoBehaviour
 {
-    [Header("Raw Setting")]
+    [Header("Row Setting")]
     [Tooltip("Tiles upon wich the player can move")]
     [SerializeField] private Tile[] PlayableTiles = new Tile[9];
-
-
+    [SerializeField] Spawner RowSpawner;
+    
     private bool[] OccupiedTiles;
 
     private void Awake()
@@ -20,4 +20,5 @@ public class Raw : MonoBehaviour
     {
 
     }
+
 }
