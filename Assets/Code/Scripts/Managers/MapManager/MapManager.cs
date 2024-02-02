@@ -110,14 +110,14 @@ public class MapManager : MonoBehaviour
     //Connect all events
     private void OnEnable()
     {
-        GameManager.OnNewRawAchieved += GenerateNewRow;
-        GameManager.OnNewRawAchieved += RemoveLastRow;
+        GameManager.OnNewRowAchieved += GenerateNewRow;
+        GameManager.OnNewRowAchieved += RemoveLastRow;
     }
     //Disconnect all events
     private void OnDisable() 
     {
-        GameManager.OnNewRawAchieved -= GenerateNewRow;
-        GameManager.OnNewRawAchieved -= RemoveLastRow;
+        GameManager.OnNewRowAchieved -= GenerateNewRow;
+        GameManager.OnNewRowAchieved -= RemoveLastRow;
     }
     //Active in hierarchy
 }
