@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapGenerationData : MonoBehaviour
 {
-    [SerializeField] public Row RawPrefab;
-    [SerializeField] public int MaxRows;
+    [SerializeField] public Row RowPrefab;
+    [SerializeField] public int MaxConsecutiveRows;
+    [SerializeField][Range(0f, 1f)] public float SpawnProbability;
+    [HideInInspector] public float RowContinuityProbability;
 }

@@ -5,20 +5,11 @@ using UnityEngine;
 public class Row : MonoBehaviour
 {
     [Header("Row Setting")]
-    [Tooltip("Tiles upon wich the player can move")]
-    [SerializeField] private Tile[] PlayableTiles = new Tile[9];
+    [Tooltip("Spawner activated on enable")]
     [SerializeField] Spawner RowSpawner;
-    
-    private bool[] OccupiedTiles;
 
-    private void Awake()
+    private void OnEnable()
     {
-        OccupiedTiles = new bool[PlayableTiles.Length];
+        RowSpawner.Spawn();
     }
-
-    private void Start()
-    {
-
-    }
-
 }

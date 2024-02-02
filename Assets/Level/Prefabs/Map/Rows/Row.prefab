@@ -124,7 +124,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  RawSpawner: {fileID: 0}
+  RowSpawner: {fileID: 0}
 --- !u!1 &8478256396094548325
 GameObject:
   m_ObjectHideFlags: 0
