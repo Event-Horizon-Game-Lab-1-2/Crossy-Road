@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public delegate void NewRowAchieved();
+    public static event NewRowAchieved OnNewRowAchieved;
 
     //player Score
     [HideInInspector] public static int Score = 0;
@@ -31,7 +34,10 @@ public class GameManager : MonoBehaviour
         PlayerRaw += (int)PlayerDirection.z;
 
         if(PlayerRaw > Score)
+        {
             Score = PlayerRaw;
+            OnNewRowAchieved();
+        }
     }
 
     #region Utility
