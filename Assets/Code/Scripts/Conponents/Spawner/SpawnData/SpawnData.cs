@@ -5,5 +5,5 @@ using UnityEngine;
 public class SpawnData: MonoBehaviour
 {
     [SerializeField] public Transform ObjectTransform;
-    [SerializeField] public int SpawnAmount;
+    [SerializeField][Range(0f, 1f)] public float SpawnProbability;
 }

@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     private int CurrentRowIndex = 0;
     private int ContinuousRow = 0;
 
-    public int RowCount = 0;
+    private int RowCount = 0;
 
     private void Awake()
     {
@@ -92,9 +92,21 @@ public class MapManager : MonoBehaviour
         ContinuousRow++;
         RowCount++;
 
+        //feature enabling
+        Row row = GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>();
+
         //if is a even row enable the even feature
-        if (ContinuousRow % 2 == 0)
-            GeneratedRows[GeneratedRows.Count-1].GetComponent<Row>().EvenRow();
+        if (row.FeatureOnEven)
+        {
+            if (ContinuousRow % 2 == 0)
+                row.ShowFeature();
+        }
+        else if(ContinuousRow-1>0)
+            row.ShowFeature();
+        
+        //Spawn Obstacles
+        row.Spawn();
+
 
         //Update spawns values
         Data[CurrentRowIndex].RowContinuityProbability = (float)(Data[CurrentRowIndex].MaxConsecutiveRows - ContinuousRow) / (float)Data[CurrentRowIndex].MaxConsecutiveRows;
@@ -108,9 +120,16 @@ public class MapManager : MonoBehaviour
         ContinuousRow++;
         RowCount++;
 
+        //feature enabling
+        Row row = GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>();
         //if is a even row enable the even feature
-        if (ContinuousRow % 2 == 0)
-            GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>().EvenRow();
+        if (row.FeatureOnEven)
+        {
+            if (ContinuousRow % 2 == 0)
+                row.ShowFeature();
+        }
+        else if (ContinuousRow - 1 > 0)
+            row.ShowFeature();
 
         //Update spawns values
         Data[index].RowContinuityProbability = (float)(Data[index].MaxConsecutiveRows - ContinuousRow) / (float)Data[index].MaxConsecutiveRows;
@@ -143,13 +162,13 @@ public class MapManager : MonoBehaviour
             Gizmos.color = SafeZoneColor;
             for (int i = 0; i < InitialSafeZone; i++)
             {
-                Gizmos.DrawWireCube(transform.position + Vector3.forward * i, new Vector3(15f, 1f, 1f));
+                Gizmos.DrawWireCube((transform.position - Vector3.up/2) + Vector3.forward * i, new Vector3(15f, 1f, 1f));
             }
 
             Gizmos.color = MapZoneColor;
             for (int i = InitialSafeZone; i < MaxVisibleRows; i++)
             {
-                Gizmos.DrawWireCube(transform.position + Vector3.forward * i, new Vector3(15f, 1f, 1f));
+                Gizmos.DrawWireCube((transform.position - Vector3.up / 2) + Vector3.forward * i, new Vector3(15f, 1f, 1f));
             }
         }
     }
