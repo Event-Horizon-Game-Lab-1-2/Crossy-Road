@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -91,6 +92,10 @@ public class MapManager : MonoBehaviour
         ContinuousRow++;
         RowCount++;
 
+        //if is a even row enable the even feature
+        if (ContinuousRow % 2 == 0)
+            GeneratedRows[GeneratedRows.Count-1].GetComponent<Row>().EvenRow();
+
         //Update spawns values
         Data[CurrentRowIndex].RowContinuityProbability = (float)(Data[CurrentRowIndex].MaxConsecutiveRows - ContinuousRow) / (float)Data[CurrentRowIndex].MaxConsecutiveRows;
     }
@@ -100,7 +105,15 @@ public class MapManager : MonoBehaviour
         //Instanciate new Row
         Transform newRow = Instantiate(Data[index].RowPrefab.transform, transform.position + Vector3.forward * RowCount, Quaternion.identity).transform;
         GeneratedRows.Add(newRow);
+        ContinuousRow++;
         RowCount++;
+
+        //if is a even row enable the even feature
+        if (ContinuousRow % 2 == 0)
+            GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>().EvenRow();
+
+        //Update spawns values
+        Data[index].RowContinuityProbability = (float)(Data[index].MaxConsecutiveRows - ContinuousRow) / (float)Data[index].MaxConsecutiveRows;
     }
 
     private void RemoveLastRow()
