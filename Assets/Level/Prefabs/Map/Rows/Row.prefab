@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RowSpawner: {fileID: 0}
-  EvenFeature: {fileID: 6279974506056137163}
+  Feature: {fileID: 6279974506056137163}
+  FeatureOnEven: 1
 --- !u!1 &6759801820003774080
 GameObject:
   m_ObjectHideFlags: 0

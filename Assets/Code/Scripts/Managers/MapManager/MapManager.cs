@@ -92,9 +92,16 @@ public class MapManager : MonoBehaviour
         ContinuousRow++;
         RowCount++;
 
+        //feature enabling
+        Row row = GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>();
         //if is a even row enable the even feature
-        if (ContinuousRow % 2 == 0)
-            GeneratedRows[GeneratedRows.Count-1].GetComponent<Row>().EvenRow();
+        if (row.FeatureOnEven)
+        {
+            if (ContinuousRow % 2 == 0)
+                row.ShowFeature();
+        }
+        else if(ContinuousRow-1>0)
+            row.ShowFeature();
 
         //Update spawns values
         Data[CurrentRowIndex].RowContinuityProbability = (float)(Data[CurrentRowIndex].MaxConsecutiveRows - ContinuousRow) / (float)Data[CurrentRowIndex].MaxConsecutiveRows;
@@ -108,9 +115,16 @@ public class MapManager : MonoBehaviour
         ContinuousRow++;
         RowCount++;
 
+        //feature enabling
+        Row row = GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>();
         //if is a even row enable the even feature
-        if (ContinuousRow % 2 == 0)
-            GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>().EvenRow();
+        if (row.FeatureOnEven)
+        {
+            if (ContinuousRow % 2 == 0)
+                row.ShowFeature();
+        }
+        else if (ContinuousRow - 1 > 0)
+            row.ShowFeature();
 
         //Update spawns values
         Data[index].RowContinuityProbability = (float)(Data[index].MaxConsecutiveRows - ContinuousRow) / (float)Data[index].MaxConsecutiveRows;

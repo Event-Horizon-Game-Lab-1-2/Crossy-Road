@@ -9,17 +9,19 @@ public class Row : MonoBehaviour
     [Header("Row Setting")]
     [Tooltip("Spawner activated on enable")]
     [SerializeField] Spawner RowSpawner;
-    [Tooltip("Feature visible when even, can be empty")]
-    [SerializeField] Transform EvenFeature;
+    [Tooltip("Feature visible when raws is repeated, can be empty")]
+    [SerializeField] Transform Feature;
+    [Tooltip("Show feature when even, if false the feature will be shown when continuous")]
+    [SerializeField] public bool FeatureOnEven = true;
 
     private void Awake()
     {
-        EvenFeature.gameObject.SetActive(false);
+        Feature.gameObject.SetActive(false);
     }
 
-    public void EvenRow()
+    public void ShowFeature()
     {
-        if(EvenFeature.gameObject != null)
-            EvenFeature.gameObject.SetActive(true);
+        if(Feature.gameObject != null)
+            Feature.gameObject.SetActive(true);
     }
 }
