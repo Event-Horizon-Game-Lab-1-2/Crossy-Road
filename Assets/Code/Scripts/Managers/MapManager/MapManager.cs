@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-
+    [Header("Map Generation Settings")]
     [SerializeField] private MapGenerationData[] Data = new MapGenerationData[4];
     [SerializeField] private int InitialSafeZone = 5;
     [SerializeField] private int MaxVisibleRows = 10;
-
+    [Header("Gizsmo Settings")]
+    [SerializeField] private Color SafeZoneColor = Color.white;
+    [SerializeField] private Color MapZoneColor = Color.green;
     List<Transform> GeneratedRows = null;
 
     private int CurrentRowIndex = 0;
@@ -84,10 +87,14 @@ public class MapManager : MonoBehaviour
     private void SpawnRow()
     {
         //Instanciate new Row
-        Transform newRow = Instantiate(Data[CurrentRowIndex].RowPrefab.transform, Vector3.forward * RowCount, Quaternion.identity).transform;
+        Transform newRow = Instantiate(Data[CurrentRowIndex].RowPrefab.transform, transform.position + Vector3.forward * RowCount, Quaternion.identity).transform;
         GeneratedRows.Add(newRow);
         ContinuousRow++;
         RowCount++;
+
+        //if is a even row enable the even feature
+        if (ContinuousRow % 2 == 0)
+            GeneratedRows[GeneratedRows.Count-1].GetComponent<Row>().EvenRow();
 
         //Update spawns values
         Data[CurrentRowIndex].RowContinuityProbability = (float)(Data[CurrentRowIndex].MaxConsecutiveRows - ContinuousRow) / (float)Data[CurrentRowIndex].MaxConsecutiveRows;
@@ -96,9 +103,17 @@ public class MapManager : MonoBehaviour
     private void SpawnRow(int index)
     {
         //Instanciate new Row
-        Transform newRow = Instantiate(Data[index].RowPrefab.transform, Vector3.forward * RowCount, Quaternion.identity).transform;
+        Transform newRow = Instantiate(Data[index].RowPrefab.transform, transform.position + Vector3.forward * RowCount, Quaternion.identity).transform;
         GeneratedRows.Add(newRow);
+        ContinuousRow++;
         RowCount++;
+
+        //if is a even row enable the even feature
+        if (ContinuousRow % 2 == 0)
+            GeneratedRows[GeneratedRows.Count - 1].GetComponent<Row>().EvenRow();
+
+        //Update spawns values
+        Data[index].RowContinuityProbability = (float)(Data[index].MaxConsecutiveRows - ContinuousRow) / (float)Data[index].MaxConsecutiveRows;
     }
 
     private void RemoveLastRow()
@@ -119,5 +134,25 @@ public class MapManager : MonoBehaviour
         GameManager.OnNewRowAchieved -= GenerateNewRow;
         GameManager.OnNewRowAchieved -= RemoveLastRow;
     }
-    //Active in hierarchy
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if(!UnityEngine.Application.isPlaying)
+        {
+            Gizmos.color = SafeZoneColor;
+            for (int i = 0; i < InitialSafeZone; i++)
+            {
+                Gizmos.DrawWireCube(transform.position + Vector3.forward * i, new Vector3(15f, 1f, 1f));
+            }
+
+            Gizmos.color = MapZoneColor;
+            for (int i = InitialSafeZone; i < MaxVisibleRows; i++)
+            {
+                Gizmos.DrawWireCube(transform.position + Vector3.forward * i, new Vector3(15f, 1f, 1f));
+            }
+        }
+    }
+
+#endif
 }
