@@ -9,17 +9,26 @@ public class GameManager : MonoBehaviour
     public delegate void NewRowAchieved();
     public static event NewRowAchieved OnNewRowAchieved;
 
+    [Header("Starting Options")]
+    //[SerializeField] private int StarRow = 5;
+
+    [Header("Gizsmos Options")]
+    [SerializeField] Vector3 PlayerRowVisualizer = new Vector3(15f, 5f, 1f);
+    [SerializeField] Vector3 PlayerRowRecordVisualizer = new Vector3(15f, 5f, 1f);
+    [SerializeField] Color PlayerRowVisualizerPlayColor = Color.blue;
+    [SerializeField] Color PlayerRowVisualizerEditorColor = Color.magenta;
+    [SerializeField] Color PlayerRecordVisualizerEditorColor = Color.black;
+
     //player Score
     [HideInInspector] public static int Score = 0;
     //Player raw Rappresent the raw on wich the player is on
-    [HideInInspector] public int PlayerRaw = 0;
+    [HideInInspector] public int PlayerRow = 0;
 
     Vector3 PlayerDirection;
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -31,11 +40,11 @@ public class GameManager : MonoBehaviour
     private void DirectionConfirmed()
     {
         //Update Player Raw number
-        PlayerRaw += (int)PlayerDirection.z;
+        PlayerRow += (int)PlayerDirection.z;
 
-        if(PlayerRaw > Score)
+        if(PlayerRow > Score)
         {
-            Score = PlayerRaw;
+            Score = PlayerRow;
             OnNewRowAchieved();
         }
     }
@@ -44,7 +53,7 @@ public class GameManager : MonoBehaviour
     private void Reset()
     {
         Score = 0;
-        PlayerRaw = 0;
+        PlayerRow = 0;
     }
 
     void OnEnable()
@@ -60,5 +69,24 @@ public class GameManager : MonoBehaviour
         InputConponent.OnDirectionChanged -= DirectionChanged;
         InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if(UnityEditor.EditorApplication.isPlaying)
+        {
+            Gizmos.color = PlayerRowVisualizerPlayColor;
+            Gizmos.DrawWireCube(Vector3.up * PlayerRowVisualizer.y/2 + Vector3.forward * PlayerRow, PlayerRowVisualizer);
+
+            Gizmos.color = PlayerRecordVisualizerEditorColor;
+            Gizmos.DrawWireCube(Vector3.up * PlayerRowVisualizer.y / 2 + Vector3.forward * Score, PlayerRowRecordVisualizer);
+        }
+        else
+        {
+            Gizmos.color = PlayerRowVisualizerEditorColor;
+            Gizmos.DrawWireCube(Vector3.up * PlayerRowVisualizer.y / 2, PlayerRowVisualizer);
+        }
+    }
+#endif
     #endregion
 }
