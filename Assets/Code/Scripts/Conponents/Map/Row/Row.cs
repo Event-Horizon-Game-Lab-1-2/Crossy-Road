@@ -19,6 +19,12 @@ public class Row : MonoBehaviour
         Feature.gameObject.SetActive(false);
     }
 
+    public void Spawn()
+    {
+        if (RowSpawner != null)
+            RowSpawner.Spawn();
+    }
+
     public void ShowFeature()
     {
         if(Feature.gameObject != null)
