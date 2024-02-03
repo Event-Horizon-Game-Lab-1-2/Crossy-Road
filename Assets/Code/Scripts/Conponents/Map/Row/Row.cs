@@ -10,6 +10,6 @@ public class Row : MonoBehaviour
 
     private void OnEnable()
     {
-        RowSpawner.Spawn();
+        //RowSpawner.Spawn();
     }
 }
