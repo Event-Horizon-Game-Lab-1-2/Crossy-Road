@@ -15,7 +15,16 @@ public class MovementComponent : MonoBehaviour
     public float raycastDistance = 5f; // Lunghezza del raggio
     public float downwardOffset = 0.5f; // Offset verso il basso
 
+    Vector3 dir;
+
+    public AnimationComponent animationComponent;
     private void Start()
+    {
+       animationComponent = GetComponent<AnimationComponent>(); 
+    }
+
+
+    private void OnEnable()
     {
         inputComponent = GetComponent<InputConponent>();
     }
@@ -51,15 +60,25 @@ public class MovementComponent : MonoBehaviour
 
     void OnDirectionChanged(Vector3 direction)
     {
-        if (direction != Vector3.zero)
+        dir = direction;
+        StartCoroutine(animationComponent.Squish());
+
+
+    }
+
+    void DirectionConfirmed()
+    {
+        if (dir != Vector3.zero)
         {
-            direction.Normalize();
+            //dir.Normalize();
 
             // calcola la posizione di destinazione in base alla direzione e alla distanza
             Vector3 targetPosition = transform.position + direction;
 
+            StartCoroutine(animationComponent.Squash());
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
+
         }
     }
 
