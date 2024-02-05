@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputConponent : MonoBehaviour
 {
+    public MovementComponent movementComponent;
 
     //direction change
     public delegate void NewDirection(Vector3 direction);
@@ -24,7 +25,7 @@ public class InputConponent : MonoBehaviour
     [SerializeField] private float InputRecoveryTime = 0.1f;
 
     //direction of movement
-    private Vector3 Direction;
+    public Vector3 Direction;
     //Delay Timer
     private float CoolDownTimer = 0f;
 

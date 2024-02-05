@@ -10,22 +10,20 @@ public class MovementComponent : MonoBehaviour
     //[SerializeField] public float speed = 5f;
     [SerializeField] public float time = 0.25f;
 
+    public InputConponent inputComponent;
 
     public float raycastDistance = 5f; // Lunghezza del raggio
     public float downwardOffset = 0.5f; // Offset verso il basso
 
-    Vector3 dir;
-
-    private void OnEnable()
+    private void Start()
     {
-        InputConponent.OnDirectionChanged += DirectionChanged;
-        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
+        inputComponent = GetComponent<InputConponent>();
     }
-
-    private void OnDisable()
+    private void Update()
     {
-        InputConponent.OnDirectionChanged -= DirectionChanged;
-        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
+        OnDirectionChanged(inputComponent.Direction);
+
+        MovementRaycast();
     }
 
     IEnumerator MoveCoroutine(Vector3 targetPosition, float time)
@@ -51,23 +49,23 @@ public class MovementComponent : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    void DirectionChanged(Vector3 direction)
+    void OnDirectionChanged(Vector3 direction)
     {
-        dir = direction;
-    }
-
-    void DirectionConfirmed()
-    {
-        if (dir != Vector3.zero)
+        if (direction != Vector3.zero)
         {
-            dir.Normalize();
+            direction.Normalize();
 
             // calcola la posizione di destinazione in base alla direzione e alla distanza
-            Vector3 targetPosition = transform.position + dir;
+            Vector3 targetPosition = transform.position + direction;
 
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
         }
+    }
+
+    void OnDirectionConfirmed()
+    {
+        
     }
 
     void MovementRaycast() //checka se ci sta il log del river con collider o river
