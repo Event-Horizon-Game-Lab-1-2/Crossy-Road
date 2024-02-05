@@ -10,29 +10,22 @@ public class MovementComponent : MonoBehaviour
     //[SerializeField] public float speed = 5f;
     [SerializeField] public float time = 0.25f;
 
-    public InputConponent inputComponent;
 
     public float raycastDistance = 5f; // Lunghezza del raggio
     public float downwardOffset = 0.5f; // Offset verso il basso
 
     Vector3 dir;
 
-    public AnimationComponent animationComponent;
-    private void Start()
-    {
-       animationComponent = GetComponent<AnimationComponent>(); 
-    }
-
-
     private void OnEnable()
     {
-        inputComponent = GetComponent<InputConponent>();
+        InputConponent.OnDirectionChanged += DirectionChanged;
+        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
     }
-    private void Update()
-    {
-        OnDirectionChanged(inputComponent.Direction);
 
-        MovementRaycast();
+    private void OnDisable()
+    {
+        InputConponent.OnDirectionChanged -= DirectionChanged;
+        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
     }
 
     IEnumerator MoveCoroutine(Vector3 targetPosition, float time)
@@ -58,33 +51,23 @@ public class MovementComponent : MonoBehaviour
         transform.position = targetPosition;
     }
 
-    void OnDirectionChanged(Vector3 direction)
+    void DirectionChanged(Vector3 direction)
     {
         dir = direction;
-        StartCoroutine(animationComponent.Squish());
-
-
     }
 
     void DirectionConfirmed()
     {
         if (dir != Vector3.zero)
         {
-            //dir.Normalize();
+            dir.Normalize();
 
             // calcola la posizione di destinazione in base alla direzione e alla distanza
-            Vector3 targetPosition = transform.position + direction;
+            Vector3 targetPosition = transform.position + dir;
 
-            StartCoroutine(animationComponent.Squash());
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
-
         }
-    }
-
-    void OnDirectionConfirmed()
-    {
-        
     }
 
     void MovementRaycast() //checka se ci sta il log del river con collider o river
@@ -96,18 +79,18 @@ public class MovementComponent : MonoBehaviour
         // calcola la direzione del raggio (verso il basso)
         Vector3 raycastDirection = Vector3.down;
 
-        
+
         RaycastHit hit;
         if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
         {
             // se il raggio colpisce qualcosa, fai qualcosa
-            Debug.DrawLine(raycastOrigin, hit.point, Color.red); 
+            Debug.DrawLine(raycastOrigin, hit.point, Color.red);
             Debug.Log("Il raggio ha colpito " + hit.point);
         }
         else
         {
             Vector3 endPoint = raycastOrigin + raycastDirection * raycastDistance;
-            Debug.DrawLine(raycastOrigin, endPoint, Color.green); 
+            Debug.DrawLine(raycastOrigin, endPoint, Color.green);
             Debug.Log("Il raggio non ha colpito nulla, raggiunge il punto " + endPoint);
         }
     }
