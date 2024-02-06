@@ -50,10 +50,6 @@ public class MapManager : MonoBehaviour
     {
         if(ChangeRow())
         {
-            //chose new row type
-            //Reset ContinuousRow
-            //Reset Data[CurrentRowIndex].RowContinuityProbability
-
             CurrentRowIndex = GetNewRowType();
 
             //reset row type values
@@ -71,16 +67,29 @@ public class MapManager : MonoBehaviour
     private int GetNewRowType()
     {
         int newRowIndex = 0;
-        //get new row type
-        for (int i = 0; i < Data.Length; i++)
+
+        //create probability array
+        float[] probabilityArray = new float[Data.Length];
+        probabilityArray[0] = Data[0].SpawnProbability;
+        for (int i = 1; i < Data.Length; i++)
         {
-            if (i == CurrentRowIndex)
-                continue;
-            if (UnityEngine.Random.value < Data[i].SpawnProbability)
-                newRowIndex = i;
+            probabilityArray[i] = probabilityArray[i - 1] + Data[i].SpawnProbability;
         }
+        //Select a random Spawner
+        float randomValue = UnityEngine.Random.value;
+        bool f = false;
+        for (int i = 0; i < probabilityArray.Length && !f; i++)
+        {
+            if (randomValue <= probabilityArray[i])
+            {
+                newRowIndex = i;
+                f = true;
+            }
+        }
+
         if (newRowIndex == CurrentRowIndex)
             return GetNewRowType();
+
         return newRowIndex;
     }
     
@@ -106,7 +115,6 @@ public class MapManager : MonoBehaviour
         
         //Spawn Obstacles
         row.Spawn();
-
 
         //Update spawns values
         Data[CurrentRowIndex].RowContinuityProbability = (float)(Data[CurrentRowIndex].MaxConsecutiveRows - ContinuousRow) / (float)Data[CurrentRowIndex].MaxConsecutiveRows;

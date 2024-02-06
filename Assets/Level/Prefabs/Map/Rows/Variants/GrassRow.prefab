@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6524896510466451931}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: -0}
   m_LocalScale: {x: 15, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1066,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 3820924294034061553, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       propertyPath: RowSpawner
       value: 
-      objectReference: {fileID: 542547171679673143}
+      objectReference: {fileID: 6525862659216743867}
     - target: {fileID: 3820924294034061553, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       propertyPath: PlayableTiles.Array.size
       value: 9
@@ -1193,7 +1193,7 @@ PrefabInstance:
       objectReference: {fileID: 542547171679673143}
     - target: {fileID: 6759801820003774080, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8612889664831727670, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1268,6 +1268,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6525862659216743867}
+    - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6503386284903765383}
+    - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 542547171679673143}
     - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       insertIndex: -1
@@ -1299,6 +1305,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
   m_PrefabInstance: {fileID: 8791385550917838754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6525862659216743867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711435958594849324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a50b43b4f5cbc44b5a224d34f89746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PossibleSpawners:
+  - {fileID: 6503386284903765383}
+--- !u!114 &6503386284903765383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711435958594849324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c388725be404443b4f36b0e9049885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 542547171679673143}
+  SpawnProbability: 1
 --- !u!114 &542547171679673143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,8 +1351,9 @@ MonoBehaviour:
   - {fileID: 2990138021022978973}
   SpawnTilesAmount: 9
   SpawnTilesOffset: {x: -4, y: 0, z: 0}
+  SpawnOnCenter: 0
   MaxSpawnAmount: 4
-  MinSpawnAmount: 0
+  MinSpawnAmount: 1
   SpanwerPreviewColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!114 &5501241006905235395
 MonoBehaviour:

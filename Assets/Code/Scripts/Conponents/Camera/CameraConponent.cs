@@ -36,12 +36,6 @@ public class CameraConponent : MonoBehaviour
 
         float DistanceToTarget = TargetPosition.z - transform.position.z;
 
-        ////accelerate the camera if max distance is reached
-        //if (DistanceToTarget > MaxDistance)
-        //    SmootingTime -= SmootTimeAttuator;
-        //else
-        //    SmootingTime = SmootTime;
-
         if (DistanceToTarget > LinearAccelDistance)
         {
             //smooting between two points
@@ -64,7 +58,7 @@ public class CameraConponent : MonoBehaviour
         TargetPosition += Vector3.forward;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         //Connect all Events
         InputConponent.OnDirectionConfirmed += DirectionConfirmed;
@@ -77,6 +71,4 @@ public class CameraConponent : MonoBehaviour
         InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
         GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
     }
-
-    
 }

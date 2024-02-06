@@ -7,8 +7,8 @@ public class Row : MonoBehaviour
 {
 
     [Header("Row Setting")]
-    [Tooltip("Spawner activated on enable")]
-    [SerializeField] Spawner RowSpawner;
+    [Tooltip("Spawner activated when the row is created")]
+    [SerializeField] SpawnerChooser RowSpawner;
     [Tooltip("Feature visible when raws is repeated, can be empty")]
     [SerializeField] Transform Feature;
     [Tooltip("Show feature when even, if false the feature will be shown when continuous")]

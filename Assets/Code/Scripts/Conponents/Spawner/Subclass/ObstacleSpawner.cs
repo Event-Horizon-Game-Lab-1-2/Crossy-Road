@@ -9,13 +9,14 @@ public class ObstacleSpawner : Spawner
     [Header("Spawn Positions Options")]
     [SerializeField] private int SpawnTilesAmount = 9;
     [SerializeField] private Vector3 SpawnTilesOffset = Vector3.zero;
+    [SerializeField] private bool SpawnOnCenter = false;
     [Space]
     [Header("Max Spawnable obstacles")]
     [SerializeField] private int MaxSpawnAmount = 5;
     [Header("Min Spawnable obstacles")]
     [SerializeField] private int MinSpawnAmount = 1;
     [Space]
-    [Header("Spawn Positions Options")]
+    [Header("Spawn Gizsmos Options")]
     [SerializeField] private Color SpanwerPreviewColor = Color.magenta;
     private float GismoSize = 1f;
 
@@ -25,18 +26,27 @@ public class ObstacleSpawner : Spawner
     private void Awake()
     {
         TilePosition = new List<Vector3>();
+        //load all possible tiles into a list, except for the middle one
         for (int i = 0; i < SpawnTilesAmount; i++)
-            TilePosition.Add( transform.position + SpawnTilesOffset + (Vector3.right * i) );
+            TilePosition.Add(transform.position + SpawnTilesOffset + (Vector3.right * i));
+        //remove the center Tile
+        TilePosition.RemoveAt( SpawnTilesAmount / 2 );
+
         ObjectSpawned = new List<Transform>();
     }
 
     public override void Spawn()
     {
         int numberOfSpaws = UnityEngine.Random.Range(MinSpawnAmount, MaxSpawnAmount);
-        float probability = UnityEngine.Random.value;
-        for(int i = 0; i < numberOfSpaws; i++)
+        float objectToSpawn = UnityEngine.Random.value;
+
+        //Spawn on center spawn an obstacle at the row center
+        if(SpawnOnCenter)
+            ObjectSpawned.Add(Instantiate(ObjectsToSpawn[0].ObjectTransform, transform.position + SpawnTilesOffset + (Vector3.right * (SpawnTilesAmount / 2) ), Quaternion.identity));
+
+        for (int i = 0; i < numberOfSpaws; i++)
         {
-            int newObjectIndex = GetObjectToSpawn(probability);
+            int newObjectIndex = GetObjectToSpawn(objectToSpawn);
             ObjectSpawned.Add(Instantiate(ObjectsToSpawn[newObjectIndex].ObjectTransform, GetSpawnTile(), Quaternion.identity));
         }
     }
@@ -48,7 +58,7 @@ public class ObstacleSpawner : Spawner
             if (ObjectsToSpawn[i].SpawnProbability < probability)
                 return i;
         }
-        return UnityEngine.Random.Range(0, ObjectsToSpawn.Length);
+        return (int)UnityEngine.Random.Range(0, ObjectsToSpawn.Length);
     }
 
     private Vector3 GetSpawnTile()
@@ -74,7 +84,7 @@ public class ObstacleSpawner : Spawner
         Gizmos.color = SpanwerPreviewColor;
         for (int i = 0; i < SpawnTilesAmount; i++)
         {
-            Gizmos.DrawWireCube( (transform.position + SpawnTilesOffset) + Vector3.right*i + Vector3.up/2, Vector3.one * GismoSize );
+            Gizmos.DrawWireCube((transform.position + SpawnTilesOffset) + Vector3.right * i + Vector3.up / 2, Vector3.one * GismoSize);
         }
     }
 #endif
