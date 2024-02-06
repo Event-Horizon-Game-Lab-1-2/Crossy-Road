@@ -14,7 +14,15 @@ public class MovementComponent : MonoBehaviour
     public float raycastDistance = 5f; // Lunghezza del raggio
     public float downwardOffset = 0.5f; // Offset verso il basso
 
-    Vector3 dir;
+    Vector3 dirToGo;
+
+
+    public AnimationComponent animationComponent;
+    private void Start()
+    {
+       animationComponent = GetComponent<AnimationComponent>();
+    }
+
 
     private void OnEnable()
     {
@@ -38,10 +46,13 @@ public class MovementComponent : MonoBehaviour
         {   //progressione dell'animazione in base al tempo
             float t = elapsedTime / time;
 
-            // interpolazione lineare tra la posizione iniziale e la posizione finale
+            //interpolazione lineare tra la posizione iniziale e la posizione finale
             Vector3 newPosition = Vector3.Lerp(startPosition, targetPosition, t);
 
             transform.position = newPosition;
+            //float myX = Mathf.Lerp(startPosition.x, targetPosition.x, t);
+            //float myZ = Mathf.Lerp(startPosition.z, targetPosition.z, t);
+            //transform.position = new Vector3(myX, myY, t);
 
             elapsedTime += Time.deltaTime;
 
@@ -53,20 +64,31 @@ public class MovementComponent : MonoBehaviour
 
     void DirectionChanged(Vector3 direction)
     {
-        dir = direction;
+        dirToGo = direction;
+        StopAllCoroutines();
+        StartCoroutine(animationComponent.Squish());
+        StartCoroutine(animationComponent.Rotate(dirToGo));
+
+        //prevDir = dirToGo;
+
+
     }
 
     void DirectionConfirmed()
     {
-        if (dir != Vector3.zero)
+        if (dirToGo != Vector3.zero)
         {
-            dir.Normalize();
+            //dir.Normalize();
 
             // calcola la posizione di destinazione in base alla direzione e alla distanza
-            Vector3 targetPosition = transform.position + dir;
+            Vector3 targetPosition = transform.position + dirToGo;
 
+            StartCoroutine(animationComponent.Squash());
+            StartCoroutine(animationComponent.Jump());
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
+
+
         }
     }
 
