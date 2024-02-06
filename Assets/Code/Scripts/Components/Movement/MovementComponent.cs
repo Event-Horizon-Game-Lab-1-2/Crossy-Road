@@ -20,7 +20,7 @@ public class MovementComponent : MonoBehaviour
     public AnimationComponent animationComponent;
     private void Start()
     {
-       animationComponent = GetComponent<AnimationComponent>();
+       //animationComponent = GetComponent<AnimationComponent>();
     }
 
 
@@ -70,8 +70,6 @@ public class MovementComponent : MonoBehaviour
         StartCoroutine(animationComponent.Rotate(dirToGo));
 
         //prevDir = dirToGo;
-
-
     }
 
     void DirectionConfirmed()
@@ -81,9 +79,14 @@ public class MovementComponent : MonoBehaviour
             //dir.Normalize();
 
             // calcola la posizione di destinazione in base alla direzione e alla distanza
+
             Vector3 targetPosition = transform.position + dirToGo;
 
             StartCoroutine(animationComponent.Squash());
+
+            //if(!MovementRaycast())
+            //    return;
+
             StartCoroutine(animationComponent.Jump());
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
@@ -92,7 +95,7 @@ public class MovementComponent : MonoBehaviour
         }
     }
 
-    void MovementRaycast() //checka se ci sta il log del river con collider o river
+    bool MovementRaycast() //checka se ci sta il log del river con collider o river
     {
         //origine del raggio
         Vector3 raycastOrigin = transform.position;
@@ -106,14 +109,16 @@ public class MovementComponent : MonoBehaviour
         if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
         {
             // se il raggio colpisce qualcosa, fai qualcosa
-            Debug.DrawLine(raycastOrigin, hit.point, Color.red);
+            Debug.DrawLine(raycastOrigin, hit.point, Color.red, 5f);
             Debug.Log("Il raggio ha colpito " + hit.point);
+            return false;
         }
         else
         {
             Vector3 endPoint = raycastOrigin + raycastDirection * raycastDistance;
-            Debug.DrawLine(raycastOrigin, endPoint, Color.green);
+            Debug.DrawLine(raycastOrigin, endPoint, Color.green, 5f);
             Debug.Log("Il raggio non ha colpito nulla, raggiunge il punto " + endPoint);
+            return true;
         }
     }
 }
