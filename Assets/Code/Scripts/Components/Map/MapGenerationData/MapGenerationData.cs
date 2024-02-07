@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapGenerationData : MonoBehaviour
+[System.Serializable]
+public class MapGenerationData
 {
     [SerializeField] public Row RowPrefab;
     [SerializeField] public int MaxConsecutiveRows;

@@ -64,11 +64,11 @@ public class MapManager : MonoBehaviour
         return Data[CurrentRowIndex].RowContinuityProbability <= UnityEngine.Random.value;
     }
 
+    //Row type is chosen using a similar like Weighted Random Algorithm
     private int GetNewRowType()
     {
         int newRowIndex = 0;
 
-        //create probability array
         float[] probabilityArray = new float[Data.Length];
         probabilityArray[0] = Data[0].SpawnProbability;
         for (int i = 1; i < Data.Length; i++)
@@ -77,13 +77,14 @@ public class MapManager : MonoBehaviour
         }
         //Select a random Spawner
         float randomValue = UnityEngine.Random.value;
-        bool f = false;
-        for (int i = 0; i < probabilityArray.Length && !f; i++)
+
+        bool valueFound = false;
+        for (int i = 0; i < probabilityArray.Length && !valueFound; i++)
         {
             if (randomValue <= probabilityArray[i])
             {
                 newRowIndex = i;
-                f = true;
+                valueFound = true;
             }
         }
 
@@ -92,7 +93,7 @@ public class MapManager : MonoBehaviour
 
         return newRowIndex;
     }
-    
+
     private void SpawnRow()
     {
         //Instanciate new Row

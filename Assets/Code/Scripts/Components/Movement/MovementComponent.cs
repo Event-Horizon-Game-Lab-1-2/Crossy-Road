@@ -87,7 +87,7 @@ public class MovementComponent : MonoBehaviour
             //if(!MovementRaycast())
             //    return;
 
-            StartCoroutine(animationComponent.Jump());
+            //StartCoroutine(animationComponent.Jump());
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
 

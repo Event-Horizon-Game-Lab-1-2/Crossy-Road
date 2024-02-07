@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InputConponent : MonoBehaviour
 {
-    public MovementComponent movementComponent;
 
     //direction change
     public delegate void NewDirection(Vector3 direction);

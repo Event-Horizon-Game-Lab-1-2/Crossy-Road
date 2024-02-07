@@ -339,10 +339,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1262535310}
   - component: {fileID: 1262535311}
-  - component: {fileID: 1262535315}
-  - component: {fileID: 1262535313}
-  - component: {fileID: 1262535314}
-  - component: {fileID: 1262535312}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -378,78 +374,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-  - {fileID: 1262535315}
-  - {fileID: 1262535313}
-  - {fileID: 1262535314}
-  - {fileID: 1262535312}
+  - RowPrefab: {fileID: 5694767587418365779, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+    MaxConsecutiveRows: 3
+    SpawnProbability: 0.3
+    RowContinuityProbability: 0
+  - RowPrefab: {fileID: 8736438029512845058, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+    MaxConsecutiveRows: 15
+    SpawnProbability: 0.3
+    RowContinuityProbability: 0
+  - RowPrefab: {fileID: 2352075235733197628, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
+    MaxConsecutiveRows: 9
+    SpawnProbability: 0.15
+    RowContinuityProbability: 0
+  - RowPrefab: {fileID: 2684997084878829933, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    MaxConsecutiveRows: 3
+    SpawnProbability: 0.075
+    RowContinuityProbability: 0
   InitialSafeZone: 14
   MaxVisibleRows: 41
   SafeZoneColor: {r: 0, g: 0.15811014, b: 1, a: 1}
   MapZoneColor: {r: 0, g: 1, b: 0.076129675, a: 1}
---- !u!114 &1262535312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262535309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de764ff34e000c84597742ef0149b315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RowPrefab: {fileID: 2684997084878829933, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
-  MaxConsecutiveRows: 3
-  SpawnProbability: 0.075
-  RowContinuityProbability: 0
---- !u!114 &1262535313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262535309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de764ff34e000c84597742ef0149b315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RowPrefab: {fileID: 8736438029512845058, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
-  MaxConsecutiveRows: 15
-  SpawnProbability: 0.3
-  RowContinuityProbability: 0
---- !u!114 &1262535314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262535309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de764ff34e000c84597742ef0149b315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RowPrefab: {fileID: 2352075235733197628, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
-  MaxConsecutiveRows: 9
-  SpawnProbability: 0.15
-  RowContinuityProbability: 0
---- !u!114 &1262535315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262535309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de764ff34e000c84597742ef0149b315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RowPrefab: {fileID: 5694767587418365779, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
-  MaxConsecutiveRows: 3
-  SpawnProbability: 0.3
-  RowContinuityProbability: 0
 --- !u!1 &1323357355
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c7762c9bce5f4ab7b060decb9e3002d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.21
+      value: 1.151
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c7762c9bce5f4ab7b060decb9e3002d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -823,7 +767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa2953920c480346964e24d3e850522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementComponent: {fileID: 0}
   Up: 119
   Left: 97
   Down: 115

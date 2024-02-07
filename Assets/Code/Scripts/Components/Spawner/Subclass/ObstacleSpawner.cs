@@ -42,12 +42,18 @@ public class ObstacleSpawner : Spawner
 
         //Spawn on center spawn an obstacle at the row center
         if(SpawnOnCenter)
-            ObjectSpawned.Add(Instantiate(ObjectsToSpawn[0].ObjectTransform, transform.position + SpawnTilesOffset + (Vector3.right * (SpawnTilesAmount / 2) ), Quaternion.identity));
+        {
+            Transform instance = Instantiate(ObjectsToSpawn[0].ObjectTransform, transform);
+            instance.position = transform.position + SpawnTilesOffset + (Vector3.right * (SpawnTilesAmount / 2));
+            ObjectSpawned.Add(instance);
+        }
 
         for (int i = 0; i < numberOfSpaws; i++)
         {
             int newObjectIndex = GetObjectToSpawn(objectToSpawn);
-            ObjectSpawned.Add(Instantiate(ObjectsToSpawn[newObjectIndex].ObjectTransform, GetSpawnTile(), Quaternion.identity));
+            Transform instance = Instantiate(ObjectsToSpawn[newObjectIndex].ObjectTransform, transform);
+            instance.position = GetSpawnTile();
+            ObjectSpawned.Add(instance);
         }
     }
 
