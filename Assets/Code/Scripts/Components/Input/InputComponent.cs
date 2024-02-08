@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class InputConponent : MonoBehaviour
 {
-
     //direction change
     public delegate void NewDirection(Vector3 direction);
     public static event NewDirection OnDirectionChanged;
     //direction confirm
     public delegate void ConfirmDirection();
     public static event ConfirmDirection OnDirectionConfirmed;
+    //Pause game request
+    public delegate void PauseGame(bool pause);
+    public static event PauseGame OnPauseGame;
+
+    [Header("Option Keys")]
+    //Pause Button
+    [SerializeField] private KeyCode Pause = KeyCode.Escape;
 
     //inputs keys
     [Header("Movement Keys")]
@@ -24,9 +30,12 @@ public class InputConponent : MonoBehaviour
     [SerializeField] private float InputRecoveryTime = 0.1f;
 
     //direction of movement
-    public Vector3 Direction;
+    private Vector3 Direction;
     //Delay Timer
     private float CoolDownTimer = 0f;
+    
+    //Game Paused
+    private bool GamePause = false;
 
     void Update()
     {
@@ -41,8 +50,16 @@ public class InputConponent : MonoBehaviour
             OnDirectionConfirmed();
         }
 
+        //check if the pause button is pressed
+        if(Input.GetKeyDown(Pause))
+        {
+            GamePause = !GamePause;
+            //Call local game event
+            OnPauseGame(GamePause);
+        }
+
         //Decrease input timer
-        if(CoolDownTimer > 0)
+        if (CoolDownTimer > 0)
             CoolDownTimer -= Time.deltaTime;
     }
 
@@ -67,11 +84,7 @@ public class InputConponent : MonoBehaviour
         if(direction == Vector3.zero)
             return false;
         else
-        {
-            //Debug.Log("hi");
             return true;
-        }
-            
     }
 
     private bool IsDirectionConfirmed()

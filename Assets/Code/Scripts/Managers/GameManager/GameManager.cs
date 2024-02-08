@@ -1,40 +1,73 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     public delegate void NewRowAchieved();
     public static event NewRowAchieved OnNewRowAchieved;
 
-    [Header("Starting Options")]
-    //[SerializeField] private int StarRow = 5;
+    public delegate void ScoreChange(int score);
+    public static event ScoreChange OnScoreChange;
+
+    public delegate void GameStarted();
+    public static event GameStarted OnGameStarted;
+    
+    public enum GameState
+    {
+        Playing,
+        Paused,
+        Menu
+    }
 
     [Header("Gizsmos Options")]
     [SerializeField] Vector3 PlayerRowVisualizer = new Vector3(15f, 5f, 1f);
     [SerializeField] Vector3 PlayerRowRecordVisualizer = new Vector3(15f, 5f, 1f);
-    [SerializeField] Color PlayerRowVisualizerPlayColor = Color.blue;
     [SerializeField] Color PlayerRowVisualizerEditorColor = Color.magenta;
+    [SerializeField] Color PlayerRowVisualizerPlayColor = Color.blue;
     [SerializeField] Color PlayerRecordVisualizerEditorColor = Color.black;
 
-    //player Score
+    //Player Top Score
+    [HideInInspector] public static int PlayerTopScore = 0;
+    //Player Score for this run
     [HideInInspector] public static int Score = 0;
     //Player raw Rappresent the raw on wich the player is on
-    [HideInInspector] public int PlayerRow = 0;
+    [HideInInspector] private int PlayerRow = 0;
 
     Vector3 PlayerDirection;
+    //Current game state
+    GameState CurrentGameState = GameState.Menu;
+    //Game state used to resume the game after pause
+    GameState PreviousGameState = GameState.Menu;
+
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
+        else
+            Destroy(this.gameObject);
+
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        OnScoreChange(0);
     }
 
     private void DirectionChanged(Vector3 direction)
     {
         PlayerDirection = direction;
+        if(CurrentGameState != GameState.Playing)
+        {
+            CurrentGameState = GameState.Playing;
+            OnGameStarted();
+        }
     }
 
     private void DirectionConfirmed()
@@ -45,7 +78,42 @@ public class GameManager : MonoBehaviour
         if(PlayerRow > Score)
         {
             Score = PlayerRow;
+            //Call new row event
             OnNewRowAchieved();
+            //Call new score event
+            OnScoreChange(Score);
+
+            if(Score > PlayerTopScore)
+                PlayerTopScore = Score;
+        }
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if(!focus && CurrentGameState != GameState.Paused)
+        {
+            PreviousGameState = CurrentGameState;
+            CurrentGameState = GameState.Paused;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            CurrentGameState = PreviousGameState;
+        }
+    }
+
+    private void SetGamePause(bool pause)
+    {
+        if(pause)
+        {
+            CurrentGameState = GameState.Paused;
+            Time.timeScale = 0;
+        }
+        else
+        { 
+            CurrentGameState = GameState.Playing;
+            Time.timeScale = 1;
         }
     }
 
@@ -54,20 +122,30 @@ public class GameManager : MonoBehaviour
     {
         Score = 0;
         PlayerRow = 0;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void OnEnable()
     {
         //Connect all Events
+        //Input events
         InputConponent.OnDirectionChanged += DirectionChanged;
         InputConponent.OnDirectionConfirmed += DirectionConfirmed;
+        InputConponent.OnPauseGame += SetGamePause;
+        //UI events
+        UIManager.OnResetRequest += Reset;
     }
 
     private void OnDisable()
     {
         //Disconnect all Events
+        //Input events
         InputConponent.OnDirectionChanged -= DirectionChanged;
         InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
+        InputConponent.OnPauseGame -= SetGamePause;
+        //UI events
+        UIManager.OnResetRequest -= Reset;
     }
 
 #if UNITY_EDITOR

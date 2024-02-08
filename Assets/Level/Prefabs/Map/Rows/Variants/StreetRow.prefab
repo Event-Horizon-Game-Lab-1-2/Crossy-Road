@@ -1055,41 +1055,15 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  UseSpeedCurve: 1
-  SpeedCurveBound: 0.5
-  SpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5070801
-      inSlope: 0.0535366
-      outSlope: 0.0535366
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.6166667
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1.2007197
-      outSlope: 1.2007197
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.099355936
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   MaxSpeed: 0.5
   MinSpeed: 0.25
   MaxObject: 5
   MinObject: 1
-  MaxDistance: 2.5
-  MinDistance: 1.5
+  MaxDistance: 3.5
+  MinDistance: 2.5
   SpawnerPreviewColor_Start: {r: 0.15178537, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0.02967842, b: 0, a: 1}
-  SpeedEditBound_color: {r: 1, g: 0, b: 1, a: 1}
+  StartLeft: 0
 --- !u!1001 &5671116346645682967
 PrefabInstance:
   m_ObjectHideFlags: 0

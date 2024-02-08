@@ -146,8 +146,6 @@ public class DinamicSpawner : Spawner
                 progresses[i] += Time.deltaTime * Speed;
                 if (progresses[i] >= 1f)
                     progresses[i] = 0f;
-
-
             }
             //whait for one frame
             yield return null;
