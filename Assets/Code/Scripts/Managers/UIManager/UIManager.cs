@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
     {
         InputConponent.OnPauseGame -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
-        GameManager.OnGameStarted += () => ShowTitleScreen(false);
+        GameManager.OnGameStarted -= () => ShowTitleScreen(false);
     }
 
 }

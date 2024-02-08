@@ -948,12 +948,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa2953920c480346964e24d3e850522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pause: 27
   Up: 119
   Left: 97
   Down: 115
   Right: 100
   InputRecoveryTime: 0
-  Pause: 27
 --- !u!4 &2003376441
 Transform:
   m_ObjectHideFlags: 0
