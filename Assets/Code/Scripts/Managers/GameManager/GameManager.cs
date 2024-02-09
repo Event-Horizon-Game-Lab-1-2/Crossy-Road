@@ -130,9 +130,9 @@ public class GameManager : MonoBehaviour
     {
         //Connect all Events
         //Input events
-        InputConponent.OnDirectionChanged += DirectionChanged;
-        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
-        InputConponent.OnPauseGame += SetGamePause;
+        InputComponent.OnDirectionChanged += DirectionChanged;
+        MovementComponent.OnMove += DirectionConfirmed;
+        InputComponent.OnPauseGame += SetGamePause;
         //UI events
         UIManager.OnResetRequest += Reset;
     }
@@ -141,9 +141,9 @@ public class GameManager : MonoBehaviour
     {
         //Disconnect all Events
         //Input events
-        InputConponent.OnDirectionChanged -= DirectionChanged;
-        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
-        InputConponent.OnPauseGame -= SetGamePause;
+        InputComponent.OnDirectionChanged -= DirectionChanged;
+        MovementComponent.OnMove -= DirectionConfirmed;
+        InputComponent.OnPauseGame -= SetGamePause;
         //UI events
         UIManager.OnResetRequest -= Reset;
     }

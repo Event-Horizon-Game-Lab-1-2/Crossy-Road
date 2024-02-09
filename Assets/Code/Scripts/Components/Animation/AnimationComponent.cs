@@ -5,15 +5,23 @@ using UnityEngine;
 public class AnimationComponent : MonoBehaviour
 {
     
-    Vector3 startingRotation;
-    Vector3 rotationToDo;
+    Vector3 direction;
+
+    Transform TargetTransform;
 
     public float timeDurationSquishSquash = 0.2f;
     public float timeJump = 0.2f;
 
-    public GameObject jumpingSubject;
-
     public GameObject particles;
+
+    [SerializeField] float movementTime = 0.1f;
+    
+    [SerializeField] Transform meshTransform;
+
+    private void Awake()
+    {
+        TargetTransform = gameObject.transform;
+    }
     public IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
     {
     Vector3 lastScale = new Vector3(1, 0.5f, 1); 
@@ -56,7 +64,8 @@ public class AnimationComponent : MonoBehaviour
 
     public IEnumerator Rotate(Vector3 dirToGo) //quando cambia direzione ruota
     {
-
+        Vector3 rotationToDo = Vector3.zero;
+        direction = dirToGo;
 
         if   (dirToGo == new Vector3(1, 0, 0)) //davanti a destra
         {
@@ -75,19 +84,15 @@ public class AnimationComponent : MonoBehaviour
             rotationToDo = new Vector3(0, 180, 0); 
         }
 
-        //ho provato a fare lo switch ma fallendo perchè mi dava solo errori ;-;
-
-
-        transform.rotation = Quaternion.Euler(rotationToDo);
-
+        meshTransform.rotation = Quaternion.Euler(rotationToDo);
 
         yield return null;
     }
 
     public IEnumerator Jump() // Quando passa da una cella all'altra
     {
-        Vector3 initialPosition = transform.position;
-        Vector3 finalPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        Vector3 initialPosition = meshTransform.position;
+        Vector3 finalPosition = meshTransform.position + Vector3.up;
 
         float timePassed = 0f;
         while (timePassed < timeJump)
@@ -99,20 +104,19 @@ public class AnimationComponent : MonoBehaviour
             
             //Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
             float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            jumpingSubject.transform.position = new Vector3 (transform.position.x, myHeight,transform.position.z);
+            meshTransform.position = new Vector3 (meshTransform.position.x, myHeight,meshTransform.position.z);
 
-
-            StartCoroutine(JumpDown());
             yield return null;
         }
+        StartCoroutine(JumpDown());
     }
 
 
     public IEnumerator JumpDown()
     {
-        yield return new WaitForSeconds(timeJump);
-        Vector3 initialPosition = new Vector3(transform.position.x, transform.position.y +1, transform.position.z);
-        Vector3 finalPosition = new Vector3(transform.position.x, 0, transform.position.z);
+        
+        Vector3 initialPosition = new Vector3(meshTransform.position.x, transform.position.y +1, meshTransform.position.z);
+        Vector3 finalPosition = new Vector3(meshTransform.position.x, 0, meshTransform.position.z);
 
         float timePassed = 0f;
         while (timePassed < timeJump)
@@ -124,7 +128,7 @@ public class AnimationComponent : MonoBehaviour
      
             //Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
             float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            jumpingSubject.transform.position = new Vector3(transform.position.x, myHeight, transform.position.z);
+            meshTransform.position = new Vector3(meshTransform.position.x, myHeight, meshTransform.position.z);
 
 
             yield return null;
@@ -154,5 +158,59 @@ public class AnimationComponent : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public IEnumerator MoveCoroutine()
+    {
+        TargetTransform.position += direction;
+        meshTransform.position -= direction;
+        Vector3 velocityRef = Vector3.zero;
+         
+        while (Vector3.Distance(meshTransform.position, TargetTransform.position) > 0.1f)
+
+        {
+            //smooth damp -> interpolazione che dipende dal tempo che viene passata
+            meshTransform.position = Vector3.SmoothDamp(meshTransform.position, TargetTransform.position, ref velocityRef, movementTime);
+
+            yield return null;
+        }
+        meshTransform.position = TargetTransform.position;
+    }
+
+    private void OnEnable()
+    {
+        InputComponent.OnDirectionChanged += (Vector3 dir) =>
+        {
+            StartCoroutine(Rotate(dir));
+            StartCoroutine(Squish());
+
+        };
+
+        InputComponent.OnDirectionConfirmed += () => StartCoroutine(Squash());
+
+        MovementComponent.OnMove += () =>
+        {
+            StartCoroutine(Jump());
+            StartCoroutine(MoveCoroutine());
+        };
+    }
+
+    private void OnDisable()
+    {
+        InputComponent.OnDirectionChanged -= (Vector3 dir) =>
+        {
+            StartCoroutine(Rotate(dir));
+            StartCoroutine(Squish());
+
+        };
+
+        InputComponent.OnDirectionConfirmed -= () => StartCoroutine(Squash());
+
+        MovementComponent.OnMove -= () =>
+        {
+            StartCoroutine(Jump());
+            StartCoroutine(MoveCoroutine());
+
+        };
     }
 }

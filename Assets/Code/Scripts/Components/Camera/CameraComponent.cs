@@ -61,14 +61,14 @@ public class CameraConponent : MonoBehaviour
     private void OnEnable()
     {
         //Connect all Events
-        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
+        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
         GameManager.OnNewRowAchieved += IncreaseTargetDistance;
     }
 
     private void OnDisable()
     {
         //Disconnect all Events
-        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
+        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
         GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
     }
 }

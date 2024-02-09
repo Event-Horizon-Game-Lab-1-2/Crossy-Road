@@ -707,7 +707,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -985,8 +985,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDurationSquishSquash: 0.03
   timeJump: 0.03
-  jumpingSubject: {fileID: 1161061661}
   particles: {fileID: 7302953545865188249, guid: 7393d11acb5bd664db92a23481161127, type: 3}
+  movementTime: 0.1
+  meshTransform: {fileID: 1161061662}
 --- !u!114 &2003376443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,12 +1000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ff1e855231c5e44b86d890b8383df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.1
-  scaleSquish: {fileID: 0}
   raycastDistance: 1
   downwardOffset: -0.1
   buttonPressed: 0
-  animationComponent: {fileID: 2003376442}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
