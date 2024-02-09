@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+
 public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Settings")]
@@ -14,6 +14,12 @@ public class CameraComponent : MonoBehaviour
     [SerializeField] private float LinearAccelDistance = 1f;
     [Tooltip("Speed of the camera when is moving linearly")]
     [SerializeField] private float LinearAccelSpeed = 1f;
+    [Tooltip("Target on which the camera will zoom on")]
+    [SerializeField] private Transform ZoomTarget;
+    [Tooltip("Percentage of the distance covered when zooming in")]
+    [SerializeField][Range(0f, 1f)] private float ZoomPercentage;
+    [Tooltip("Speed of zoom in action")]
+    [SerializeField] private float ZoomInSpeed;
     
     private bool IsMoving;
     //local smooting time
@@ -36,6 +42,7 @@ public class CameraComponent : MonoBehaviour
     {
         while (IsMoving)
         {
+            StartCoroutine(ZoomIn());
             float DistanceToTarget = TargetPosition.z - transform.position.z;
 
             if (DistanceToTarget > LinearAccelDistance)
@@ -52,6 +59,16 @@ public class CameraComponent : MonoBehaviour
                 transform.position += Vector3.forward * Time.deltaTime * LinearAccelSpeed;
             }
 
+            yield return null;
+        }
+    }
+
+    IEnumerator ZoomIn()
+    {
+        Vector3 startPos = transform.position;
+        while(true)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, Vector3.Lerp(startPos, ZoomTarget.position, ZoomPercentage), ref VelocityV3, ZoomInSpeed);
             yield return null;
         }
     }
@@ -80,7 +97,7 @@ public class CameraComponent : MonoBehaviour
 
     private void StopCamera()
     {
-
+        IsMoving = false;
     }
 
     private void OnEnable()
@@ -102,10 +119,24 @@ public class CameraComponent : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
+        if (Application.isPlaying)
+            return;
+
+        //draw zoom target
+        if(ZoomTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(ZoomTarget.position, 0.2f);
+            //draw zoom distance
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(Vector3.Lerp(transform.position, ZoomTarget.position, ZoomPercentage), 0.2f);
+        }
+        
+        if (!IsMoving)
+            return;
         //draw target pos
         if (TargetPosition.z - transform.position.z < LinearAccelDistance)
             return;
-
         Gizmos.color = Color.magenta;
         Gizmos.DrawSphere(TargetPosition, 0.2f);
     }
