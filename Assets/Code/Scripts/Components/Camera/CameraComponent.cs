@@ -42,7 +42,6 @@ public class CameraComponent : MonoBehaviour
     {
         while (IsMoving)
         {
-            StartCoroutine(ZoomIn());
             float DistanceToTarget = TargetPosition.z - transform.position.z;
 
             if (DistanceToTarget > LinearAccelDistance)
