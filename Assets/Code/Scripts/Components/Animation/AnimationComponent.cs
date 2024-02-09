@@ -12,6 +12,8 @@ public class AnimationComponent : MonoBehaviour
     public float timeJump = 0.2f;
 
     public GameObject jumpingSubject;
+
+    public GameObject particles;
     public IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
     {
     Vector3 lastScale = new Vector3(1, 0.5f, 1); 
@@ -130,27 +132,10 @@ public class AnimationComponent : MonoBehaviour
     }
 
     public IEnumerator Drown() //quando affoga nell'acqua >:D
-{
-        Vector3 initialPosition = transform.position;
-        Vector3 finalPosition = new Vector3(transform.position.x, transform.position.y -1, transform.position.z);
-
-        float timePassed = 0f;
-        while (timePassed < timeJump)
-        {
-            timePassed += Time.deltaTime;
-
-            float percentageComplete = timePassed / timeJump;
-
-           
-            float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            transform.position = new Vector3(transform.position.x, myHeight, transform.position.z);
-
-
-            StartCoroutine(JumpDown());
-            yield return null;
-        }  //per la caduta nel river
+    {
+        Instantiate(particles);
         yield return null;
-}
+    }
 
     public IEnumerator SquishedByVehicle() //quando viene investito 
     {

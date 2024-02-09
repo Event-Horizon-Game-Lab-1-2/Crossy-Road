@@ -9,10 +9,13 @@ public class MovementComponent : MonoBehaviour
 
     //[SerializeField] public float speed = 5f;
     [SerializeField] public float time = 0.25f;
+    [SerializeField] Transform scaleSquish;
 
 
     public float raycastDistance = 5f; // Lunghezza del raggio
     public float downwardOffset = 0.5f; // Offset verso il basso
+
+    public bool buttonPressed;
 
     Vector3 dirToGo;
 
@@ -65,8 +68,14 @@ public class MovementComponent : MonoBehaviour
     void DirectionChanged(Vector3 direction)
     {
         dirToGo = direction;
-        StopAllCoroutines();
-        StartCoroutine(animationComponent.Squish());
+        //StopAllCoroutines();
+
+        if (buttonPressed == false)
+        {
+            StartCoroutine(animationComponent.Squish());
+            buttonPressed = true;
+        }
+        
         StartCoroutine(animationComponent.Rotate(dirToGo));
 
         //prevDir = dirToGo;
@@ -74,6 +83,7 @@ public class MovementComponent : MonoBehaviour
 
     void DirectionConfirmed()
     {
+        MovementRaycast();
         if (dirToGo != Vector3.zero)
         {
             //dir.Normalize();
@@ -83,6 +93,7 @@ public class MovementComponent : MonoBehaviour
             Vector3 targetPosition = transform.position + dirToGo;
 
             StartCoroutine(animationComponent.Squash());
+            StartCoroutine(animationComponent.Jump());
 
             //if(!MovementRaycast())
             //    return;
@@ -91,7 +102,8 @@ public class MovementComponent : MonoBehaviour
             // avvia la coroutine per spostarsi verso la posizione di destinazione
             StartCoroutine(MoveCoroutine(targetPosition, time));
 
-
+            buttonPressed = false;
+            
         }
     }
 
@@ -109,14 +121,29 @@ public class MovementComponent : MonoBehaviour
         if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
         {
             // se il raggio colpisce qualcosa, fai qualcosa
-            Debug.DrawLine(raycastOrigin, hit.point, Color.red, 5f);
+            Debug.DrawLine(raycastOrigin, hit.point, Color.red, 1f);
             Debug.Log("Il raggio ha colpito " + hit.point);
+
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Log"))
+            {
+                gameObject.transform.SetParent(hit.transform);
+
+                //poi dovrebbe tornare non figlio ma non so come, se invece vuoi che prenda la pos del tile, idk either lol
+            }
+
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+            {
+                StartCoroutine(animationComponent.Drown());
+                //Destroy(GameObject);
+            }
+
+
             return false;
         }
         else
         {
             Vector3 endPoint = raycastOrigin + raycastDirection * raycastDistance;
-            Debug.DrawLine(raycastOrigin, endPoint, Color.green, 5f);
+            Debug.DrawLine(raycastOrigin, endPoint, Color.green,1f);
             Debug.Log("Il raggio non ha colpito nulla, raggiunge il punto " + endPoint);
             return true;
         }
