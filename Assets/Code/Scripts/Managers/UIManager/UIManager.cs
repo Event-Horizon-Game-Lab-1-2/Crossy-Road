@@ -45,14 +45,14 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        InputConponent.OnPauseGame += ShowPauseMenu;
+        InputComponent.OnPauseGame += ShowPauseMenu;
         GameManager.OnScoreChange += UpdateScore;
         GameManager.OnGameStarted += () => ShowTitleScreen(false);
     }
 
     private void OnDisable()
     {
-        InputConponent.OnPauseGame -= ShowPauseMenu;
+        InputComponent.OnPauseGame -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
         GameManager.OnGameStarted -= () => ShowTitleScreen(false);
     }

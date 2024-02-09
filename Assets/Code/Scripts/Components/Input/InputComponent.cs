@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputConponent : MonoBehaviour
+public class InputComponent : MonoBehaviour
 {
     //direction change
     public delegate void NewDirection(Vector3 direction);

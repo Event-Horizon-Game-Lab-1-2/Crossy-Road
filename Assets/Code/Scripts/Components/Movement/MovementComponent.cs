@@ -1,125 +1,106 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-//using System.Numerics;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class MovementComponent : MonoBehaviour
 {
+    public delegate void Move();
+    public static event Move OnMove;
 
-    //[SerializeField] public float speed = 5f;
-    [SerializeField] public float time = 0.25f;
+    public float raycastDistance = 1.5f; // Lunghezza del raggio
+    public float RaycastFloorLenght = 2f;
 
-
-    public float raycastDistance = 5f; // Lunghezza del raggio
-    public float downwardOffset = 0.5f; // Offset verso il basso
+    public bool buttonPressed;
 
     Vector3 dirToGo;
 
+    private Transform TileTransform;
 
-    public AnimationComponent animationComponent;
-    private void Start()
+    IEnumerator StayOnTile ()
     {
-       //animationComponent = GetComponent<AnimationComponent>();
-    }
+        while (TileTransform != null) { 
 
+        transform.position = TileTransform.position + Vector3.up /2;
+            yield return null;
+        }
+    }
 
     private void OnEnable()
     {
-        InputConponent.OnDirectionChanged += DirectionChanged;
-        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
+        InputComponent.OnDirectionChanged += DirectionChanged;
+        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
+        
     }
 
     private void OnDisable()
     {
-        InputConponent.OnDirectionChanged -= DirectionChanged;
-        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
+        InputComponent.OnDirectionChanged -= DirectionChanged;
+        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
     }
 
-    IEnumerator MoveCoroutine(Vector3 targetPosition, float time)
-    {
-        Vector3 startPosition = transform.position;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < time)
-
-        {   //progressione dell'animazione in base al tempo
-            float t = elapsedTime / time;
-
-            //interpolazione lineare tra la posizione iniziale e la posizione finale
-            Vector3 newPosition = Vector3.Lerp(startPosition, targetPosition, t);
-
-            transform.position = newPosition;
-            //float myX = Mathf.Lerp(startPosition.x, targetPosition.x, t);
-            //float myZ = Mathf.Lerp(startPosition.z, targetPosition.z, t);
-            //transform.position = new Vector3(myX, myY, t);
-
-            elapsedTime += Time.deltaTime;
-
-            yield return null;
-        }
-
-        transform.position = targetPosition;
-    }
 
     void DirectionChanged(Vector3 direction)
     {
         dirToGo = direction;
-        StopAllCoroutines();
-        StartCoroutine(animationComponent.Squish());
-        StartCoroutine(animationComponent.Rotate(dirToGo));
-
-        //prevDir = dirToGo;
+        
     }
 
     void DirectionConfirmed()
     {
-        if (dirToGo != Vector3.zero)
+
+        //MovementRaycast();
+
+        if (CanMove() )
         {
-            //dir.Normalize();
-
             // calcola la posizione di destinazione in base alla direzione e alla distanza
+           transform.position += dirToGo;
+            StopAllCoroutines();
+           CheckTile();
+           OnMove();
 
-            Vector3 targetPosition = transform.position + dirToGo;
+        }
 
-            StartCoroutine(animationComponent.Squash());
-
-            //if(!MovementRaycast())
-            //    return;
-
-            //StartCoroutine(animationComponent.Jump());
-            // avvia la coroutine per spostarsi verso la posizione di destinazione
-            StartCoroutine(MoveCoroutine(targetPosition, time));
-
-
+        else
+        {
+            TileTransform = null;
         }
     }
 
-    bool MovementRaycast() //checka se ci sta il log del river con collider o river
+    
+    bool CheckTile() //checka se ci sta il log del river con collider o river
     {
-        //origine del raggio
-        Vector3 raycastOrigin = transform.position;
-        raycastOrigin.y -= downwardOffset; // sposta l'origine leggermente verso il basso
-
-        // calcola la direzione del raggio (verso il basso)
-        Vector3 raycastDirection = Vector3.down;
-
 
         RaycastHit hit;
-        if (Physics.Raycast(raycastOrigin, raycastDirection, out hit, raycastDistance))
+        if (Physics.Raycast(transform.position + Vector3.up / 2, Vector3.down, out hit, RaycastFloorLenght))
         {
             // se il raggio colpisce qualcosa, fai qualcosa
-            Debug.DrawLine(raycastOrigin, hit.point, Color.red, 5f);
+            Debug.DrawLine(transform.position, hit.point, Color.red, 1f);
             Debug.Log("Il raggio ha colpito " + hit.point);
+
+            TileTransform = hit.transform;
+            StartCoroutine(StayOnTile());
             return false;
         }
         else
         {
-            Vector3 endPoint = raycastOrigin + raycastDirection * raycastDistance;
-            Debug.DrawLine(raycastOrigin, endPoint, Color.green, 5f);
-            Debug.Log("Il raggio non ha colpito nulla, raggiunge il punto " + endPoint);
-            return true;
+            TileTransform = null;
         }
+
+        return false;
+    }
+
+    bool CanMove()
+    {
+
+        Debug.DrawRay(transform.position, dirToGo, Color.magenta, 10f);
+            return !Physics.Raycast(transform.position + Vector3.up /2, dirToGo, out RaycastHit hit, raycastDistance);
+    }
+
+    void SuspendMovement()
+    {
+        this.enabled = false;
     }
 }
 

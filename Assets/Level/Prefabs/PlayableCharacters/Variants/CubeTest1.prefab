@@ -50,10 +50,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4785977115234227433, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
       propertyPath: m_Name
-      value: PlayablePrefab
+      value: CubeTest1
       objectReference: {fileID: 0}
+    - target: {fileID: 7882637638038257803, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+      propertyPath: meshTransform
+      value: 
+      objectReference: {fileID: 799245727368643262}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+--- !u!4 &799245727368643262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1407574779804491166, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+  m_PrefabInstance: {fileID: 1774356735780527904}
+  m_PrefabAsset: {fileID: 0}
