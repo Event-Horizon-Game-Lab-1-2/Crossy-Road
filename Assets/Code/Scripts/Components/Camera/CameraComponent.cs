@@ -102,16 +102,16 @@ public class CameraComponent : MonoBehaviour
     private void OnEnable()
     {
         //Connect all Events
-        InputConponent.OnDirectionConfirmed += DirectionConfirmed;
-        InputConponent.OnDirectionChanged += ChangeCameraX;
+        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
+        InputComponent.OnDirectionChanged += ChangeCameraX;
         GameManager.OnNewRowAchieved += IncreaseTargetDistance;
     }
 
     private void OnDisable()
     {
         //Disconnect all Events
-        InputConponent.OnDirectionConfirmed -= DirectionConfirmed;
-        InputConponent.OnDirectionChanged -= ChangeCameraX;
+        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
+        InputComponent.OnDirectionChanged -= ChangeCameraX;
         GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
     }
 
