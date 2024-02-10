@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class CameraComponent : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class CameraComponent : MonoBehaviour
     private Vector3 VelocityV3 = Vector3.zero;
     //target position 
     private Vector3 TargetPosition = Vector3.zero;
+
+    private bool Disabled = false;
+    private bool UpdateX = false;
 
     private void Awake()
     {
@@ -81,12 +85,21 @@ public class CameraComponent : MonoBehaviour
         }
     }
 
+    private void ChangeCameraX()
+    {
+        UpdateX = true;
+    }
+
     private void ChangeCameraX(Vector3 newDir)
     {
-        //move only on x axis -> set to 0 z and y
-        newDir.z *= 0;
-        newDir.y *= 0;
-        TargetPosition += newDir;
+        if(UpdateX == true)
+        {
+            //move only on x axis -> set to 0 z and y
+            newDir.z *= 0;
+            newDir.y *= 0;
+            TargetPosition += newDir;
+            UpdateX = false;
+        }
     }
 
     private void IncreaseTargetDistance()
@@ -96,23 +109,31 @@ public class CameraComponent : MonoBehaviour
 
     private void StopCamera()
     {
-        IsMoving = false;
+        Disabled = true;
+        StopAllCoroutines();
+        StartCoroutine(ZoomIn());
+        DisableEvents();
     }
 
     private void OnEnable()
     {
         //Connect all Events
-        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
+        MovementComponent.OnMove += ChangeCameraX;
         InputComponent.OnDirectionChanged += ChangeCameraX;
-        GameManager.OnNewRowAchieved += IncreaseTargetDistance;
+        GameManager.OnNewRowAchieved += () => { IncreaseTargetDistance(); DirectionConfirmed(); };
     }
 
     private void OnDisable()
     {
+        DisableEvents();
+    }
+
+    private void DisableEvents()
+    {
         //Disconnect all Events
-        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
+        MovementComponent.OnMove -= ChangeCameraX;
         InputComponent.OnDirectionChanged -= ChangeCameraX;
-        GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
+        GameManager.OnNewRowAchieved -= () => { IncreaseTargetDistance(); DirectionConfirmed(); };
     }
 
 #if UNITY_EDITOR
