@@ -67,9 +67,8 @@ public class MovementComponent : MonoBehaviour
             TileTransform = null;
         }
     }
-
     
-    bool CheckTile() //checka se ci sta il log del river con collider o river
+    bool CheckTile()
     {
 
         RaycastHit hit;
@@ -77,7 +76,6 @@ public class MovementComponent : MonoBehaviour
         {
             // se il raggio colpisce qualcosa, fai qualcosa
             Debug.DrawLine(transform.position, hit.point, Color.red, 1f);
-            Debug.Log("Il raggio ha colpito " + hit.point);
 
             TileTransform = hit.transform;
             StartCoroutine(StayOnTile());

@@ -258,11 +258,11 @@ MonoBehaviour:
   ObjectsToSpawn:
   - ObjectTransform: {fileID: 8119450001163549934, guid: 6d11ba9abf925d349a177a81f2f8a473, type: 3}
     SpawnProbability: 1
-  SpawnStartPos: 30
-  SpawnEndPos: -30
+  SpawnStartPos: 60
+  SpawnEndPos: -60
   MaxObject: 1
   MinObject: 1
-  Speed: 1
+  Speed: 2
   MaxWaitTime: 9
   MinWaitTime: 4
   SpecialFeature: {fileID: 2020086540349030756}

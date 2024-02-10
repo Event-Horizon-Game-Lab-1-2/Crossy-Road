@@ -362,9 +362,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f435cd8fc5e6aa240ba4b6865ad42699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmootTime: 0.3
+  SmootTime: 0.25
   LinearAccelDistance: 0.25
   LinearAccelSpeed: 1
+  ZoomTarget: {fileID: 2003376441}
+  ZoomPercentage: 0.5
+  ZoomInSpeed: 0.5
 --- !u!1 &1072772997
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +838,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1867723067}
   - component: {fileID: 1867723066}
-  - component: {fileID: 1867723065}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -843,14 +845,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1867723065
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867723064}
-  m_Enabled: 1
 --- !u!20 &1867723066
 Camera:
   m_ObjectHideFlags: 0
@@ -929,6 +923,7 @@ GameObject:
   - component: {fileID: 2003376440}
   - component: {fileID: 2003376443}
   - component: {fileID: 2003376442}
+  - component: {fileID: 2003376444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -953,7 +948,7 @@ MonoBehaviour:
   Left: 97
   Down: 115
   Right: 100
-  InputRecoveryTime: 0
+  InputRecoveryTime: 0.1
 --- !u!4 &2003376441
 Transform:
   m_ObjectHideFlags: 0
@@ -1001,8 +996,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastDistance: 1
-  downwardOffset: -0.1
+  RaycastFloorLenght: 2
   buttonPressed: 0
+--- !u!81 &2003376444
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003376439}
+  m_Enabled: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
