@@ -31,13 +31,14 @@ public class MovementComponent : MonoBehaviour
     {
         InputComponent.OnDirectionChanged += DirectionChanged;
         InputComponent.OnDirectionConfirmed += DirectionConfirmed;
-        
+        GameManager.OnPlayerDeath += SuspendMovement;
     }
 
     private void OnDisable()
     {
         InputComponent.OnDirectionChanged -= DirectionChanged;
         InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
+        GameManager.OnPlayerDeath -= SuspendMovement;
     }
 
 

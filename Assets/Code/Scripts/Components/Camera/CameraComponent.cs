@@ -1,16 +1,15 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Settings")]
     [Tooltip("Time to reach target position")]
     [SerializeField] private float SmootTime = 0.25f;
+    [Tooltip("Time to reset the camera position during idling death")]
+    [SerializeField] private float ResumeSpeed = 0.5f;
     [Tooltip("Distance below wich the camera will keep moving linearly")]
     [SerializeField] private float LinearAccelDistance = 1f;
     [Tooltip("Speed of the camera when is moving linearly")]
@@ -18,9 +17,9 @@ public class CameraComponent : MonoBehaviour
     [Tooltip("Target on which the camera will zoom on")]
     [SerializeField] private Transform Target;
     [Tooltip("Percentage of the distance covered when zooming in")]
-    [SerializeField][Range(0f, 1f)] private float ZoomPercentage;
+    [SerializeField][Range(0f, 1f)] private float ZoomPercentage = 0.8f;
     [Tooltip("Speed of zoom in action")]
-    [SerializeField] private float ZoomInSpeed;
+    [SerializeField] private float ZoomInSpeed = 1.5f;
     
     private bool IsMoving;
     //local smooting time
@@ -31,11 +30,8 @@ public class CameraComponent : MonoBehaviour
     private Vector3 VelocityV3 = Vector3.zero;
     //target position 
     private Vector3 TargetPosition = Vector3.zero;
-
     //target offset
     private Vector3 TargetOffset = Vector3.zero;
-
-    private bool Disabled = false;
 
     private void Awake()
     {
@@ -72,10 +68,34 @@ public class CameraComponent : MonoBehaviour
 
     IEnumerator ZoomIn()
     {
-        Vector3 startPos = transform.position;
-        while(true)
+        //resume position
+        yield return StartCoroutine(ResumePosition());
+
+        /*
+        FIXXING IN PROGRESS
+        //zoom variables
+        Vector3 startPos = transform.position;    
+        Vector3 endPos = Vector3.Lerp(transform.position, Target.position, ZoomPercentage);
+        float progress = 0f;
+        //zoom in
+        while (progress < 1f)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, Vector3.Lerp(startPos, Target.position, ZoomPercentage), ref VelocityV3, ZoomInSpeed);
+            transform.position = Vector3.Lerp(startPos, endPos, progress);
+            progress += Time.deltaTime * ZoomInSpeed;
+            yield return null;
+        }
+        */
+    }
+
+    IEnumerator ResumePosition()
+    {
+        Vector3 startPos = TargetPosition;
+        float progress = 0f;
+        //resume position
+        while (progress < 1f)
+        {
+            transform.position = Vector3.Lerp(startPos, startPos - TargetOffset, progress);
+            progress += Time.deltaTime * ResumeSpeed;
             yield return null;
         }
     }
@@ -96,8 +116,7 @@ public class CameraComponent : MonoBehaviour
 
     private void StopCamera()
     {
-        Disabled = true;
-        StopAllCoroutines();
+        StopCoroutine(MoveCamera());
         StartCoroutine(ZoomIn());
         DisableEvents();
     }
@@ -105,7 +124,9 @@ public class CameraComponent : MonoBehaviour
     private void OnEnable()
     {
         //Connect all Events
-        GameManager.OnNewRowAchieved += () => { IncreaseTargetDistance(); DirectionConfirmed(); };
+        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
+        GameManager.OnNewRowAchieved += IncreaseTargetDistance;
+        GameManager.OnPlayerDeath += () => StopCamera();
     }
 
     private void OnDisable()
@@ -116,14 +137,16 @@ public class CameraComponent : MonoBehaviour
     private void DisableEvents()
     {
         //Disconnect all Events
-        GameManager.OnNewRowAchieved -= () => { IncreaseTargetDistance(); DirectionConfirmed(); };
+        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
+        GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
+        GameManager.OnPlayerDeath -= () => StopCamera();
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying)
-            return;
+        //if (Application.isPlaying)
+        //    return;
 
         //draw zoom target
         if(Target != null)

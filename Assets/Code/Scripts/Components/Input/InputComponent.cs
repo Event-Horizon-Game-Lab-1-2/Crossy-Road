@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DeathTrigger;
+using static DeathTypeClass;
 
 public class InputComponent : MonoBehaviour
 {
@@ -37,8 +39,22 @@ public class InputComponent : MonoBehaviour
     //Game Paused
     private bool GamePause = false;
 
+    //Disable movement
+    private bool CanGetInput = true;
+
     void Update()
     {
+        //check if the pause button is pressed
+        if(Input.GetKeyDown(Pause))
+        {
+            GamePause = !GamePause;
+            //Call local game event
+            OnPauseGame(GamePause);
+        }
+
+        if (!CanGetInput)
+            return;
+
         //check if a new direction is chosen
         if (GetInputDirection(out Direction))
             OnDirectionChanged(Direction);
@@ -50,13 +66,6 @@ public class InputComponent : MonoBehaviour
             OnDirectionConfirmed();
         }
 
-        //check if the pause button is pressed
-        if(Input.GetKeyDown(Pause))
-        {
-            GamePause = !GamePause;
-            //Call local game event
-            OnPauseGame(GamePause);
-        }
 
         //Decrease input timer
         if (CoolDownTimer > 0)
@@ -103,5 +112,20 @@ public class InputComponent : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    private void OnEnable()
+    {
+        PlayerManager.OnDeath += (DeathType t) => CanGetInput = false;
+    }
+
+    private void OnDisable()
+    {
+        PlayerManager.OnDeath -= (DeathType t) => CanGetInput = false;
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 }

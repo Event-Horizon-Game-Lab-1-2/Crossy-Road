@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static DeathTypeClass;
 
 public class AnimationComponent : MonoBehaviour
 {
-    
+
     Vector3 direction;
 
     Transform TargetTransform;
@@ -22,6 +22,7 @@ public class AnimationComponent : MonoBehaviour
     {
         TargetTransform = gameObject.transform;
     }
+
     public IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
     {
     Vector3 lastScale = new Vector3(1, 0.5f, 1); 
@@ -35,7 +36,7 @@ public class AnimationComponent : MonoBehaviour
         float percentualeCompletamento = timePassed / timeDurationSquishSquash;
 
         Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
-        transform.localScale = currentScale;
+        meshTransform.localScale = currentScale;
 
         yield return null; 
     }
@@ -55,7 +56,7 @@ public class AnimationComponent : MonoBehaviour
             float percentualeCompletamento = timePassed / timeDurationSquishSquash;
 
             Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
-            transform.localScale = currentScale;
+            meshTransform.localScale = currentScale;
 
             yield return null;
         }
@@ -154,7 +155,7 @@ public class AnimationComponent : MonoBehaviour
             float percentualeCompletamento = timePassed / 0.2f;
 
             Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
-            transform.localScale = currentScale;
+            meshTransform.localScale = currentScale;
 
             yield return null;
         }
@@ -193,6 +194,14 @@ public class AnimationComponent : MonoBehaviour
             StartCoroutine(Jump());
             StartCoroutine(MoveCoroutine());
         };
+
+        PlayerManager.OnDeath += (DeathType deathType) =>
+        {
+            if (deathType == DeathType.Squash)
+                StartCoroutine(SquishedByVehicle());
+            else if(deathType == DeathType.Drown)
+                StartCoroutine(Drown());
+        };
     }
 
     private void OnDisable()
@@ -201,7 +210,6 @@ public class AnimationComponent : MonoBehaviour
         {
             StartCoroutine(Rotate(dir));
             StartCoroutine(Squish());
-
         };
 
         InputComponent.OnDirectionConfirmed -= () => StartCoroutine(Squash());
@@ -210,7 +218,15 @@ public class AnimationComponent : MonoBehaviour
         {
             StartCoroutine(Jump());
             StartCoroutine(MoveCoroutine());
+        };
 
+        PlayerManager.OnDeath -= (DeathType deathType) =>
+        {
+            if (deathType == DeathType.Squash)
+                StartCoroutine(SquishedByVehicle());
+            else if (deathType == DeathType.Drown)
+                StartCoroutine(Drown());
+            StartCoroutine(MoveCoroutine());
         };
     }
 }

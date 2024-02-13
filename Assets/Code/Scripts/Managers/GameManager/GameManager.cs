@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static DeathTypeClass;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
 
     public delegate void GameStarted();
     public static event GameStarted OnGameStarted;
+    
+    public delegate void PlayerDeath();
+    public static event PlayerDeath OnPlayerDeath;
+    
     
     public enum GameState
     {
@@ -45,6 +50,8 @@ public class GameManager : MonoBehaviour
     //Game state used to resume the game after pause
     GameState PreviousGameState = GameState.Menu;
 
+    public static bool IsPlayerAlive = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -53,6 +60,7 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         DontDestroyOnLoad(gameObject);
+        IsPlayerAlive = true;
     }
 
     private void Start()
@@ -135,6 +143,12 @@ public class GameManager : MonoBehaviour
         InputComponent.OnPauseGame += SetGamePause;
         //UI events
         UIManager.OnResetRequest += Reset;
+        //gameplay events
+        PlayerManager.OnDeath += (DeathType deathType) =>
+        {
+            OnPlayerDeath();
+            IsPlayerAlive = false;
+        };
     }
 
     private void OnDisable()
@@ -146,6 +160,12 @@ public class GameManager : MonoBehaviour
         InputComponent.OnPauseGame -= SetGamePause;
         //UI events
         UIManager.OnResetRequest -= Reset;
+        //gameplay events
+        PlayerManager.OnDeath -= (DeathType deathType) =>
+        {
+            OnPlayerDeath();
+            IsPlayerAlive = false;
+        };
     }
 
 #if UNITY_EDITOR

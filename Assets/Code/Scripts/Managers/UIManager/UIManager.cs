@@ -12,14 +12,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] MenuComponent TitleScreenMenu;
     [SerializeField] MenuComponent PauseMenu;
     [SerializeField] MenuComponent PlayMenu;
+    [SerializeField] MenuComponent DeathScreen;
 
     [SerializeField] TMP_Text Score;
 
     private void Awake()
     {
-        PauseMenu.gameObject.SetActive(false);
-        PlayMenu.gameObject.SetActive(true);
         ShowTitleScreen(true);
+        PlayMenu.gameObject.SetActive(true);
+        PauseMenu.gameObject.SetActive(false);
+        DeathScreen.gameObject.SetActive(false);
     }
 
     private void ShowTitleScreen(bool show)
@@ -27,9 +29,14 @@ public class UIManager : MonoBehaviour
         TitleScreenMenu.gameObject.SetActive(show);
     }
 
-    private void ShowPauseMenu(bool pause)
+    private void ShowPauseMenu(bool show)
     {
-        PauseMenu.gameObject.SetActive(pause);
+        PauseMenu.gameObject.SetActive(show);
+    }
+
+    private void ShowDeathMenu(bool show)
+    {
+        DeathScreen.gameObject.SetActive(show);
     }
 
     private void UpdateScore(int score)
@@ -48,6 +55,7 @@ public class UIManager : MonoBehaviour
         InputComponent.OnPauseGame += ShowPauseMenu;
         GameManager.OnScoreChange += UpdateScore;
         GameManager.OnGameStarted += () => ShowTitleScreen(false);
+        GameManager.OnPlayerDeath += () => ShowDeathMenu(true);
     }
 
     private void OnDisable()
@@ -55,6 +63,7 @@ public class UIManager : MonoBehaviour
         InputComponent.OnPauseGame -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
         GameManager.OnGameStarted -= () => ShowTitleScreen(false);
+        GameManager.OnPlayerDeath += () => ShowDeathMenu(true);
     }
 
 }
