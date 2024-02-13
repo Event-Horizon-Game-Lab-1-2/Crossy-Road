@@ -16,7 +16,7 @@ public class CameraComponent : MonoBehaviour
     [Tooltip("Speed of the camera when is moving linearly")]
     [SerializeField] private float LinearAccelSpeed = 1f;
     [Tooltip("Target on which the camera will zoom on")]
-    [SerializeField] private Transform ZoomTarget;
+    [SerializeField] private Transform Target;
     [Tooltip("Percentage of the distance covered when zooming in")]
     [SerializeField][Range(0f, 1f)] private float ZoomPercentage;
     [Tooltip("Speed of zoom in action")]
@@ -32,14 +32,17 @@ public class CameraComponent : MonoBehaviour
     //target position 
     private Vector3 TargetPosition = Vector3.zero;
 
+    //target offset
+    private Vector3 TargetOffset = Vector3.zero;
+
     private bool Disabled = false;
-    private bool UpdateX = false;
 
     private void Awake()
     {
         IsMoving = false;
         TargetPosition = transform.position;
         SmootingTime = SmootTime;
+        TargetOffset = transform.position - Target.position;
     }
 
     IEnumerator MoveCamera()
@@ -55,12 +58,13 @@ public class CameraComponent : MonoBehaviour
             }
             else
             {
-                //change x value
-                float smoothX = Mathf.SmoothDamp(transform.position.x, TargetPosition.x, ref VelocityFloat, SmootingTime);
-                transform.position = new Vector3(smoothX, transform.position.y, transform.position.z);
                 //keep moving linearly
                 transform.position += Vector3.forward * Time.deltaTime * LinearAccelSpeed;
             }
+
+            //change x value
+            float smoothX = Mathf.SmoothDamp(transform.position.x, Target.position.x + TargetOffset.x, ref VelocityFloat, SmootingTime);
+            transform.position = new Vector3(smoothX, transform.position.y, transform.position.z);
 
             yield return null;
         }
@@ -71,7 +75,7 @@ public class CameraComponent : MonoBehaviour
         Vector3 startPos = transform.position;
         while(true)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, Vector3.Lerp(startPos, ZoomTarget.position, ZoomPercentage), ref VelocityV3, ZoomInSpeed);
+            transform.position = Vector3.SmoothDamp(transform.position, Vector3.Lerp(startPos, Target.position, ZoomPercentage), ref VelocityV3, ZoomInSpeed);
             yield return null;
         }
     }
@@ -82,23 +86,6 @@ public class CameraComponent : MonoBehaviour
         {
             IsMoving = true;
             StartCoroutine(MoveCamera());
-        }
-    }
-
-    private void ChangeCameraX()
-    {
-        UpdateX = true;
-    }
-
-    private void ChangeCameraX(Vector3 newDir)
-    {
-        if(UpdateX == true)
-        {
-            //move only on x axis -> set to 0 z and y
-            newDir.z *= 0;
-            newDir.y *= 0;
-            TargetPosition += newDir;
-            UpdateX = false;
         }
     }
 
@@ -118,8 +105,6 @@ public class CameraComponent : MonoBehaviour
     private void OnEnable()
     {
         //Connect all Events
-        MovementComponent.OnMove += ChangeCameraX;
-        InputComponent.OnDirectionChanged += ChangeCameraX;
         GameManager.OnNewRowAchieved += () => { IncreaseTargetDistance(); DirectionConfirmed(); };
     }
 
@@ -131,8 +116,6 @@ public class CameraComponent : MonoBehaviour
     private void DisableEvents()
     {
         //Disconnect all Events
-        MovementComponent.OnMove -= ChangeCameraX;
-        InputComponent.OnDirectionChanged -= ChangeCameraX;
         GameManager.OnNewRowAchieved -= () => { IncreaseTargetDistance(); DirectionConfirmed(); };
     }
 
@@ -143,13 +126,13 @@ public class CameraComponent : MonoBehaviour
             return;
 
         //draw zoom target
-        if(ZoomTarget != null)
+        if(Target != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(ZoomTarget.position, 0.2f);
+            Gizmos.DrawSphere(Target.position, 0.2f);
             //draw zoom distance
             Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(Vector3.Lerp(transform.position, ZoomTarget.position, ZoomPercentage), 0.2f);
+            Gizmos.DrawSphere(Vector3.Lerp(transform.position, Target.position, ZoomPercentage), 0.2f);
         }
         
         if (!IsMoving)
