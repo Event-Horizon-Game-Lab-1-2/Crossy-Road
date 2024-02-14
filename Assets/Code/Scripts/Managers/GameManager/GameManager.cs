@@ -87,9 +87,11 @@ public class GameManager : MonoBehaviour
         {
             Score = PlayerRow;
             //Call new row event
-            OnNewRowAchieved();
+            if(OnNewRowAchieved != null)
+                OnNewRowAchieved();
             //Call new score event
-            OnScoreChange(Score);
+            if(OnScoreChange != null)
+                OnScoreChange(Score);
 
             if(Score > PlayerTopScore)
                 PlayerTopScore = Score;

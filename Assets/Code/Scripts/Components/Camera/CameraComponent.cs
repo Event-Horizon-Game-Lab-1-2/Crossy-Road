@@ -69,9 +69,7 @@ public class CameraComponent : MonoBehaviour
     IEnumerator ZoomIn()
     {
         //resume position
-        //yield return StartCoroutine(ResumePosition());
-        yield return null;
-        /*
+        yield return StartCoroutine(ResumePosition());
         //zoom variables
         Vector3 startPos = transform.position;    
         Vector3 endPos = Vector3.Lerp(transform.position, Target.position, ZoomPercentage);
@@ -83,7 +81,6 @@ public class CameraComponent : MonoBehaviour
             progress += Time.deltaTime * ZoomInSpeed;
             yield return null;
         }
-        */
     }
 
     IEnumerator ResumePosition()

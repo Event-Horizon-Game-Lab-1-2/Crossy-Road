@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
@@ -8,13 +9,13 @@ public class FlyingDeath : MonoBehaviour
     [Header("Death Path")]
     [SerializeField] Vector3 StartingPos = Vector3.forward;
     [SerializeField] Vector3 TargetToPickUpOffset = Vector3.zero;
+    [Tooltip("Is the object picked up by toothless")]
     [SerializeField] Transform TargetToPickUp;
     [SerializeField] Vector3 EndingPos = Vector3.back;
-    
-    [Header("Death Time")]
-
+    [SerializeField] float DeathSpeed = 1.5f;
     [Space]
     [Header("Death Object")]
+    [Tooltip("Toothless >:)")]
     [SerializeField] Transform DeathObject;
     [Space]
     [Header("Sound")]
@@ -26,22 +27,48 @@ public class FlyingDeath : MonoBehaviour
     [SerializeField] bool ShowGismos = true;
     [SerializeField] Color GizmosColor = Color.magenta;
 
-    private void Start()
+    private void Awake()
     {
-        AudioSource.Play();
+        DeathObject.gameObject.SetActive(false);
     }
 
     private IEnumerator PickupPlayer()
     {
-        float time = 0f;
+        DeathObject.gameObject.SetActive(true);
         AudioSource.Play();
-        while (time < 1f)
+        float progress = 0f;
+        float audioProgress = 0f;
+        //move
+        while (progress <= 1f)
         {
-            //DeathObject.position = Vector3.Lerp(StartingPos, TargetToPickUp.position + TargetToPickUpOffset, )
-            AudioSource.volume = SoundCurve.Evaluate(time);
-            time += Time.deltaTime * SoundCurveSpeed;
+            //position
+            DeathObject.position = Vector3.Lerp(TargetToPickUp.position + StartingPos, TargetToPickUp.position + TargetToPickUpOffset, progress);
+            //audio
+            audioProgress = Mathf.Lerp(0, 0.5f, progress);
+            AudioSource.volume = SoundCurve.Evaluate(audioProgress);
+            //update progress
+            progress += Time.deltaTime * DeathSpeed;
             yield return null;
         }
+        //pick up player
+        progress = 0f;
+        Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
+        while (progress <= 1f)
+        {
+            //position
+            DeathObject.position = Vector3.Lerp(objectToPickUpStartpos, EndingPos, progress);
+            TargetToPickUp.position = DeathObject.position - TargetToPickUpOffset;
+            //audio
+            audioProgress = Mathf.Lerp(0.5f, 1f, progress);
+            AudioSource.volume = SoundCurve.Evaluate(audioProgress);
+            //update progress
+            progress += Time.deltaTime * DeathSpeed;
+            yield return null;
+        }
+
+        DeathObject.gameObject.SetActive(false);
+        TargetToPickUp.gameObject.SetActive(false);
+
     }
 
     private void OnEnable()
