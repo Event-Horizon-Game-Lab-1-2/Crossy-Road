@@ -140,6 +140,7 @@ public class AnimationComponent : MonoBehaviour
 
     public IEnumerator Drown() //quando affoga nell'acqua >:D
     {
+        StartCoroutine(Jump());
         yield return StartCoroutine(MoveCoroutine());
 
         Vector3 initialPosition = meshTransform.position;
