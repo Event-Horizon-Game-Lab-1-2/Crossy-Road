@@ -18,6 +18,8 @@ public class AnimationComponent : MonoBehaviour
     
     [SerializeField] Transform meshTransform;
 
+    private bool IsDead = false;
+
     private void Awake()
     {
         TargetTransform = gameObject.transform;
@@ -138,24 +140,24 @@ public class AnimationComponent : MonoBehaviour
 
     public IEnumerator Drown() //quando affoga nell'acqua >:D
     {
-        Vector3 initialPosition = new Vector3(meshTransform.position.x, meshTransform.position.y + 1, meshTransform.position.z);
-        Vector3 finalPosition = new Vector3(meshTransform.position.x, 0, meshTransform.position.z);
+        yield return StartCoroutine(MoveCoroutine());
+
+        Vector3 initialPosition = meshTransform.position;
+        Vector3 finalPosition = new Vector3(meshTransform.position.x, -3f, meshTransform.position.z);
 
         float timePassed = 0f;
-        
-        Instantiate(particles);
+
+        Instantiate(particles, transform.position + (Vector3.up / 2), Quaternion.identity);
+
         while (timePassed < timeJump)
         {
-            timePassed += Time.deltaTime;
-
             float percentageComplete = timePassed / timeJump;
+            Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
+            //float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
+            meshTransform.position = newPosition;
 
 
-            //Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
-            float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            meshTransform.position = new Vector3(meshTransform.position.x, myHeight, meshTransform.position.z);
-
-
+            timePassed += Time.deltaTime;
             yield return null;
         }
         
@@ -183,7 +185,8 @@ public class AnimationComponent : MonoBehaviour
 
     public IEnumerator MoveCoroutine()
     {
-        TargetTransform.position += direction;
+        if(!IsDead)
+            TargetTransform.position += direction;
         
         Vector3 velocityRef = Vector3.zero;
          
@@ -217,10 +220,17 @@ public class AnimationComponent : MonoBehaviour
 
         PlayerManager.OnDeath += (DeathType deathType) =>
         {
+            IsDead = true;
             if (deathType == DeathType.Squash)
+            {
+                StopAllCoroutines();
                 StartCoroutine(SquishedByVehicle());
+            }
             else if(deathType == DeathType.Drown)
+            {
+                StopAllCoroutines();
                 StartCoroutine(Drown());
+            }
         };
     }
 

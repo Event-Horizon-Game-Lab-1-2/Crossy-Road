@@ -24,7 +24,7 @@ public class MovementComponent : MonoBehaviour
     {
         while (TileTransform != null) { 
 
-        transform.position = TileTransform.position + Vector3.up /2;
+            transform.position = TileTransform.position + Vector3.up /2;
             yield return null;
         }
     }
@@ -72,9 +72,8 @@ public class MovementComponent : MonoBehaviour
         }
     }
     
-    bool CheckTile()
+    void CheckTile()
     {
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position + Vector3.up / 2, Vector3.down, out hit, RaycastFloorLenght))
         {
@@ -82,26 +81,24 @@ public class MovementComponent : MonoBehaviour
             Debug.DrawLine(transform.position, hit.point, Color.red, 1f);
 
             TileTransform = hit.transform;
+
             StartCoroutine(StayOnTile());
-            return false;
         }
         else
         {
             TileTransform = null;
         }
-
-        return false;
     }
 
     bool CanMove()
     {
-
         Debug.DrawRay(transform.position, dirToGo, Color.magenta, 10f);
-            return !Physics.Raycast(transform.position + Vector3.up /2, dirToGo, out RaycastHit hit, raycastDistance);
+            return !Physics.Raycast(transform.position + Vector3.up /2, dirToGo, out RaycastHit hit, raycastDistance, 1 << 3);
     }
 
     void SuspendMovement()
     {
+        TileTransform = null;
         this.enabled = false;
     }
 }

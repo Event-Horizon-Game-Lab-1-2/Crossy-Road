@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
       value: RiverTile (2)
@@ -350,41 +358,6 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  UseSpeedCurve: 1
-  SpeedCurveBound: 1
-  SpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.56189233
-      inSlope: -1.170821
-      outSlope: -1.170821
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.2491049
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1.0309972
-      outSlope: 1.0309972
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.116666675
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   MaxSpeed: 0.5
   MinSpeed: 0.2
   MaxObject: 3
@@ -393,7 +366,6 @@ MonoBehaviour:
   MinDistance: 1
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
-  SpeedEditBound_color: {r: 1, g: 0, b: 1, a: 1}
   StartLeft: 0
 --- !u!4 &7072261193758147579 stripped
 Transform:
@@ -452,6 +424,14 @@ PrefabInstance:
     - target: {fileID: 2573304941938995324, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
@@ -525,6 +505,14 @@ PrefabInstance:
     - target: {fileID: 2573304941938995324, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
@@ -661,6 +649,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
       value: RiverTile (3)
@@ -733,6 +729,14 @@ PrefabInstance:
     - target: {fileID: 2573304941938995324, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
@@ -807,6 +811,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
       value: RiverTile (7)
@@ -879,6 +891,14 @@ PrefabInstance:
     - target: {fileID: 2573304941938995324, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
@@ -953,6 +973,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name
       value: RiverTile (1)
@@ -1025,6 +1053,14 @@ PrefabInstance:
     - target: {fileID: 2573304941938995324, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286381868962080244, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6305652088322674477, guid: 4f58dede2f618e3449e2e15f2d82a5c7, type: 3}
       propertyPath: m_Name

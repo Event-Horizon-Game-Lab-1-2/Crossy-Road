@@ -69,16 +69,15 @@ public class CameraComponent : MonoBehaviour
     IEnumerator ZoomIn()
     {
         //resume position
-        yield return StartCoroutine(ResumePosition());
-
+        //yield return StartCoroutine(ResumePosition());
+        yield return null;
         /*
-        FIXXING IN PROGRESS
         //zoom variables
         Vector3 startPos = transform.position;    
         Vector3 endPos = Vector3.Lerp(transform.position, Target.position, ZoomPercentage);
         float progress = 0f;
         //zoom in
-        while (progress < 1f)
+        while (progress <= 1f)
         {
             transform.position = Vector3.Lerp(startPos, endPos, progress);
             progress += Time.deltaTime * ZoomInSpeed;
@@ -89,12 +88,14 @@ public class CameraComponent : MonoBehaviour
 
     IEnumerator ResumePosition()
     {
-        Vector3 startPos = TargetPosition;
+        StopCoroutine(MoveCamera());
+        IsMoving = false;
+        Vector3 startPos = transform.position;
         float progress = 0f;
         //resume position
-        while (progress < 1f)
+        while (progress <= 1f)
         {
-            transform.position = Vector3.Lerp(startPos, startPos - TargetOffset, progress);
+            transform.position = Vector3.Lerp(transform.position, startPos + Vector3.back * 5f, progress);
             progress += Time.deltaTime * ResumeSpeed;
             yield return null;
         }
@@ -116,7 +117,6 @@ public class CameraComponent : MonoBehaviour
 
     private void StopCamera()
     {
-        StopCoroutine(MoveCamera());
         StartCoroutine(ZoomIn());
         DisableEvents();
     }
