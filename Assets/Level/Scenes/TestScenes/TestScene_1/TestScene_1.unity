@@ -1001,8 +1001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastDistance: 1
-  downwardOffset: -0.1
-  buttonPressed: 0
+  RaycastFloorLenght: 2
+  MeshHolder: {fileID: 1161061662}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
