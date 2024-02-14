@@ -183,10 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ff1e855231c5e44b86d890b8383df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.25
   raycastDistance: 5
-  downwardOffset: 0.5
-  animationComponent: {fileID: 7882637638038257803}
+  RaycastFloorLenght: 2
+  MeshHolder: {fileID: 1407574779804491166}
 --- !u!114 &7882637638038257803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,4 +200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDurationSquishSquash: 0.2
   timeJump: 0.2
-  jumpingSubject: {fileID: 0}
+  particles: {fileID: 0}
+  movementTime: 0.1
+  meshTransform: {fileID: 1407574779804491166}

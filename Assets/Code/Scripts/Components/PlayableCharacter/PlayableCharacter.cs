@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayableCharacter
 {
-    [SerializeField] string SkinName;
-    [SerializeField] Transform SkinPrefabTransform;
-    [SerializeField] int LevelIndex;
+    [SerializeField] public string SkinName;
+    [SerializeField] public Transform SkinPrefabTransform;
+    [SerializeField] public int LevelIndex;
 }

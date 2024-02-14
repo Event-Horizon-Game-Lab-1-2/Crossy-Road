@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Level/Scenes/TestScenes/TestScene_1/SkinSelectorTest1.unity
+    guid: bd64e130384946848ad6ea78f49d8896
+  - enabled: 1
     path: Assets/Level/Scenes/TestScenes/TestScene_1/TestScene_1.unity
     guid: 23f774b4ef7494249b06e91ac4126561
   m_configObjects: {}
