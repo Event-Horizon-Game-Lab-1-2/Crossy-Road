@@ -147,7 +147,7 @@ public class AnimationComponent : MonoBehaviour
 
         float timePassed = 0f;
 
-        Instantiate(particles, transform.position + (Vector3.up / 2), Quaternion.identity);
+        Instantiate(particles, transform.position + (Vector3.up*0.25f), Quaternion.Euler(Vector3.left*90));
 
         while (timePassed < timeJump)
         {
