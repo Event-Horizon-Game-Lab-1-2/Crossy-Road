@@ -12,11 +12,13 @@ public class MovementComponent : MonoBehaviour
     public float raycastDistance = 1.5f; // Lunghezza del raggio
     public float RaycastFloorLenght = 2f;
 
-    public bool buttonPressed;
+
 
     Vector3 dirToGo;
 
     private Transform TileTransform;
+
+    [SerializeField] Transform MeshHolder;
 
     IEnumerator StayOnTile ()
     {
@@ -57,7 +59,8 @@ public class MovementComponent : MonoBehaviour
         {
             // calcola la posizione di destinazione in base alla direzione e alla distanza
            transform.position += dirToGo;
-            StopAllCoroutines();
+           MeshHolder.position -= dirToGo; 
+           StopAllCoroutines();
            CheckTile();
            OnMove();
 
