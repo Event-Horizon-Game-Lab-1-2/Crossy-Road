@@ -119,8 +119,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = pause? 0 : 1;
 
         OnPauseRequest(pause);
-
-        Debug.Log(CurrentGameState);
     }
 
     #region Utility

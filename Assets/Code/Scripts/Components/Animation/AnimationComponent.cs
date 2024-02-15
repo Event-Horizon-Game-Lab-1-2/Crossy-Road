@@ -218,7 +218,7 @@ public class AnimationComponent : MonoBehaviour
             StartCoroutine(SquishedByVehicle());
         else if (deathType == DeathType.Drown)
             StartCoroutine(Drown());
-        StartCoroutine(MoveCoroutine());
+        //StartCoroutine(MoveCoroutine());
     }
 
 

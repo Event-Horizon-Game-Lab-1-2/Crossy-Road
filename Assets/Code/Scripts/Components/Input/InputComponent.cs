@@ -49,8 +49,7 @@ public class InputComponent : MonoBehaviour
         {
             GamePause = !GamePause;
             //Call local game event
-            if (OnPauseGame != null)
-                OnPauseGame(GamePause);
+            OnPauseGame(GamePause);
         }
 
         if (!CanGetInput)

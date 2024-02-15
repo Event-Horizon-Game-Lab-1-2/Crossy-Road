@@ -458,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 991038996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.14, y: 9.32, z: -6.03}
+  m_LocalPosition: {x: 6.14, y: 9.32, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -477,9 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f435cd8fc5e6aa240ba4b6865ad42699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SmootTime: 0.25
+  SmootTime: 0.5
   ResumeSpeed: 0.1
-  LinearAccelDistance: 0.25
+  LinearAccelDistance: 1
   LinearAccelSpeed: 1
   Target: {fileID: 1875968923}
   ZoomPercentage: 0.5
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - RowPrefab: {fileID: 5694767587418365779, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
-    MaxConsecutiveRows: 3
+    MaxConsecutiveRows: 99999
     SpawnProbability: 0.3
     RowContinuityProbability: 0
   - RowPrefab: {fileID: 8736438029512845058, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
