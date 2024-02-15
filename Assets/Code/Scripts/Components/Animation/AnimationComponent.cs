@@ -25,30 +25,10 @@ public class AnimationComponent : MonoBehaviour
         TargetTransform = gameObject.transform;
     }
 
-    public IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
+    private IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
     {
-    Vector3 lastScale = new Vector3(1, 0.5f, 1); 
-    Vector3 firstScale = new Vector3(1, 1, 1);    
-
-    float timePassed = 0f;
-    while (timePassed < timeDurationSquishSquash)
-    {
-        timePassed += Time.deltaTime;
-
-        float percentualeCompletamento = timePassed / timeDurationSquishSquash;
-
-        Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
-        meshTransform.localScale = currentScale;
-
-        yield return null; 
-    }
-}
-
-
-    public IEnumerator Squash() //movimento di quando torna allo stato normale 
-    {
-        Vector3 lastScale = new Vector3(1,1, 1);
-        Vector3 firstScale = new Vector3(1, 0.5f, 1);
+        Vector3 lastScale = new Vector3(1, 0.5f, 1); 
+        Vector3 firstScale = new Vector3(1, 1, 1);    
 
         float timePassed = 0f;
         while (timePassed < timeDurationSquishSquash)
@@ -60,12 +40,35 @@ public class AnimationComponent : MonoBehaviour
             Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
             meshTransform.localScale = currentScale;
 
-            yield return null;
+            yield return null; 
         }
-
     }
 
-    public IEnumerator Rotate(Vector3 dirToGo) //quando cambia direzione ruota
+    private void SquashFunc()
+    {
+        StartCoroutine(Squash());
+    }
+
+    private IEnumerator Squash() //movimento di quando torna allo stato normale 
+    {
+        Vector3 lastScale = new Vector3(1,1, 1);
+        Vector3 firstScale = new Vector3(1, 0.5f, 1);
+
+        float timePassed = 0f;
+        while (timePassed < timeDurationSquishSquash)
+        {
+
+            float percentualeCompletamento = timePassed / timeDurationSquishSquash;
+
+            Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
+            meshTransform.localScale = currentScale;
+
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+    }
+    
+    private IEnumerator Rotate(Vector3 dirToGo) //quando cambia direzione ruota
     {
         Vector3 rotationToDo = Vector3.zero;
         direction = dirToGo;
@@ -92,7 +95,14 @@ public class AnimationComponent : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator Jump() // Quando passa da una cella all'altra
+
+    private void Move()
+    {
+        StartCoroutine(Jump());
+        StartCoroutine(MoveCoroutine());
+    }
+    
+    private IEnumerator Jump() // Quando passa da una cella all'altra
     {
         Vector3 initialPosition = meshTransform.position;
         Vector3 finalPosition = meshTransform.position + Vector3.up;
@@ -115,7 +125,7 @@ public class AnimationComponent : MonoBehaviour
     }
 
 
-    public IEnumerator JumpDown()
+    private IEnumerator JumpDown()
     {
         
         Vector3 initialPosition = new Vector3(meshTransform.position.x, meshTransform.position.y +1, meshTransform.position.z);
@@ -138,7 +148,7 @@ public class AnimationComponent : MonoBehaviour
         }
     }
 
-    public IEnumerator Drown() //quando affoga nell'acqua >:D
+    private IEnumerator Drown() //quando affoga nell'acqua >:D
     {
         StartCoroutine(Jump());
         yield return StartCoroutine(MoveCoroutine());
@@ -165,7 +175,7 @@ public class AnimationComponent : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator SquishedByVehicle() //quando viene investito 
+    private IEnumerator SquishedByVehicle() //quando viene investito 
     {
         Vector3 lastScale = new Vector3(1.5f, 0.1f, 1);
         Vector3 firstScale = new Vector3(1, 1, 1);
@@ -184,7 +194,7 @@ public class AnimationComponent : MonoBehaviour
         }
     }
 
-    public IEnumerator MoveCoroutine()
+    private IEnumerator MoveCoroutine()
     {
         if(!IsDead)
             TargetTransform.position += direction;
@@ -202,40 +212,44 @@ public class AnimationComponent : MonoBehaviour
         meshTransform.position = TargetTransform.position;
     }
 
+    private void Die(DeathType deathType)
+    {
+        if (deathType == DeathType.Squash)
+            StartCoroutine(SquishedByVehicle());
+        else if (deathType == DeathType.Drown)
+            StartCoroutine(Drown());
+        StartCoroutine(MoveCoroutine());
+    }
+
+
     private void OnEnable()
     {
+        StopAllCoroutines();
+
         InputComponent.OnDirectionChanged += (Vector3 dir) =>
         {
             StartCoroutine(Rotate(dir));
             StartCoroutine(Squish());
-
         };
 
-        InputComponent.OnDirectionConfirmed += () => StartCoroutine(Squash());
+        InputComponent.OnDirectionConfirmed += SquashFunc;
 
-        MovementComponent.OnMove += () =>
-        {
-            StartCoroutine(Jump());
-            StartCoroutine(MoveCoroutine());
-        };
+        MovementComponent.OnMove += Move;
 
-        PlayerManager.OnDeath += (DeathType deathType) =>
-        {
-            IsDead = true;
-            if (deathType == DeathType.Squash)
-            {
-                StopAllCoroutines();
-                StartCoroutine(SquishedByVehicle());
-            }
-            else if(deathType == DeathType.Drown)
-            {
-                StopAllCoroutines();
-                StartCoroutine(Drown());
-            }
-        };
+        PlayerManager.OnDeath += Die;
     }
 
     private void OnDisable()
+    {
+        DisconnectAllEvents();
+    }
+
+    private void OnDestroy()
+    {
+        DisconnectAllEvents();
+    }
+
+    private void DisconnectAllEvents()
     {
         InputComponent.OnDirectionChanged -= (Vector3 dir) =>
         {
@@ -243,21 +257,12 @@ public class AnimationComponent : MonoBehaviour
             StartCoroutine(Squish());
         };
 
-        InputComponent.OnDirectionConfirmed -= () => StartCoroutine(Squash());
+        InputComponent.OnDirectionConfirmed -= SquashFunc;
 
-        MovementComponent.OnMove -= () =>
-        {
-            StartCoroutine(Jump());
-            StartCoroutine(MoveCoroutine());
-        };
+        MovementComponent.OnMove -= Move;
 
-        PlayerManager.OnDeath -= (DeathType deathType) =>
-        {
-            if (deathType == DeathType.Squash)
-                StartCoroutine(SquishedByVehicle());
-            else if (deathType == DeathType.Drown)
-                StartCoroutine(Drown());
-            StartCoroutine(MoveCoroutine());
-        };
+        PlayerManager.OnDeath -= Die;
+
+        StopAllCoroutines();
     }
 }

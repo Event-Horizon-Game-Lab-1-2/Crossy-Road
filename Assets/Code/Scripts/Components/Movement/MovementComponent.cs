@@ -7,7 +7,7 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     public delegate void Move();
-    public static event Move OnMove;
+    public static event Move OnMove = new Move(() => { });
 
     public float raycastDistance = 1.5f; // Lunghezza del raggio
     public float RaycastFloorLenght = 2f;
@@ -47,7 +47,6 @@ public class MovementComponent : MonoBehaviour
     void DirectionChanged(Vector3 direction)
     {
         dirToGo = direction;
-        
     }
 
     void DirectionConfirmed()
@@ -102,11 +101,3 @@ public class MovementComponent : MonoBehaviour
         this.enabled = false;
     }
 }
-
-
-//if (direction != Vector3.zero)
-//    direction.Normalize();
-
-
-//Vector3 movement = direction * speed * Time.deltaTime;
-//transform.Translate(movement);

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public delegate void ResetRequest();
-    public static ResetRequest OnResetRequest;
+    public static ResetRequest OnResetRequest = new ResetRequest( () => {} );
 
     [SerializeField] MenuComponent TitleScreenMenu;
     [SerializeField] MenuComponent PauseMenu;
@@ -19,9 +19,9 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         ShowTitleScreen(true);
-        PlayMenu.gameObject.SetActive(true);
-        PauseMenu.gameObject.SetActive(false);
-        DeathScreen.gameObject.SetActive(false);
+        ShowPlayMenu(true);
+        ShowPauseMenu(false);
+        ShowDeathMenu(false);
     }
 
     private void ShowTitleScreen(bool show)
@@ -39,6 +39,11 @@ public class UIManager : MonoBehaviour
         DeathScreen.gameObject.SetActive(show);
     }
 
+    private void ShowPlayMenu(bool show)
+    {
+        PlayMenu.gameObject.SetActive(show);
+    }
+
     private void UpdateScore(int score)
     {
         Score.text = score.ToString();
@@ -53,6 +58,7 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         InputComponent.OnPauseGame += ShowPauseMenu;
+        GameManager.OnPauseRequest += ShowPauseMenu;
         GameManager.OnScoreChange += UpdateScore;
         GameManager.OnGameStarted += () => ShowTitleScreen(false);
         GameManager.OnPlayerDeath += () => ShowDeathMenu(true);
@@ -61,9 +67,19 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         InputComponent.OnPauseGame -= ShowPauseMenu;
+        GameManager.OnPauseRequest -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
         GameManager.OnGameStarted -= () => ShowTitleScreen(false);
-        GameManager.OnPlayerDeath += () => ShowDeathMenu(true);
+        GameManager.OnPlayerDeath -= () => ShowDeathMenu(true);
+    }
+
+    private void OnDestroy()
+    {
+        InputComponent.OnPauseGame -= ShowPauseMenu;
+        GameManager.OnPauseRequest -= ShowPauseMenu;
+        GameManager.OnScoreChange -= UpdateScore;
+        GameManager.OnGameStarted -= () => ShowTitleScreen(false);
+        GameManager.OnPlayerDeath -= () => ShowDeathMenu(true);
     }
 
 }

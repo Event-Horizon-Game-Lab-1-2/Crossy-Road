@@ -71,20 +71,24 @@ public class FlyingDeath : MonoBehaviour
 
     }
 
+    private void Die(DeathType deathType)
+    {
+        if (deathType == DeathType.Idling)
+            StartCoroutine(PickupPlayer());
+    }
+
     private void OnEnable()
     {
-        PlayerManager.OnDeath += (DeathType deathType) =>
-        {
-            if (deathType == DeathType.Idling)
-                StartCoroutine(PickupPlayer());
-        };
+        PlayerManager.OnDeath += Die;
     }
 
     private void OnDisable()
     {
-        PlayerManager.OnDeath -= (DeathType deathType) => {};
+        StopAllCoroutines();
+        PlayerManager.OnDeath -= Die;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (!ShowGismos)
@@ -94,4 +98,5 @@ public class FlyingDeath : MonoBehaviour
         Handles.DrawLine(StartingPos + TargetToPickUp.position, TargetToPickUp.position + TargetToPickUpOffset);
         Handles.DrawLine(TargetToPickUp.position + TargetToPickUpOffset, EndingPos + TargetToPickUp.position);
     }
+#endif
 }

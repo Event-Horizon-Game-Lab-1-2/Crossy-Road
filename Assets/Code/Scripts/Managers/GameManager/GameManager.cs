@@ -11,18 +11,20 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public delegate void NewRowAchieved();
-    public static event NewRowAchieved OnNewRowAchieved;
+    public static event NewRowAchieved OnNewRowAchieved = new NewRowAchieved(()=> { });
 
     public delegate void ScoreChange(int score);
-    public static event ScoreChange OnScoreChange;
+    public static event ScoreChange OnScoreChange = new ScoreChange((int score) => { });
 
     public delegate void GameStarted();
-    public static event GameStarted OnGameStarted;
+    public static event GameStarted OnGameStarted = new GameStarted(() => { });
     
     public delegate void PlayerDeath();
-    public static event PlayerDeath OnPlayerDeath;
-    
-    
+    public static event PlayerDeath OnPlayerDeath = new PlayerDeath(() => { });
+
+    public delegate void PauseRequest(bool pause);
+    public static event PauseRequest OnPauseRequest = new PauseRequest((bool pause) => { });
+
     public enum GameState
     {
         Playing,
@@ -50,7 +52,11 @@ public class GameManager : MonoBehaviour
     //Game state used to resume the game after pause
     GameState PreviousGameState = GameState.Menu;
 
-    public static bool IsPlayerAlive = true;
+    public static bool IsPlayerAlive;
+    //Used to avoid event errors
+    public static bool Resetting;
+
+    private bool Paused = false;
 
     private void Awake()
     {
@@ -59,8 +65,9 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         IsPlayerAlive = true;
+        Resetting = false;
     }
 
     private void Start()
@@ -87,11 +94,9 @@ public class GameManager : MonoBehaviour
         {
             Score = PlayerRow;
             //Call new row event
-            if(OnNewRowAchieved != null)
-                OnNewRowAchieved();
+            OnNewRowAchieved();
             //Call new score event
-            if(OnScoreChange != null)
-                OnScoreChange(Score);
+            OnScoreChange(Score);
 
             if(Score > PlayerTopScore)
                 PlayerTopScore = Score;
@@ -105,11 +110,15 @@ public class GameManager : MonoBehaviour
             PreviousGameState = CurrentGameState;
             CurrentGameState = GameState.Paused;
             Time.timeScale = 0;
+            OnPauseRequest(Paused);
+            Paused = !Paused;
         }
         else
         {
             Time.timeScale = 1;
             CurrentGameState = PreviousGameState;
+            OnPauseRequest(Paused);
+            Paused = !Paused;
         }
     }
 
@@ -133,6 +142,8 @@ public class GameManager : MonoBehaviour
         Score = 0;
         PlayerRow = 0;
         Time.timeScale = 1;
+        IsPlayerAlive = true;
+        Resetting = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -151,6 +162,10 @@ public class GameManager : MonoBehaviour
             OnPlayerDeath();
             IsPlayerAlive = false;
         };
+
+        OnGameStarted += OnGameStarted;
+        OnPlayerDeath += OnPlayerDeath;
+        OnNewRowAchieved += OnNewRowAchieved;
     }
 
     private void OnDisable()
@@ -168,6 +183,17 @@ public class GameManager : MonoBehaviour
             OnPlayerDeath();
             IsPlayerAlive = false;
         };
+
+        OnGameStarted -= OnGameStarted;
+        OnPlayerDeath -= OnPlayerDeath;
+        OnNewRowAchieved -= OnNewRowAchieved;
+    }
+
+    private void OnDestroy()
+    {
+        OnGameStarted -= OnGameStarted;
+        OnPlayerDeath -= OnPlayerDeath;
+        OnNewRowAchieved -= OnNewRowAchieved;
     }
 
 #if UNITY_EDITOR

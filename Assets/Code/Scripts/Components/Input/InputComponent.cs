@@ -8,13 +8,13 @@ public class InputComponent : MonoBehaviour
 {
     //direction change
     public delegate void NewDirection(Vector3 direction);
-    public static event NewDirection OnDirectionChanged;
+    public static event NewDirection OnDirectionChanged = new NewDirection( (Vector3 direction) => { } );
     //direction confirm
     public delegate void ConfirmDirection();
-    public static event ConfirmDirection OnDirectionConfirmed;
+    public static event ConfirmDirection OnDirectionConfirmed = new ConfirmDirection( () => { } );
     //Pause game request
     public delegate void PauseGame(bool pause);
-    public static event PauseGame OnPauseGame;
+    public static event PauseGame OnPauseGame = new PauseGame( (bool pause) => { } );
 
     [Header("Option Keys")]
     //Pause Button
@@ -117,6 +117,7 @@ public class InputComponent : MonoBehaviour
 
     private void OnEnable()
     {
+        OnDirectionChanged += OnDirectionChanged;
         PlayerManager.OnDeath += (DeathType t) => CanGetInput = false;
     }
 
@@ -127,6 +128,6 @@ public class InputComponent : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        OnDirectionChanged -= OnDirectionChanged;
     }
 }

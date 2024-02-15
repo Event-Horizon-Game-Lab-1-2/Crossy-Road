@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class CameraComponent : MonoBehaviour
@@ -123,11 +122,12 @@ public class CameraComponent : MonoBehaviour
         //Connect all Events
         InputComponent.OnDirectionConfirmed += DirectionConfirmed;
         GameManager.OnNewRowAchieved += IncreaseTargetDistance;
-        GameManager.OnPlayerDeath += () => StopCamera();
+        GameManager.OnPlayerDeath += StopCamera;
     }
 
     private void OnDisable()
     {
+        StopAllCoroutines();
         DisableEvents();
     }
 
@@ -136,7 +136,7 @@ public class CameraComponent : MonoBehaviour
         //Disconnect all Events
         InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
         GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
-        GameManager.OnPlayerDeath -= () => StopCamera();
+        GameManager.OnPlayerDeath -= StopCamera;
     }
 
 #if UNITY_EDITOR

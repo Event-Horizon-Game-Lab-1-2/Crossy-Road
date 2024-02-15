@@ -4,14 +4,22 @@ using static DeathTypeClass;
 public class PlayerManager : MonoBehaviour
 {
     public delegate void DeathTriggered(DeathType deathType);
-    public static event DeathTriggered OnDeath;
+    public static event DeathTriggered OnDeath = new DeathTriggered( (DeathType deathType) => { } );
 
-    private bool dead = false;
+    private bool dead;
+
+    private void Awake()
+    {
+        dead = false;
+    }
 
     private void OnBecameInvisible()
     {
+        if (GameManager.Resetting)
+            return;
         if (dead)
             return;
+
         OnDeath(DeathType.Idling);
         dead = true;
     }
