@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using TMPro;
 
 public class SkinManager : MonoBehaviour
 {
 
     public int selectedSkin = 0;
+
+    public TMP_Text TextSkin;
 
     //public GameObject[] skins;
     [SerializeField] List<PlayableCharacter> Skins = new List<PlayableCharacter> ();
@@ -15,6 +18,7 @@ public class SkinManager : MonoBehaviour
     private void Awake()
     {
         Debug.Log(Skins.Count);
+        TextSkin.text = Skins[selectedSkin].SkinName;
     }
     public void NextOption()
     {
@@ -27,6 +31,8 @@ public class SkinManager : MonoBehaviour
         }
         Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
         Debug.Log(selectedSkin);
+
+        TextSkin.text = Skins[selectedSkin].SkinName;
     }
 
     public void BackOption()
@@ -42,12 +48,15 @@ public class SkinManager : MonoBehaviour
         Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
 
         Debug.Log(selectedSkin);
+
+        TextSkin.text = Skins[selectedSkin].SkinName;
     }
 
     public void PlayGame()
     {
-      
+
         PlayerPrefs.SetInt("selectedSkin", selectedSkin);
+
         SceneManager.LoadScene("TestScene_1");
     }
 
