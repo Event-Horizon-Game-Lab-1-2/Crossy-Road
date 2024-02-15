@@ -57,7 +57,6 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        InputComponent.OnPauseGame += ShowPauseMenu;
         GameManager.OnPauseRequest += ShowPauseMenu;
         GameManager.OnScoreChange += UpdateScore;
         GameManager.OnGameStarted += () => ShowTitleScreen(false);
@@ -66,7 +65,6 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable()
     {
-        InputComponent.OnPauseGame -= ShowPauseMenu;
         GameManager.OnPauseRequest -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
         GameManager.OnGameStarted -= () => ShowTitleScreen(false);
@@ -75,7 +73,6 @@ public class UIManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        InputComponent.OnPauseGame -= ShowPauseMenu;
         GameManager.OnPauseRequest -= ShowPauseMenu;
         GameManager.OnScoreChange -= UpdateScore;
         GameManager.OnGameStarted -= () => ShowTitleScreen(false);
