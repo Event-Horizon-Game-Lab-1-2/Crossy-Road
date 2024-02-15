@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class CameraComponent : MonoBehaviour
 {
     [Header("Camera Settings")]
     [Tooltip("Time to reach target position")]
-    [SerializeField] private float SmootTime = 0.25f;
+    [SerializeField] private float SmootTime = 1f;
     [Tooltip("Time to reset the camera position during idling death")]
     [SerializeField] private float ResumeSpeed = 0.5f;
     [Tooltip("Distance below wich the camera will keep moving linearly")]
@@ -19,110 +20,73 @@ public class CameraComponent : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float ZoomPercentage = 0.8f;
     [Tooltip("Speed of zoom in action")]
     [SerializeField] private float ZoomInSpeed = 1.5f;
-    
-    private bool IsMoving;
-    //local smooting time
-    private float SmootingTime;
-    //velocity ref as float used is sideway movement
-    private float VelocityFloat = 0f;
-    //velocity ref as vector3 used in forward movement
-    private Vector3 VelocityV3 = Vector3.zero;
-    //target position 
-    private Vector3 TargetPosition = Vector3.zero;
-    //target offset
-    private Vector3 TargetOffset = Vector3.zero;
 
-    private void Awake()
+    private Vector3 Velocity;
+    private Vector3 CameraOffset = Vector3.zero;
+    private float InitialZOffset = 0;
+    private float VelocityFloat = 0f;
+
+
+    private void Start()
     {
-        IsMoving = false;
-        TargetPosition = transform.position;
-        SmootingTime = SmootTime;
-        TargetOffset = transform.position - Target.position;
+        InitialZOffset = GetDistToTarget();
+        CameraOffset = transform.position - Target.position;
     }
 
-    IEnumerator MoveCamera()
+    private void StartMoving()
     {
-        while (IsMoving)
-        {
-            float DistanceToTarget = TargetPosition.z - transform.position.z;
+        StartCoroutine(FollowTarget());
+        InputComponent.OnDirectionConfirmed -= StartMoving;
+    }
 
-            if (DistanceToTarget > LinearAccelDistance)
+    private IEnumerator FollowTarget()
+    {
+        float StartX = Target.position.x + transform.position.x;
+        while (true)
+        {
+            //linear Acceleration
+            if(GetDistToTarget() < LinearAccelDistance)
             {
-                //smooting between two points
-                transform.position = Vector3.SmoothDamp(transform.position, TargetPosition, ref VelocityV3, SmootingTime);
-            }
-            else
-            {
-                //keep moving linearly
                 transform.position += Vector3.forward * Time.deltaTime * LinearAccelSpeed;
             }
+            //smooth Movement
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, new Vector3(transform.position.x, transform.position.y, Target.position.z - InitialZOffset), ref Velocity, SmootTime);
+            }
 
-            //change x value
-            float smoothX = Mathf.SmoothDamp(transform.position.x, Target.position.x + TargetOffset.x, ref VelocityFloat, SmootingTime);
+            float smoothX = Mathf.SmoothDamp(transform.position.x, Target.position.x + CameraOffset.x, ref VelocityFloat, SmootTime);
             transform.position = new Vector3(smoothX, transform.position.y, transform.position.z);
-
             yield return null;
         }
     }
 
-    IEnumerator ZoomIn()
+    private IEnumerator GoBack()
     {
-        //resume position
-        yield return StartCoroutine(ResumePosition());
-        //zoom variables
-        Vector3 startPos = transform.position;    
-        Vector3 endPos = Vector3.Lerp(transform.position, Target.position, ZoomPercentage);
-        float progress = 0f;
-        //zoom in
-        while (progress <= 1f)
+        Vector3 initialPos = transform.position;
+        while (true)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, progress);
-            progress += Time.deltaTime * ZoomInSpeed;
+            transform.position = Vector3.SmoothDamp(transform.position, initialPos + (Vector3.back * InitialZOffset), ref Velocity, ResumeSpeed);
             yield return null;
         }
     }
 
-    IEnumerator ResumePosition()
+    private float GetDistToTarget()
     {
-        StopCoroutine(MoveCamera());
-        IsMoving = false;
-        Vector3 startPos = transform.position;
-        float progress = 0f;
-        //resume position
-        while (progress <= 1f)
-        {
-            transform.position = Vector3.Lerp(transform.position, startPos + Vector3.back * 5f, progress);
-            progress += Time.deltaTime * ResumeSpeed;
-            yield return null;
-        }
+        return Mathf.Abs(transform.position.z - Target.position.z) - InitialZOffset;
     }
 
-    private void DirectionConfirmed()
+    private void ResumePos()
     {
-        if(!IsMoving)
-        {
-            IsMoving = true;
-            StartCoroutine(MoveCamera());
-        }
-    }
-
-    private void IncreaseTargetDistance()
-    {
-        TargetPosition += Vector3.forward;
-    }
-
-    private void StopCamera()
-    {
-        StartCoroutine(ZoomIn());
-        DisableEvents();
+        StopAllCoroutines();
+        StartCoroutine(GoBack());
     }
 
     private void OnEnable()
     {
         //Connect all Events
-        InputComponent.OnDirectionConfirmed += DirectionConfirmed;
-        GameManager.OnNewRowAchieved += IncreaseTargetDistance;
-        GameManager.OnPlayerDeath += StopCamera;
+        InputComponent.OnDirectionConfirmed += StartMoving;
+        GameManager.OnPlayerDeath += ResumePos;
     }
 
     private void OnDisable()
@@ -134,9 +98,8 @@ public class CameraComponent : MonoBehaviour
     private void DisableEvents()
     {
         //Disconnect all Events
-        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
-        GameManager.OnNewRowAchieved -= IncreaseTargetDistance;
-        GameManager.OnPlayerDeath -= StopCamera;
+        InputComponent.OnDirectionConfirmed -= StartMoving;
+        GameManager.OnPlayerDeath -= ResumePos;
     }
 
 #if UNITY_EDITOR
@@ -146,7 +109,7 @@ public class CameraComponent : MonoBehaviour
         //    return;
 
         //draw zoom target
-        if(Target != null)
+        if (Target != null)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(Target.position, 0.2f);
@@ -154,14 +117,14 @@ public class CameraComponent : MonoBehaviour
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(Vector3.Lerp(transform.position, Target.position, ZoomPercentage), 0.2f);
         }
-        
-        if (!IsMoving)
-            return;
+
+        return;
+
         //draw target pos
-        if (TargetPosition.z - transform.position.z < LinearAccelDistance)
+        if (Target.position.z - transform.position.z < LinearAccelDistance)
             return;
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(TargetPosition, 0.2f);
+        Gizmos.DrawSphere(Target.position, 0.2f);
     }
 #endif
 }
