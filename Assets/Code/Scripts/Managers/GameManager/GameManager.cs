@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
     //Used to avoid event errors
     public static bool Resetting;
 
-    private bool Paused = false;
-
     private void Awake()
     {
         if (Instance == null)
@@ -105,35 +103,24 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        if(!focus && CurrentGameState != GameState.Paused)
+        //application lost focus -> pause
+        if(!focus)
         {
-            PreviousGameState = CurrentGameState;
-            CurrentGameState = GameState.Paused;
-            Time.timeScale = 0;
-            OnPauseRequest(Paused);
-            Paused = !Paused;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            CurrentGameState = PreviousGameState;
-            OnPauseRequest(Paused);
-            Paused = !Paused;
+            if (CurrentGameState != GameState.Paused)
+                SetGamePause(true);
         }
     }
 
     private void SetGamePause(bool pause)
     {
-        if(pause)
-        {
-            CurrentGameState = GameState.Paused;
-            Time.timeScale = 0;
-        }
-        else
-        { 
-            CurrentGameState = GameState.Playing;
-            Time.timeScale = 1;
-        }
+        PreviousGameState = CurrentGameState;
+
+        CurrentGameState = pause? GameState.Paused : GameState.Playing;
+        Time.timeScale = pause? 0 : 1;
+
+        OnPauseRequest(pause);
+
+        Debug.Log(CurrentGameState);
     }
 
     #region Utility
@@ -194,6 +181,7 @@ public class GameManager : MonoBehaviour
         OnGameStarted -= OnGameStarted;
         OnPlayerDeath -= OnPlayerDeath;
         OnNewRowAchieved -= OnNewRowAchieved;
+        OnPauseRequest -= OnPauseRequest;
     }
 
 #if UNITY_EDITOR
