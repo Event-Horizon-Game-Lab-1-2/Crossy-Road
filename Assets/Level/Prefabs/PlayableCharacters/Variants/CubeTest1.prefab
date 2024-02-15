@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeTest1
       objectReference: {fileID: 0}
+    - target: {fileID: 5874166723425776576, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82ad2d3daf0e69f43986de78a4ce4bfb, type: 2}
     - target: {fileID: 7882637638038257803, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
       propertyPath: meshTransform
       value: 
