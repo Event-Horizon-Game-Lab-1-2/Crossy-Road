@@ -41,6 +41,7 @@ public class MovementComponent : MonoBehaviour
         InputComponent.OnDirectionChanged -= DirectionChanged;
         InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
         GameManager.OnPlayerDeath -= SuspendMovement;
+        OnMove -= OnMove;
     }
 
 

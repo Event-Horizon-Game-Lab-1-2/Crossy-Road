@@ -66,6 +66,12 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         IsPlayerAlive = true;
         Resetting = false;
+
+
+        if (!PlayerPrefs.HasKey("selectedSkin"))
+        {
+            PlayerPrefs.SetInt("selectedSkin", 0);
+        }
     }
 
     private void Start()
@@ -147,10 +153,6 @@ public class GameManager : MonoBehaviour
             OnPlayerDeath();
             IsPlayerAlive = false;
         };
-
-        OnGameStarted += OnGameStarted;
-        OnPlayerDeath += OnPlayerDeath;
-        OnNewRowAchieved += OnNewRowAchieved;
     }
 
     private void OnDisable()

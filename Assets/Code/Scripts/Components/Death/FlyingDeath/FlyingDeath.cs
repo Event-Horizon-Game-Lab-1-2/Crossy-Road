@@ -42,7 +42,7 @@ public class FlyingDeath : MonoBehaviour
         while (progress <= 1f)
         {
             //position
-            DeathObject.position = Vector3.Lerp(TargetToPickUp.position + StartingPos, TargetToPickUp.position + TargetToPickUpOffset, progress);
+            DeathObject.position = Vector3.Lerp(TargetToPickUp.parent.position + StartingPos, TargetToPickUp.parent.position + TargetToPickUpOffset, progress);
             //audio
             audioProgress = Mathf.Lerp(0, 0.5f, progress);
             AudioSource.volume = SoundCurve.Evaluate(audioProgress);
@@ -52,12 +52,12 @@ public class FlyingDeath : MonoBehaviour
         }
         //pick up player
         progress = 0f;
-        Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
+        Vector3 objectToPickUpStartpos = TargetToPickUp.parent.position + TargetToPickUpOffset;
         while (progress <= 1f)
         {
             //position
             DeathObject.position = Vector3.Lerp(objectToPickUpStartpos, EndingPos, progress);
-            TargetToPickUp.position = DeathObject.position - TargetToPickUpOffset;
+            TargetToPickUp.parent.position = DeathObject.position - TargetToPickUpOffset;
             //audio
             audioProgress = Mathf.Lerp(0.5f, 1f, progress);
             AudioSource.volume = SoundCurve.Evaluate(audioProgress);
@@ -67,7 +67,7 @@ public class FlyingDeath : MonoBehaviour
         }
 
         DeathObject.gameObject.SetActive(false);
-        TargetToPickUp.gameObject.SetActive(false);
+        TargetToPickUp.transform.parent.gameObject.SetActive(false);
 
     }
 

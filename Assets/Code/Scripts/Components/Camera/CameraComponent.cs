@@ -16,10 +16,10 @@ public class CameraComponent : MonoBehaviour
     [SerializeField] private float LinearAccelSpeed = 1f;
     [Tooltip("Target on which the camera will zoom on")]
     [SerializeField] private Transform Target;
-    [Tooltip("Percentage of the distance covered when zooming in")]
-    [SerializeField][Range(0f, 1f)] private float ZoomPercentage = 0.8f;
-    [Tooltip("Speed of zoom in action")]
-    [SerializeField] private float ZoomInSpeed = 1.5f;
+    //[Tooltip("Percentage of the distance covered when zooming in")]
+    //[SerializeField][Range(0f, 1f)] private float ZoomPercentage = 0.8f;
+    //[Tooltip("Speed of zoom in action")]
+    //[SerializeField] private float ZoomInSpeed = 1.5f;
 
     private Vector3 Velocity;
     private Vector3 CameraOffset = Vector3.zero;
@@ -114,17 +114,9 @@ public class CameraComponent : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(Target.position, 0.2f);
             //draw zoom distance
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(Vector3.Lerp(transform.position, Target.position, ZoomPercentage), 0.2f);
+            //Gizmos.color = Color.blue;
+            //Gizmos.DrawSphere(Vector3.Lerp(transform.position, Target.position, ZoomPercentage), 0.2f);
         }
-
-        return;
-
-        //draw target pos
-        if (Target.position.z - transform.position.z < LinearAccelDistance)
-            return;
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(Target.position, 0.2f);
     }
 #endif
 }

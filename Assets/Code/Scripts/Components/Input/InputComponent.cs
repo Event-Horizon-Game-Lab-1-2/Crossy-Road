@@ -117,16 +117,20 @@ public class InputComponent : MonoBehaviour
     private void OnEnable()
     {
         OnDirectionChanged += OnDirectionChanged;
+        OnDirectionConfirmed += OnDirectionConfirmed;
         PlayerManager.OnDeath += (DeathType t) => CanGetInput = false;
     }
 
     private void OnDisable()
     {
         PlayerManager.OnDeath -= (DeathType t) => CanGetInput = false;
+        OnDirectionChanged -= OnDirectionChanged;
+        OnDirectionConfirmed -= OnDirectionConfirmed;
     }
 
     private void OnDestroy()
     {
         OnDirectionChanged -= OnDirectionChanged;
+        OnDirectionConfirmed -= OnDirectionConfirmed;
     }
 }

@@ -17,9 +17,24 @@ public class SkinManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(Skins.Count);
-        TextSkin.text = Skins[selectedSkin].SkinName;
+        //Debug.Log(Skins.Count);
+        if(TextSkin != null)
+            TextSkin.text = Skins[selectedSkin].SkinName;
     }
+
+    private void Start()
+    {
+        for(int i = 1; i < Skins.Count; i++)
+        {
+            Skins[i].SkinPrefabTransform.gameObject.SetActive(false);
+        }
+    }
+
+    public Transform GetSkin(int index)
+    {
+        return Skins[index].SkinPrefabTransform;
+    }
+
     public void NextOption()
     {
 
@@ -37,8 +52,6 @@ public class SkinManager : MonoBehaviour
 
     public void BackOption()
     {
-
-
         Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(false);
         selectedSkin--;
         if (selectedSkin < 0)

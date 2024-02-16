@@ -19,7 +19,6 @@ public class PlayerManager : MonoBehaviour
             return;
         if (dead)
             return;
-
         OnDeath(DeathType.Idling);
         dead = true;
     }

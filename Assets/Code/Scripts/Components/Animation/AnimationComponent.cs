@@ -221,16 +221,17 @@ public class AnimationComponent : MonoBehaviour
         //StartCoroutine(MoveCoroutine());
     }
 
+    private void MoveEvent(Vector3 dir)
+    {
+        StartCoroutine(Rotate(dir));
+        StartCoroutine(Squish());
+    }
 
     private void OnEnable()
     {
         StopAllCoroutines();
 
-        InputComponent.OnDirectionChanged += (Vector3 dir) =>
-        {
-            StartCoroutine(Rotate(dir));
-            StartCoroutine(Squish());
-        };
+        InputComponent.OnDirectionChanged += MoveEvent;
 
         InputComponent.OnDirectionConfirmed += SquashFunc;
 
@@ -251,11 +252,7 @@ public class AnimationComponent : MonoBehaviour
 
     private void DisconnectAllEvents()
     {
-        InputComponent.OnDirectionChanged -= (Vector3 dir) =>
-        {
-            StartCoroutine(Rotate(dir));
-            StartCoroutine(Squish());
-        };
+        InputComponent.OnDirectionChanged -= MoveEvent;
 
         InputComponent.OnDirectionConfirmed -= SquashFunc;
 

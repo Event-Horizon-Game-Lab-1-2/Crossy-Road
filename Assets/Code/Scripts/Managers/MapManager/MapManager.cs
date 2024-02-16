@@ -155,6 +155,7 @@ public class MapManager : MonoBehaviour
     {
         GameManager.OnNewRowAchieved += GenerateNewRow;
         GameManager.OnNewRowAchieved += RemoveLastRow;
+        GameManager.OnNewRowAchieved += () => Debug.Log("Caxxo Palle");
     }
     //Disconnect all events
     private void OnDisable() 
