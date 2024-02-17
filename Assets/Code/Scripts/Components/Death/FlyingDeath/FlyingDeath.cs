@@ -31,10 +31,15 @@ public class FlyingDeath : MonoBehaviour
     {
         DeathObject.gameObject.SetActive(false);
     }
+    //private void Start()
+    //{
+    //    TargetToPickUp = TargetToPickUp.GetComponent<AnimationComponent>().Target;
+    //}
 
     private IEnumerator PickupPlayer()
     {
         DeathObject.gameObject.SetActive(true);
+
         AudioSource.Play();
         float progress = 0f;
         float audioProgress = 0f;

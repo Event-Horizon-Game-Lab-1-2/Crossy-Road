@@ -9,22 +9,18 @@ public class MovementComponent : MonoBehaviour
     public delegate void Move();
     public static event Move OnMove = new Move(() => { });
 
-    public float raycastDistance = 1.5f; // Lunghezza del raggio
+    public float raycastDistance = 1.5f; 
     public float RaycastFloorLenght = 2f;
-
-
 
     Vector3 dirToGo;
 
     private Transform TileTransform;
 
-    [SerializeField] Transform MeshHolder;
-
-    IEnumerator StayOnTile ()
+    IEnumerator StayOnTile()
     {
-        while (TileTransform != null) { 
-
-            transform.position = TileTransform.position + Vector3.up /2;
+        while (TileTransform)
+        {
+            gameObject.transform.position = TileTransform.position + Vector3.up / 2;
             yield return null;
         }
     }
@@ -53,16 +49,19 @@ public class MovementComponent : MonoBehaviour
     void DirectionConfirmed()
     {
 
-        //MovementRaycast();
-
-        if (CanMove() )
+        if (CanMove())
         {
             // calcola la posizione di destinazione in base alla direzione e alla distanza
-           transform.position += dirToGo;
-           MeshHolder.position -= dirToGo; 
-           StopAllCoroutines();
-           CheckTile();
-           OnMove();
+            CheckTile();
+
+            StopAllCoroutines();
+            StartCoroutine(StayOnTile());
+
+            //MeshHolder.position -= dirToGo;
+
+            OnMove();
+
+            Debug.Log(dirToGo);
 
         }
 
@@ -71,18 +70,19 @@ public class MovementComponent : MonoBehaviour
             TileTransform = null;
         }
     }
-    
+
     void CheckTile()
-    {
+    {   
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + Vector3.up / 2, Vector3.down, out hit, RaycastFloorLenght))
-        {
-            // se il raggio colpisce qualcosa, fai qualcosa
-            Debug.DrawLine(transform.position, hit.point, Color.red, 1f);
-
+        if (Physics.Raycast(transform.position + Vector3.up / 2 + dirToGo, Vector3.down, out hit, RaycastFloorLenght))
+        {   
+            StopAllCoroutines();
             TileTransform = hit.transform;
-
-            StartCoroutine(StayOnTile());
+            // se il raggio colpisce qualcosa, fai qualcosa
+            Debug.DrawRay(transform.position + Vector3.up / 2 + dirToGo, Vector3.down * RaycastFloorLenght, Color.red, 10f);
+            transform.position = TileTransform.position;
+            
+            //StartCoroutine(StayOnTile());
         }
         else
         {
@@ -93,12 +93,14 @@ public class MovementComponent : MonoBehaviour
     bool CanMove()
     {
         Debug.DrawRay(transform.position, dirToGo, Color.magenta, 10f);
-            return !Physics.Raycast(transform.position + Vector3.up /2, dirToGo, out RaycastHit hit, raycastDistance, 1 << 3);
+        return !Physics.Raycast(transform.position + Vector3.up / 2, dirToGo, out RaycastHit hit, raycastDistance, 1 << 3);
     }
 
     void SuspendMovement()
     {
         TileTransform = null;
+        StopAllCoroutines() ;
         this.enabled = false;
+
     }
 }

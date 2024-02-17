@@ -570,6 +570,9 @@ GameObject:
   - component: {fileID: 1017153549}
   - component: {fileID: 1017153548}
   - component: {fileID: 1017153547}
+  - component: {fileID: 1017153552}
+  - component: {fileID: 1017153551}
+  - component: {fileID: 1017153550}
   m_Layer: 0
   m_Name: PlayerLoad
   m_TagString: Untagged
@@ -862,6 +865,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad67caf85bf648c428b5a292bdbd5869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1017153550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001021909}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 1, z: 0.9}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!54 &1017153551
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001021909}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1017153552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001021909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ff1e855231c5e44b86d890b8383df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 1.5
+  RaycastFloorLenght: 2
 --- !u!4 &1059417895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5570510530745022656, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}

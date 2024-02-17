@@ -13,6 +13,7 @@ public class LoadCharacter : MonoBehaviour
         Transform prefab = skinManager.GetSkin(selectedSkin);
         GameObject clone = Instantiate(prefab.gameObject, transform.position, Quaternion.identity);
         clone.SetActive(true);
-        gameObject.transform.SetParent(clone.transform);
+        //gameObject.transform.SetParent(clone.transform);
+        clone.GetComponent<AnimationComponent>().Target = transform;
     }
 }

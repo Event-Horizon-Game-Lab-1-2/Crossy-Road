@@ -7,22 +7,59 @@ public class AnimationComponent : MonoBehaviour
 
     Vector3 direction;
 
-    Transform TargetTransform;
+    //Transform TargetTransform;
 
     public float timeDurationSquishSquash = 0.2f;
     public float timeJump = 0.2f;
 
     public GameObject particles;
 
-    [SerializeField] float movementTime = 0.1f;
+    [SerializeField] public float MeshSpeed = 5f;
     
     [SerializeField] Transform meshTransform;
 
-    private bool IsDead = false;
+    [HideInInspector] public Transform Target;
 
-    private void Awake()
+    private void Start()
     {
-        TargetTransform = gameObject.transform;
+        StartCoroutine(FollowTarget());
+    }
+    private IEnumerator FollowTarget()
+    {
+        //if(!IsDead)
+        //    TargetTransform.position += direction;
+        while (true) { 
+            if (Target != null)
+            {
+               
+                if (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
+
+                {
+
+                    //smooth damp -> interpolazione che dipende dal tempo che viene passata
+                    meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
+                }
+                else
+                {
+                    meshTransform.position = Target.position;
+                }
+            }
+            //Vector3 velocityRef = Vector3.zero;
+
+            
+            yield return null;
+        }
+       
+    }
+    private IEnumerator ForceToTarget()
+    {
+        while (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
+        {
+                //smooth damp -> interpolazione che dipende dal tempo che viene passata
+                meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
+
+            yield return null;
+        }
     }
 
     private IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
@@ -99,11 +136,15 @@ public class AnimationComponent : MonoBehaviour
     private void Move()
     {
         StartCoroutine(Jump());
-        StartCoroutine(MoveCoroutine());
     }
-    
-    private IEnumerator Jump() // Quando passa da una cella all'altra
+
+    private bool isJumping = false;
+
+    private IEnumerator Jump() // quando passa da una cella all'altra
     {
+        if (isJumping) yield break; 
+        isJumping = true;
+
         Vector3 initialPosition = meshTransform.position;
         Vector3 finalPosition = meshTransform.position + Vector3.up;
 
@@ -114,15 +155,15 @@ public class AnimationComponent : MonoBehaviour
 
             float percentageComplete = timePassed / timeJump;
 
-            
-            //Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
             float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            meshTransform.position = new Vector3 (meshTransform.position.x, myHeight,meshTransform.position.z);
+            meshTransform.position = new Vector3(meshTransform.position.x, myHeight, meshTransform.position.z);
 
             yield return null;
         }
+        isJumping = false;
         StartCoroutine(JumpDown());
     }
+
 
 
     private IEnumerator JumpDown()
@@ -150,15 +191,17 @@ public class AnimationComponent : MonoBehaviour
 
     private IEnumerator Drown() //quando affoga nell'acqua >:D
     {
+        StopCoroutine(FollowTarget());
+        //StartCoroutine(Jump());
         StartCoroutine(Jump());
-        yield return StartCoroutine(MoveCoroutine());
+        yield return StartCoroutine(ForceToTarget());
 
         Vector3 initialPosition = meshTransform.position;
         Vector3 finalPosition = new Vector3(meshTransform.position.x, -3f, meshTransform.position.z);
 
         float timePassed = 0f;
 
-        Instantiate(particles, transform.position + (Vector3.up*0.25f), Quaternion.Euler(Vector3.left*90));
+        Instantiate(particles, Target.position + (Vector3.up * 0.25f), Quaternion.Euler(Vector3.left * 90));
 
         while (timePassed < timeJump)
         {
@@ -172,7 +215,7 @@ public class AnimationComponent : MonoBehaviour
             yield return null;
         }
         
-        yield return null;
+        StopAllCoroutines();
     }
 
     private IEnumerator SquishedByVehicle() //quando viene investito 
@@ -194,23 +237,6 @@ public class AnimationComponent : MonoBehaviour
         }
     }
 
-    private IEnumerator MoveCoroutine()
-    {
-        if(!IsDead)
-            TargetTransform.position += direction;
-        
-        Vector3 velocityRef = Vector3.zero;
-         
-        while (Vector3.Distance(meshTransform.position, TargetTransform.position) > 0.1f)
-
-        {
-            //smooth damp -> interpolazione che dipende dal tempo che viene passata
-            meshTransform.position = Vector3.SmoothDamp(meshTransform.position, TargetTransform.position, ref velocityRef, movementTime);
-
-            yield return null;
-        }
-        meshTransform.position = TargetTransform.position;
-    }
 
     private void Die(DeathType deathType)
     {

@@ -73,9 +73,6 @@ public class SkinManager : MonoBehaviour
         SceneManager.LoadScene("TestScene_1");
     }
 
-    private void Update()
-    {
-        //Debug.Log(selectedSkin);
 
-    }
+
 }

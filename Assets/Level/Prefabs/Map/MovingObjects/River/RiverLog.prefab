@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6989688229849399361, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8383096740515873976, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
       propertyPath: m_Name
       value: FloatingTrunkTile
@@ -198,6 +202,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6989688229849399361, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8383096740515873976, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
       propertyPath: m_Name
       value: FloatingTrunkTile (1)
@@ -258,6 +266,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 27764929809660905, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989688229849399361, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
+      propertyPath: m_Center.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8383096740515873976, guid: 80ec4f1a5147b5a41aea54ebb1dad26f, type: 3}
