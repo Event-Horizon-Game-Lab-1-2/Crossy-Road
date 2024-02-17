@@ -262,11 +262,11 @@ MonoBehaviour:
   SpawnEndPos: -60
   MaxObject: 1
   MinObject: 1
-  Speed: 2
+  Speed: 1.5
   MaxWaitTime: 9
   MinWaitTime: 4
   SpecialFeature: {fileID: 2020086540349030756}
-  SpecialFeatureAnticipation: 2
+  SpecialFeatureAnticipation: 3
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &3344994552301535336 stripped
