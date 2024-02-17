@@ -316,9 +316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PossibleSpawners:
   - Spawner: {fileID: 921617695753454086}
-    SpawnProbability: 0.1
+    SpawnProbability: 0.2
   - Spawner: {fileID: 3431622176350344167}
-    SpawnProbability: 0.9
+    SpawnProbability: 0.8
 --- !u!114 &921617695753454086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,11 +358,11 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 0.5
+  MaxSpeed: 0.4
   MinSpeed: 0.2
-  MaxObject: 3
+  MaxObject: 2
   MinObject: 1
-  MaxDistance: 2
+  MaxDistance: 4
   MinDistance: 1
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}

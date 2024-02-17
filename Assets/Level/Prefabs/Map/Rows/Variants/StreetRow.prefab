@@ -1055,11 +1055,11 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 0.5
-  MinSpeed: 0.25
-  MaxObject: 5
+  MaxSpeed: 0.6
+  MinSpeed: 0.15
+  MaxObject: 3
   MinObject: 1
-  MaxDistance: 3.5
+  MaxDistance: 5
   MinDistance: 2.5
   SpawnerPreviewColor_Start: {r: 0.15178537, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0.02967842, b: 0, a: 1}

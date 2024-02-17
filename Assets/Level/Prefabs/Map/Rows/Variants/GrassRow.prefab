@@ -1330,7 +1330,7 @@ MonoBehaviour:
   SpawnTilesAmount: 9
   SpawnTilesOffset: {x: -4, y: 0, z: 0}
   SpawnOnCenter: 0
-  MaxSpawnAmount: 4
+  MaxSpawnAmount: 3
   MinSpawnAmount: 1
   SpanwerPreviewColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!4 &6164983429755855638 stripped
