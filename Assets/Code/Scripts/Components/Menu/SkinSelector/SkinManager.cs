@@ -72,7 +72,4 @@ public class SkinManager : MonoBehaviour
 
         SceneManager.LoadScene("TestScene_1");
     }
-
-
-
 }

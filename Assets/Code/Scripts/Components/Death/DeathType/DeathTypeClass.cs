@@ -9,6 +9,7 @@ public class DeathTypeClass
     {
         Drown,
         Squash,
-        Idling
+        Idling,
+        OutOfBound
     }
 }

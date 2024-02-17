@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DeathTrigger;
 using static DeathTypeClass;
+using static GameManager;
 
 public class InputComponent : MonoBehaviour
 {
@@ -40,19 +41,24 @@ public class InputComponent : MonoBehaviour
     private bool GamePause = false;
 
     //Disable movement
-    private bool CanGetInput = true;
+    private bool PlayerDead = false;
+
+    private bool CanPause = false;
 
     void Update()
     {
         //check if the pause button is pressed
-        if(Input.GetKeyDown(Pause))
-        {
-            GamePause = !GamePause;
-            //Call local game event
-            OnPauseGame(GamePause);
-        }
+        if(CanPause)
+            if(Input.GetKeyDown(Pause))
+            {
+                GamePause = !GamePause;
+                //Call local game event
+                OnPauseGame(GamePause);
+            }
 
-        if (!CanGetInput)
+        if (PlayerDead)
+            return;
+        if (GamePause)
             return;
 
         //check if a new direction is chosen
@@ -70,6 +76,18 @@ public class InputComponent : MonoBehaviour
         //Decrease input timer
         if (CoolDownTimer > 0)
             CoolDownTimer -= Time.deltaTime;
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!CanPause)
+            return;
+        //focus lost
+        if(!focus)
+        {
+            GamePause = !GamePause;
+            OnPauseGame(!focus);
+        }
     }
 
     private bool GetInputDirection(out Vector3 direction)
@@ -116,14 +134,17 @@ public class InputComponent : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerManager.OnDeath += (DeathType t) => CanPause = false;
+        GameManager.OnGameStarted += () => CanPause = true;
         //OnDirectionChanged += OnDirectionChanged;
         //OnDirectionConfirmed += OnDirectionConfirmed;
-        PlayerManager.OnDeath += (DeathType t) => CanGetInput = false;
+        PlayerManager.OnDeath += (DeathType t) => PlayerDead = false;
     }
 
     private void OnDisable()
     {
-        PlayerManager.OnDeath -= (DeathType t) => CanGetInput = false;
+        PlayerManager.OnDeath -= (DeathType t) => PlayerDead = false;
+        PlayerManager.OnDeath -= (DeathType t) => CanPause = false;
         OnDirectionChanged -= OnDirectionChanged;
         OnDirectionConfirmed -= OnDirectionConfirmed;
     }

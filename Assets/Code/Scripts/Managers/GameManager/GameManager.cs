@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public delegate void PauseRequest(bool pause);
     public static event PauseRequest OnPauseRequest = new PauseRequest((bool pause) => { });
 
-    public enum GameState
+    private enum GameState
     {
         Playing,
         Paused,
@@ -49,8 +49,6 @@ public class GameManager : MonoBehaviour
     Vector3 PlayerDirection;
     //Current game state
     GameState CurrentGameState = GameState.Menu;
-    //Game state used to resume the game after pause
-    GameState PreviousGameState = GameState.Menu;
 
     public static bool IsPlayerAlive;
     //Used to avoid event errors
@@ -107,20 +105,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        //application lost focus -> pause
-        if(!focus)
-        {
-            if (CurrentGameState != GameState.Paused)
-                SetGamePause(true);
-        }
-    }
-
     private void SetGamePause(bool pause)
     {
-        PreviousGameState = CurrentGameState;
-
         CurrentGameState = pause? GameState.Paused : GameState.Playing;
         Time.timeScale = pause? 0 : 1;
 
@@ -150,7 +136,8 @@ public class GameManager : MonoBehaviour
         //gameplay events
         PlayerManager.OnDeath += (DeathType deathType) =>
         {
-            OnPlayerDeath();
+            if(OnPlayerDeath != null)
+                OnPlayerDeath();
             IsPlayerAlive = false;
         };
     }
@@ -158,22 +145,15 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         //Disconnect all Events
+        OnGameStarted -= OnGameStarted;
+        OnPlayerDeath -= OnPlayerDeath;
+        OnNewRowAchieved -= OnNewRowAchieved;
         //Input events
         InputComponent.OnDirectionChanged -= DirectionChanged;
         MovementComponent.OnMove -= DirectionConfirmed;
         InputComponent.OnPauseGame -= SetGamePause;
         //UI events
         UIManager.OnResetRequest -= Reset;
-        //gameplay events
-        PlayerManager.OnDeath -= (DeathType deathType) =>
-        {
-            OnPlayerDeath();
-            IsPlayerAlive = false;
-        };
-
-        OnGameStarted -= OnGameStarted;
-        OnPlayerDeath -= OnPlayerDeath;
-        OnNewRowAchieved -= OnNewRowAchieved;
     }
 
     private void OnDestroy()

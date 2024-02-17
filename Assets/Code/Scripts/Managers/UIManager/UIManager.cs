@@ -1,30 +1,84 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public delegate void ResetRequest();
     public static ResetRequest OnResetRequest = new ResetRequest( () => {} );
 
+    //screens
     [SerializeField] MenuComponent TitleScreenMenu;
     [SerializeField] MenuComponent PauseMenu;
     [SerializeField] MenuComponent PlayMenu;
     [SerializeField] MenuComponent DeathScreen;
     [SerializeField] MenuComponent SkinSelection;
-
+    //player current score
     [SerializeField] TMP_Text Score;
+
+    private MenuState CurrentState;
+    private MenuState OldState;
+
+    private enum MenuState
+    {
+        TitleScreen,
+        Pause,
+        Play,
+        DeathScreen
+    };
 
     private void Awake()
     {
-        ShowTitleScreen(true);
-        ShowPlayMenu(true);
-        ShowPauseMenu(false);
-        ShowDeathMenu(false);
-        ShowSkinSelectionMenu(true);
+        SetState(MenuState.TitleScreen);
+    }
+
+    private void SetState(MenuState menuState)
+    {
+        switch(menuState)
+        {
+            //Title
+            case MenuState.TitleScreen:
+            {
+                ShowTitleScreen(true);
+                ShowPlayMenu(true);
+                ShowPauseMenu(false);
+                ShowDeathMenu(false);
+                ShowSkinSelectionMenu(true);
+                break;
+            }
+            //Pause
+            case MenuState.Pause:
+            {
+                ShowTitleScreen(false);
+                ShowPlayMenu(false);
+                ShowPauseMenu(true);
+                ShowDeathMenu(false);
+                ShowSkinSelectionMenu(false);
+                break;
+            }
+            //Play
+            case MenuState.Play:
+            {
+                ShowTitleScreen(false);
+                ShowPlayMenu(true);
+                ShowPauseMenu(false);
+                ShowDeathMenu(false);
+                ShowSkinSelectionMenu(false);
+                break;
+            }
+            //Death
+            case MenuState.DeathScreen:
+            {
+                ShowTitleScreen(false);
+                ShowPlayMenu(false);
+                ShowPauseMenu(false);
+                ShowDeathMenu(true);
+                ShowSkinSelectionMenu(false);
+                break;
+            }
+            default: { break; }
+        }
+        CurrentState = menuState;
     }
 
     private void ShowTitleScreen(bool show)
@@ -35,11 +89,14 @@ public class UIManager : MonoBehaviour
     private void ShowPauseMenu(bool show)
     {
         PauseMenu.gameObject.SetActive(show);
+        
     }
 
     private void ShowDeathMenu(bool show)
     {
         DeathScreen.gameObject.SetActive(show);
+        if(show)
+            DeathScreen.Show();
     }
 
     private void ShowPlayMenu(bool show)
@@ -70,29 +127,29 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnPauseRequest += ShowPauseMenu;
+        //All events are unsubscribed OnDisable instance of that class
+        //Start Game
+        GameManager.OnGameStarted += () => SetState(MenuState.Play);
+        //Player Death
+        GameManager.OnPlayerDeath += () => SetState(MenuState.DeathScreen);
+        //Pause
+        GameManager.OnPauseRequest += (bool show) =>
+        {
+            if (show)
+            {
+                OldState = CurrentState;
+                SetState(MenuState.Pause);
+            }
+            else
+                SetState(OldState);
+        };
+
+        //Player Score
         GameManager.OnScoreChange += UpdateScore;
-        GameManager.OnGameStarted += () => ShowTitleScreen(false);
-        GameManager.OnGameStarted += () => ShowSkinSelectionMenu(false);
-        GameManager.OnPlayerDeath += () => ShowDeathMenu(true);
     }
 
     private void OnDisable()
     {
-        GameManager.OnPauseRequest -= ShowPauseMenu;
-        GameManager.OnScoreChange -= UpdateScore;
-        GameManager.OnGameStarted -= () => ShowTitleScreen(false);
-        GameManager.OnGameStarted -= () => ShowSkinSelectionMenu(false);
-        GameManager.OnPlayerDeath -= () => ShowDeathMenu(true);
+        OnResetRequest -= OnResetRequest;
     }
-
-    private void OnDestroy()
-    {
-        GameManager.OnPauseRequest -= ShowPauseMenu;
-        GameManager.OnScoreChange -= UpdateScore;
-        GameManager.OnGameStarted -= () => ShowTitleScreen(false);
-        GameManager.OnGameStarted -= () => ShowSkinSelectionMenu(false);
-        GameManager.OnPlayerDeath -= () => ShowDeathMenu(true);
-    }
-
 }

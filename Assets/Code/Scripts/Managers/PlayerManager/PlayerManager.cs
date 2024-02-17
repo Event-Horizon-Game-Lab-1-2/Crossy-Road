@@ -37,6 +37,8 @@ public class PlayerManager : MonoBehaviour
         {
             dead = true;
             OnDeath(deathTrigger.deathType);
+            if (deathTrigger.deathType == DeathType.OutOfBound)
+                Destroy(gameObject, 1f);
         }
     }
 }

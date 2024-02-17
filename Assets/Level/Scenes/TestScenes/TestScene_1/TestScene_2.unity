@@ -616,8 +616,6 @@ MonoBehaviour:
   LinearAccelDistance: 0.25
   LinearAccelSpeed: 1
   Target: {fileID: 1875968923}
-  ZoomPercentage: 0.5
-  ZoomInSpeed: 1.5
 --- !u!1 &1017153541
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +665,7 @@ MonoBehaviour:
   TargetToPickUpOffset: {x: 0, y: 1.5, z: 0}
   TargetToPickUp: {fileID: 1875968923}
   EndingPos: {x: 0, y: 3.8, z: -10}
+  DeathSpeed: 1.5
   DeathObject: {fileID: 837783060}
   SoundCurve:
     serializedVersion: 2
@@ -1235,9 +1234,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5250842472252933223, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6030185540313123247, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1437,6 +1440,10 @@ PrefabInstance:
     - target: {fileID: 6554141365019233225, guid: bd71d31fa53306547aaf884d3119fdb5, type: 3}
       propertyPath: m_Name
       value: CubeTest1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583159917473955894, guid: bd71d31fa53306547aaf884d3119fdb5, type: 3}
+      propertyPath: raycastDistance
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
