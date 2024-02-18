@@ -138,7 +138,7 @@ public class InputComponent : MonoBehaviour
         GameManager.OnGameStarted += () => CanPause = true;
         //OnDirectionChanged += OnDirectionChanged;
         //OnDirectionConfirmed += OnDirectionConfirmed;
-        PlayerManager.OnDeath += (DeathType t) => PlayerDead = false;
+        PlayerManager.OnDeath += (DeathType t) => PlayerDead = true;
     }
 
     private void OnDisable()

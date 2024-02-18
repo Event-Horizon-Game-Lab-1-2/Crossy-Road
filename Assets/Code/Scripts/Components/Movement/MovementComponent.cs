@@ -61,8 +61,6 @@ public class MovementComponent : MonoBehaviour
 
             OnMove();
 
-            Debug.Log(dirToGo);
-
         }
 
         else
@@ -99,8 +97,7 @@ public class MovementComponent : MonoBehaviour
     void SuspendMovement()
     {
         TileTransform = null;
-        StopAllCoroutines() ;
+        StopAllCoroutines();
         this.enabled = false;
-
     }
 }

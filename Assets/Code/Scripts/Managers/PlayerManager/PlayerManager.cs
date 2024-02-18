@@ -41,4 +41,9 @@ public class PlayerManager : MonoBehaviour
                 Destroy(gameObject, 1f);
         }
     }
+
+    private void OnDisable()
+    {
+        OnDeath -= OnDeath;
+    }
 }

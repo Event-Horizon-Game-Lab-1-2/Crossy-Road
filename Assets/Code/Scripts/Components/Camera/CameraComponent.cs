@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using static DeathTypeClass;
 
 public class CameraComponent : MonoBehaviour
 {
@@ -78,15 +79,31 @@ public class CameraComponent : MonoBehaviour
 
     private void ResumePos()
     {
-        StopAllCoroutines();
         StartCoroutine(GoBack());
+    }
+
+    private void OnPlayerDeath(DeathType deathType)
+    {
+        StopAllCoroutines();
+        switch (deathType)
+        {
+            case DeathType.Idling:
+            {
+                ResumePos();
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
     }
 
     private void OnEnable()
     {
         //Connect all Events
         InputComponent.OnDirectionConfirmed += StartMoving;
-        GameManager.OnPlayerDeath += ResumePos;
+        PlayerManager.OnDeath += (DeathType deathType) => OnPlayerDeath(deathType);
     }
 
     private void OnDisable()
@@ -99,7 +116,6 @@ public class CameraComponent : MonoBehaviour
     {
         //Disconnect all Events
         InputComponent.OnDirectionConfirmed -= StartMoving;
-        GameManager.OnPlayerDeath -= ResumePos;
     }
 
 #if UNITY_EDITOR
