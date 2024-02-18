@@ -50,7 +50,7 @@ public class DinamicSpawner : Spawner
 
     private List<Transform> ListOfTransform = new List<Transform>();
     private Quaternion Rotation = Quaternion.identity;
-    public bool StartLeft;
+    private bool StartLeft;
     private float Speed;
     private int ObjectSpawnAmount;
 
@@ -81,8 +81,10 @@ public class DinamicSpawner : Spawner
             float c = SpawnStartPos;
             SpawnStartPos = SpawnEndPos;
             SpawnEndPos = c;
-            Rotation = Quaternion.Euler(Vector3.right);
+            Rotation = Quaternion.Euler(Vector3.up * -180);
         }
+        else
+            Rotation = Quaternion.Euler(Vector3.zero);
 
         //Get Spawn object type
         int objectToSpawnIndex = 0;

@@ -78,8 +78,10 @@ public class TrainSpawner : Spawner
             float c = SpawnStartPos;
             SpawnStartPos = SpawnEndPos;
             SpawnEndPos = c;
-            Rotation = Quaternion.Euler(Vector3.right);
+            Rotation = Quaternion.Euler(Vector3.up * -180);
         }
+        else
+            Rotation = Quaternion.Euler(Vector3.zero);
 
         //Instanciate only one object
         ListOfTransform.Add(Instantiate(ObjectsToSpawn[0].ObjectTransform, transform.position, Rotation));

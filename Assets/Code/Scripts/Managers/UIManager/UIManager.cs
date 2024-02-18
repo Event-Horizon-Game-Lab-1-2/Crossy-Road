@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public delegate void ResetRequest();
-    public static ResetRequest OnResetRequest = new ResetRequest( () => {} );
+    public static ResetRequest OnResetRequest = new ResetRequest(() => { });
 
     //screens
     [SerializeField] MenuComponent TitleScreenMenu;
@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] MenuComponent SkinSelection;
     //player current score
     [SerializeField] TMP_Text Score;
+
+    [SerializeField] int SkinSelectorScene = 1;
 
     private MenuState CurrentState;
     private MenuState OldState;
@@ -122,7 +124,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeSkin()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SkinSelectorScene);
     }
 
     private void OnEnable()

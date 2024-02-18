@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Level/Scenes/TestScenes/TestScene_1/TestScene_1.unity
-    guid: 23f774b4ef7494249b06e91ac4126561
+    path: Assets/Level/Scenes/GameScenes/UnityLevel.unity
+    guid: 8605aa5817d0a2540951e7b77a20d124
   - enabled: 1
-    path: Assets/Level/Scenes/TestScenes/TestScene_1/SkinSelectorTest1.unity
-    guid: bd64e130384946848ad6ea78f49d8896
+    path: Assets/Level/Scenes/GameScenes/SkinSelectionScene.unity
+    guid: 4be70dae6288239428b39c606c46d89d
+  - enabled: 1
+    path: Assets/Level/Scenes/GameScenes/ChocolateLevel.unity
+    guid: fae569a5164410e41907b57a9ba50663
+  - enabled: 1
+    path: Assets/Level/Scenes/GameScenes/GothLevel.unity
+    guid: c217c1291c6dced41922f188bc792076
   m_configObjects: {}

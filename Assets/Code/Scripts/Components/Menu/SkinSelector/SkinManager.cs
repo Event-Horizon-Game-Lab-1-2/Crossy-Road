@@ -67,9 +67,7 @@ public class SkinManager : MonoBehaviour
 
     public void PlayGame()
     {
-
         PlayerPrefs.SetInt("selectedSkin", selectedSkin);
-
-        SceneManager.LoadScene("TestScene_1");
+        SceneManager.LoadScene(Skins[selectedSkin].LevelIndex);
     }
 }

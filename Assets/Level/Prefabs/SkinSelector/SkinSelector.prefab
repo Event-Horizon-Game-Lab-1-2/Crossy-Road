@@ -51,7 +51,7 @@ MonoBehaviour:
   selectedSkin: 0
   TextSkin: {fileID: 0}
   Skins:
-  - SkinName: paolo
+  - SkinName: TestCube
     SkinPrefabTransform: {fileID: 8266206749379825856}
     LevelIndex: 0
   - SkinName: coso

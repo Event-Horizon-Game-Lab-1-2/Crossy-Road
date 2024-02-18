@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1278280917062325125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218243542429638601, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162895668733814597, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129716403299928346, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: SpawnTilesAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129716403299928346, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: SpawnTilesOffset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552246998698723670, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_Name
+      value: RiverLog_Short
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4294720723559311856, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
