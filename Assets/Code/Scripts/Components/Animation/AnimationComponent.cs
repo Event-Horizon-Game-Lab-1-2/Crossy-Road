@@ -232,6 +232,13 @@ public class AnimationComponent : MonoBehaviour
                 StartCoroutine(Drown());
                 break;
             }
+            //Toothless Victory Royale
+            case DeathType.Idling:
+            {
+                MeshSpeed = float.MaxValue;
+                StartCoroutine(FollowTarget());
+                break;
+            }
             default:
                 break;
         }
