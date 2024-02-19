@@ -177,15 +177,12 @@ public class AnimationComponent : MonoBehaviour
 
         Instantiate(particles, Target.position + (Vector3.up * 0.25f), Quaternion.Euler(Vector3.left * 90));
 
-        while (timePassed < DrownSpeed)
+        while (timePassed < 1f)
         {
-            float percentageComplete = timePassed / DrownSpeed;
-            Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
-            //float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
+
+            Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, timePassed);
             meshTransform.position = newPosition;
-
-
-            timePassed += Time.deltaTime;
+            timePassed += Time.deltaTime * DrownSpeed;
             yield return null;
         }
 
@@ -215,30 +212,30 @@ public class AnimationComponent : MonoBehaviour
 
     private void Die(DeathType deathType)
     {
-        DisconnectAllEvents();
+        //DisconnectAllEvents();
         StopAllCoroutines();
         StartCoroutine(ForceToTarget());
-        switch(deathType)
+        switch (deathType)
         {
             //Squash
             case DeathType.Squash:
-            {
-                StartCoroutine(SquishedByVehicle());
-                break;
-            }
+                {
+                    StartCoroutine(SquishedByVehicle());
+                    break;
+                }
             //Drown
             case DeathType.Drown:
-            {
-                StartCoroutine(Drown());
-                break;
-            }
+                {
+                    StartCoroutine(Drown());
+                    break;
+                }
             //Toothless Victory Royale
             case DeathType.Idling:
-            {
-                MeshSpeed = float.MaxValue;
-                StartCoroutine(FollowTarget());
-                break;
-            }
+                {
+                    MeshSpeed = float.MaxValue;
+                    StartCoroutine(FollowTarget());
+                    break;
+                }
             default:
                 break;
         }

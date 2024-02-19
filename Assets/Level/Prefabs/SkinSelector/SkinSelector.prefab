@@ -194,6 +194,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7882637638038257803, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+      propertyPath: DrownSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882637638038257803, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
       propertyPath: JumpCurve.m_Curve.Array.size
       value: 3
       objectReference: {fileID: 0}
