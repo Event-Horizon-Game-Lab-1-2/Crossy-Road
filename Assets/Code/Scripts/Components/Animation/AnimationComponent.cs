@@ -27,45 +27,31 @@ public class AnimationComponent : MonoBehaviour
 
 
     private void Awake()
-
     {
         StartCoroutine(FollowTarget());
     }
+
     private IEnumerator FollowTarget()
     {
-        //if(!IsDead)
-        //    TargetTransform.position += direction;
         while (true)
         {
             if (Target != null)
             {
-
                 if (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
-
-                {
-
-                    //smooth damp -> interpolazione che dipende dal tempo che viene passata
                     meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
-                }
                 else
-                {
                     meshTransform.position = Target.position;
-                }
             }
-            //Vector3 velocityRef = Vector3.zero;
-
-
             yield return null;
         }
-
     }
+
     private IEnumerator ForceToTarget()
     {
         while (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
         {
             //smooth damp -> interpolazione che dipende dal tempo che viene passata
             meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
-
             yield return null;
         }
     }
@@ -144,7 +130,6 @@ public class AnimationComponent : MonoBehaviour
     private void Move()
     {
         StopCoroutine(FollowTarget());
-
         StartCoroutine(Jump());
         StartCoroutine(FollowTarget());
     }
@@ -181,7 +166,6 @@ public class AnimationComponent : MonoBehaviour
 
     private IEnumerator Drown() //quando affoga nell'acqua >:D
     {
-        StopCoroutine(FollowTarget());
         //StartCoroutine(Jump());
         StartCoroutine(Jump());
         yield return StartCoroutine(ForceToTarget());
@@ -225,16 +209,32 @@ public class AnimationComponent : MonoBehaviour
 
             yield return null;
         }
+        StopAllCoroutines();
     }
 
 
     private void Die(DeathType deathType)
     {
-        if (deathType == DeathType.Squash)
-            StartCoroutine(SquishedByVehicle());
-        else if (deathType == DeathType.Drown)
-            StartCoroutine(Drown());
-        //StartCoroutine(MoveCoroutine());
+        DisconnectAllEvents();
+        StopAllCoroutines();
+        StartCoroutine(ForceToTarget());
+        switch(deathType)
+        {
+            //Squash
+            case DeathType.Squash:
+            {
+                StartCoroutine(SquishedByVehicle());
+                break;
+            }
+            //Drown
+            case DeathType.Drown:
+            {
+                StartCoroutine(Drown());
+                break;
+            }
+            default:
+                break;
+        }
     }
 
     private void MoveEvent(Vector3 dir)
@@ -246,13 +246,9 @@ public class AnimationComponent : MonoBehaviour
     private void OnEnable()
     {
         StopAllCoroutines();
-
         InputComponent.OnDirectionChanged += MoveEvent;
-
         InputComponent.OnDirectionConfirmed += SquashFunc;
-
         MovementComponent.OnMove += Move;
-
         PlayerManager.OnDeath += Die;
     }
 
@@ -269,13 +265,8 @@ public class AnimationComponent : MonoBehaviour
     private void DisconnectAllEvents()
     {
         InputComponent.OnDirectionChanged -= MoveEvent;
-
         InputComponent.OnDirectionConfirmed -= SquashFunc;
-
         MovementComponent.OnMove -= Move;
-
         PlayerManager.OnDeath -= Die;
-
-        StopAllCoroutines();
     }
 }

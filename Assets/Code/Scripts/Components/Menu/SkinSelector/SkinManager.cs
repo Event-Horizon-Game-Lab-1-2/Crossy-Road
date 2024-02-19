@@ -45,7 +45,6 @@ public class SkinManager : MonoBehaviour
             selectedSkin = 0;
         }
         Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
-        Debug.Log(selectedSkin);
 
         TextSkin.text = Skins[selectedSkin].SkinName;
     }
@@ -59,8 +58,6 @@ public class SkinManager : MonoBehaviour
             selectedSkin = Skins.Count - 1;
         }
         Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
-
-        Debug.Log(selectedSkin);
 
         TextSkin.text = Skins[selectedSkin].SkinName;
     }
