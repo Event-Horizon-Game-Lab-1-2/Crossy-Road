@@ -122,9 +122,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162895668733814597, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7129716403299928346, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
       propertyPath: SpawnTilesAmount
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129716403299928346, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
+      propertyPath: SpawnTilesOffset.x
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7552246998698723670, guid: 3f678dab9427d7a4a9fbfd55e1039389, type: 3}
       propertyPath: m_Name
