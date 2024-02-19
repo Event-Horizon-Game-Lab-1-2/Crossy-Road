@@ -938,6 +938,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1372210658}
     m_Modifications:
     - target: {fileID: 3406849660760725109, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+      propertyPath: GizmosColor.b
+      value: 0.08150673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406849660760725109, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+      propertyPath: GizmosColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406849660760725109, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+      propertyPath: GizmosColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406849660760725109, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
       propertyPath: TargetToPickUp
       value: 
       objectReference: {fileID: 1017153545}

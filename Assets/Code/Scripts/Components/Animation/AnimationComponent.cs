@@ -240,6 +240,7 @@ public class AnimationComponent : MonoBehaviour
 
     private void Die(DeathType deathType)
     {
+        MeshSpeed = float.MaxValue;
         if (deathType == DeathType.Squash)
             StartCoroutine(SquishedByVehicle());
         else if (deathType == DeathType.Drown)

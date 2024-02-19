@@ -41,13 +41,15 @@ public class FlyingDeath : MonoBehaviour
         DeathObject.gameObject.SetActive(true);
 
         AudioSource.Play();
+        transform.position = TargetToPickUp.position;
         float progress = 0f;
         float audioProgress = 0f;
+        Debug.Log(TargetToPickUp.position);
         //move
         while (progress <= 1f)
         {
             //position
-            DeathObject.position = Vector3.Lerp(TargetToPickUp.parent.position + StartingPos, TargetToPickUp.parent.position + TargetToPickUpOffset, progress);
+            DeathObject.position = Vector3.Lerp(TargetToPickUp.position + StartingPos, TargetToPickUp.position + TargetToPickUpOffset, progress);
             //audio
             audioProgress = Mathf.Lerp(0, 0.5f, progress);
             AudioSource.volume = SoundCurve.Evaluate(audioProgress);
@@ -55,14 +57,16 @@ public class FlyingDeath : MonoBehaviour
             progress += Time.deltaTime * DeathSpeed;
             yield return null;
         }
+        Debug.Log(TargetToPickUp.position);
+        Debug.Log(DeathObject.position);
         //pick up player
         progress = 0f;
-        Vector3 objectToPickUpStartpos = TargetToPickUp.parent.position + TargetToPickUpOffset;
+        Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
         while (progress <= 1f)
         {
             //position
             DeathObject.position = Vector3.Lerp(objectToPickUpStartpos, EndingPos, progress);
-            TargetToPickUp.parent.position = DeathObject.position - TargetToPickUpOffset;
+            TargetToPickUp.position = DeathObject.position - TargetToPickUpOffset;
             //audio
             audioProgress = Mathf.Lerp(0.5f, 1f, progress);
             AudioSource.volume = SoundCurve.Evaluate(audioProgress);
@@ -72,7 +76,7 @@ public class FlyingDeath : MonoBehaviour
         }
 
         DeathObject.gameObject.SetActive(false);
-        TargetToPickUp.transform.parent.gameObject.SetActive(false);
+        TargetToPickUp.transform.gameObject.SetActive(false);
 
     }
 
