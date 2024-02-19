@@ -4,6 +4,7 @@ using UnityEngine;
 using static DeathTrigger;
 using static DeathTypeClass;
 using static GameManager;
+[System.Serializable]
 
 public class InputComponent : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class InputComponent : MonoBehaviour
 
     //Delays between inputs
     [Header("Movement CoolDown")]
-    [SerializeField] private float InputRecoveryTime = 0.1f;
+    [SerializeField] private float DelayBetweenInputs = 0.25f;
+    [HideInInspector] public static float InputRecoveryTime = 0.1f;
 
     //direction of movement
     private Vector3 Direction;
@@ -44,6 +46,12 @@ public class InputComponent : MonoBehaviour
     private bool PlayerDead = false;
 
     private bool CanPause = false;
+
+    private void Awake()
+    {
+        DelayBetweenInputs = InputRecoveryTime;
+
+    }
 
     void Update()
     {
@@ -68,7 +76,7 @@ public class InputComponent : MonoBehaviour
         if (IsDirectionConfirmed() && CoolDownTimer <= 0f)
         {
             //Debug.Log("Direction Confirmed");
-            CoolDownTimer = InputRecoveryTime;
+            CoolDownTimer = DelayBetweenInputs;
             OnDirectionConfirmed();
         }
 

@@ -14,13 +14,22 @@ public class AnimationComponent : MonoBehaviour
 
     public GameObject particles;
 
+
     [SerializeField] public float MeshSpeed = 5f;
-    
+
+    [SerializeField] float movementTime = 0.1f;
+    [SerializeField] private float MaxJumpHeight = 1f;
+
+
     [SerializeField] Transform meshTransform;
 
     [HideInInspector] public Transform Target;
 
-    private void Start()
+    [SerializeField] private AnimationCurve JumpCurve;
+
+
+    private void Awake()
+
     {
         StartCoroutine(FollowTarget());
     }
@@ -28,10 +37,11 @@ public class AnimationComponent : MonoBehaviour
     {
         //if(!IsDead)
         //    TargetTransform.position += direction;
-        while (true) { 
+        while (true)
+        {
             if (Target != null)
             {
-               
+
                 if (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
 
                 {
@@ -46,17 +56,17 @@ public class AnimationComponent : MonoBehaviour
             }
             //Vector3 velocityRef = Vector3.zero;
 
-            
+
             yield return null;
         }
-       
+
     }
     private IEnumerator ForceToTarget()
     {
         while (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
         {
-                //smooth damp -> interpolazione che dipende dal tempo che viene passata
-                meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
+            //smooth damp -> interpolazione che dipende dal tempo che viene passata
+            meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
 
             yield return null;
         }
@@ -64,8 +74,8 @@ public class AnimationComponent : MonoBehaviour
 
     private IEnumerator Squish() //movimento di quando si squisha mentre si holda un tasto
     {
-        Vector3 lastScale = new Vector3(1, 0.5f, 1); 
-        Vector3 firstScale = new Vector3(1, 1, 1);    
+        Vector3 lastScale = new Vector3(1, 0.5f, 1);
+        Vector3 firstScale = new Vector3(1, 1, 1);
 
         float timePassed = 0f;
         while (timePassed < timeDurationSquishSquash)
@@ -77,7 +87,7 @@ public class AnimationComponent : MonoBehaviour
             Vector3 currentScale = Vector3.Lerp(firstScale, lastScale, percentualeCompletamento);
             meshTransform.localScale = currentScale;
 
-            yield return null; 
+            yield return null;
         }
     }
 
@@ -88,7 +98,7 @@ public class AnimationComponent : MonoBehaviour
 
     private IEnumerator Squash() //movimento di quando torna allo stato normale 
     {
-        Vector3 lastScale = new Vector3(1,1, 1);
+        Vector3 lastScale = new Vector3(1, 1, 1);
         Vector3 firstScale = new Vector3(1, 0.5f, 1);
 
         float timePassed = 0f;
@@ -104,17 +114,17 @@ public class AnimationComponent : MonoBehaviour
             yield return null;
         }
     }
-    
+
     private IEnumerator Rotate(Vector3 dirToGo) //quando cambia direzione ruota
     {
         Vector3 rotationToDo = Vector3.zero;
         direction = dirToGo;
 
-        if   (dirToGo == new Vector3(1, 0, 0)) //davanti a destra
+        if (dirToGo == new Vector3(1, 0, 0)) //davanti a destra
         {
             rotationToDo = new Vector3(0, 90, 0);
         }
-        else if ( dirToGo == new Vector3(-1, 0, 0))  //davanti a sinistra 
+        else if (dirToGo == new Vector3(-1, 0, 0))  //davanti a sinistra 
         {
             rotationToDo = new Vector3(0, -90, 0);
         }
@@ -124,7 +134,7 @@ public class AnimationComponent : MonoBehaviour
         }
         else if (dirToGo == new Vector3(0, 0, -1))  //dietro
         {
-            rotationToDo = new Vector3(0, 180, 0); 
+            rotationToDo = new Vector3(0, 180, 0);
         }
 
         meshTransform.rotation = Quaternion.Euler(rotationToDo);
@@ -135,59 +145,40 @@ public class AnimationComponent : MonoBehaviour
 
     private void Move()
     {
+        StopAllCoroutines();
         StartCoroutine(Jump());
+        StartCoroutine(FollowTarget());
     }
 
     private bool isJumping = false;
 
     private IEnumerator Jump() // quando passa da una cella all'altra
     {
-        if (isJumping) yield break; 
+
+        if (isJumping) yield break;
         isJumping = true;
 
-        Vector3 initialPosition = meshTransform.position;
-        Vector3 finalPosition = meshTransform.position + Vector3.up;
+        Vector3 position;
+
 
         float timePassed = 0f;
-        while (timePassed < timeJump)
+
+        while (timePassed < 1)
         {
-            timePassed += Time.deltaTime;
+            timePassed += Time.deltaTime * 1 / InputComponent.InputRecoveryTime;
 
-            float percentageComplete = timePassed / timeJump;
+            float myHeight = JumpCurve.Evaluate(timePassed) * MaxJumpHeight;
 
-            float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            meshTransform.position = new Vector3(meshTransform.position.x, myHeight, meshTransform.position.z);
+
+            position = meshTransform.position;
+            position.y = myHeight;
+            meshTransform.position = position;
 
             yield return null;
         }
         isJumping = false;
-        StartCoroutine(JumpDown());
     }
 
-
-
-    private IEnumerator JumpDown()
-    {
-        
-        Vector3 initialPosition = new Vector3(meshTransform.position.x, meshTransform.position.y +1, meshTransform.position.z);
-        Vector3 finalPosition = new Vector3(meshTransform.position.x, 0, meshTransform.position.z);
-
-        float timePassed = 0f;
-        while (timePassed < timeJump)
-        {
-            timePassed += Time.deltaTime;
-
-            float percentageComplete = timePassed / timeJump;
-
-     
-            //Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
-            float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
-            meshTransform.position = new Vector3(meshTransform.position.x, myHeight, meshTransform.position.z);
-
-
-            yield return null;
-        }
-    }
 
     private IEnumerator Drown() //quando affoga nell'acqua >:D
     {
@@ -214,7 +205,7 @@ public class AnimationComponent : MonoBehaviour
             timePassed += Time.deltaTime;
             yield return null;
         }
-        
+
         StopAllCoroutines();
     }
 
@@ -240,7 +231,6 @@ public class AnimationComponent : MonoBehaviour
 
     private void Die(DeathType deathType)
     {
-        MeshSpeed = float.MaxValue;
         if (deathType == DeathType.Squash)
             StartCoroutine(SquishedByVehicle());
         else if (deathType == DeathType.Drown)
