@@ -8,9 +8,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[0].ObjectTransform
+      value: 
+      objectReference: {fileID: 4728585367840206791, guid: 929bfd94074442842b97f534c27b141e, type: 3}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[1].ObjectTransform
+      value: 
+      objectReference: {fileID: 4728585367840206791, guid: cd773d94ce396c34bac8859a4c8300cf, type: 3}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[2].ObjectTransform
+      value: 
+      objectReference: {fileID: 7935455674271112510, guid: db2c4f7e230bc2e499a4ac5faef2e04f, type: 3}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[3].ObjectTransform
+      value: 
+      objectReference: {fileID: 6985732749117730018, guid: fc8263ac56643154c8ea7fcd6e4216b5, type: 3}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[4].ObjectTransform
+      value: 
+      objectReference: {fileID: 7935455674271112510, guid: 229bb13b1aa052e4a95e7b53d79203c0, type: 3}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[0].SpawnProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[1].SpawnProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[2].SpawnProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[3].SpawnProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 542547171679673143, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[4].SpawnProbability
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4711435958594849324, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
       propertyPath: m_Name
-      value: GrassRow
+      value: Chocolate_GrassRow
       objectReference: {fileID: 0}
     - target: {fileID: 4913190519504332374, guid: 002d67f66aa298941b7e31d75e42af0b, type: 3}
       propertyPath: m_LocalPosition.x
