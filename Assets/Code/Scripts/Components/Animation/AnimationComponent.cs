@@ -10,14 +10,12 @@ public class AnimationComponent : MonoBehaviour
     //Transform TargetTransform;
 
     public float timeDurationSquishSquash = 0.2f;
-    public float timeJump = 0.2f;
 
     public GameObject particles;
 
 
     [SerializeField] public float MeshSpeed = 5f;
-
-    [SerializeField] float movementTime = 0.1f;
+    [SerializeField] public float DrownSpeed = 0.2f;
     [SerializeField] private float MaxJumpHeight = 1f;
 
 
@@ -145,7 +143,8 @@ public class AnimationComponent : MonoBehaviour
 
     private void Move()
     {
-        StopAllCoroutines();
+        StopCoroutine(FollowTarget());
+
         StartCoroutine(Jump());
         StartCoroutine(FollowTarget());
     }
@@ -194,9 +193,9 @@ public class AnimationComponent : MonoBehaviour
 
         Instantiate(particles, Target.position + (Vector3.up * 0.25f), Quaternion.Euler(Vector3.left * 90));
 
-        while (timePassed < timeJump)
+        while (timePassed < DrownSpeed)
         {
-            float percentageComplete = timePassed / timeJump;
+            float percentageComplete = timePassed / DrownSpeed;
             Vector3 newPosition = Vector3.Lerp(initialPosition, finalPosition, percentageComplete);
             //float myHeight = Mathf.Lerp(initialPosition.y, finalPosition.y, percentageComplete);
             meshTransform.position = newPosition;

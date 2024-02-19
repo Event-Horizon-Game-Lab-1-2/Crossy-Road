@@ -938,6 +938,14 @@ PrefabInstance:
       propertyPath: Skins.Array.data[3].LevelIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 450817991080437708, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066568155874324919, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2866034973011906301, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

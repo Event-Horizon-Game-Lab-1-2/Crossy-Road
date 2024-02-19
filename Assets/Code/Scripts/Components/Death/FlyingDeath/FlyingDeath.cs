@@ -104,6 +104,10 @@ public class FlyingDeath : MonoBehaviour
             return;
 
         Handles.color = GizmosColor;
+        if (TargetToPickUp == null) 
+        {
+            return;
+        }
         Handles.DrawLine(StartingPos + TargetToPickUp.position, TargetToPickUp.position + TargetToPickUpOffset);
         Handles.DrawLine(TargetToPickUp.position + TargetToPickUpOffset, EndingPos + TargetToPickUp.position);
     }

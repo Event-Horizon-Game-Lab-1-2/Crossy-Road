@@ -463,6 +463,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2976410333540660142, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: MaxJumpHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7830939752126089643, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_Name
       value: SkinSelector
