@@ -59,12 +59,24 @@ public class ObstacleSpawner : Spawner
 
     private int GetObjectToSpawn(float probability)
     {
-        for (int i = 0; i < ObjectsToSpawn.Length; i++)
+        //create probability array
+        float[] probabilityArray = new float[ObjectsToSpawn.Length];
+        probabilityArray[0] = ObjectsToSpawn[0].SpawnProbability;
+        for (int i = 1; i < ObjectsToSpawn.Length; i++)
         {
-            if (ObjectsToSpawn[i].SpawnProbability < probability)
-                return i;
+            probabilityArray[i] = probabilityArray[i - 1] + ObjectsToSpawn[i].SpawnProbability;
         }
-        return (int)UnityEngine.Random.Range(0, ObjectsToSpawn.Length);
+        //Select a random object
+        float randomValue = UnityEngine.Random.value;
+        bool f = false;
+        for (int i = 0; i < probabilityArray.Length && !f; i++)
+        {
+            if (randomValue <= probabilityArray[i])
+            {
+                return i;
+            }
+        }
+        return 0;
     }
 
     private Vector3 GetSpawnTile()
