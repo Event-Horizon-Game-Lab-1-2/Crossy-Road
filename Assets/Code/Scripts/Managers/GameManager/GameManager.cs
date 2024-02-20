@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public delegate void PauseRequest(bool pause);
     public static event PauseRequest OnPauseRequest = new PauseRequest((bool pause) => { });
 
+
     private enum GameState
     {
         Playing,
@@ -70,6 +71,14 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("selectedSkin", 0);
         }
+
+        if (!PlayerPrefs.HasKey("TopScore"))
+        {
+            PlayerPrefs.SetInt("TopScore", 0);
+
+        }
+        else
+            PlayerTopScore = PlayerPrefs.GetInt("TopScore");
     }
 
     private void Start()
@@ -101,7 +110,10 @@ public class GameManager : MonoBehaviour
             OnScoreChange(Score);
 
             if(Score > PlayerTopScore)
+            { 
                 PlayerTopScore = Score;
+                PlayerPrefs.SetInt("TopScore", PlayerTopScore);
+            } 
         }
     }
 
