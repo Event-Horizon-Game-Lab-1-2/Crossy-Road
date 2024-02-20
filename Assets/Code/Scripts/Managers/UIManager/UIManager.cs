@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] MenuComponent SkinSelection;
     //player current score
     [SerializeField] TMP_Text Score;
+    [SerializeField] TMP_Text TopScore;
 
     [SerializeField] int SkinSelectorScene = 1;
 
@@ -32,6 +34,11 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         SetState(MenuState.TitleScreen);
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void SetState(MenuState menuState)
@@ -85,30 +92,67 @@ public class UIManager : MonoBehaviour
 
     private void ShowTitleScreen(bool show)
     {
-        TitleScreenMenu.gameObject.SetActive(show);
+        if (show)
+        {
+            TitleScreenMenu.gameObject.SetActive(show);
+            TitleScreenMenu.StartAnimation();
+        }
+        else
+        {
+            TitleScreenMenu.EndAnimation();
+        }
     }
 
     private void ShowPauseMenu(bool show)
     {
-        PauseMenu.gameObject.SetActive(show);
-        
+        if (show)
+        {
+            PauseMenu.gameObject.SetActive(show);
+            PauseMenu.StartAnimation();
+        }
+        else
+        {
+            PauseMenu.EndAnimation();
+        }
     }
 
     private void ShowDeathMenu(bool show)
     {
-        DeathScreen.gameObject.SetActive(show);
-        if(show)
-            DeathScreen.Show();
+        if (show)
+        {
+            DeathScreen.gameObject.SetActive(show);
+            DeathScreen.StartAnimation();
+        }
+        else
+        {
+            DeathScreen.EndAnimation();
+        }
     }
 
     private void ShowPlayMenu(bool show)
     {
-        PlayMenu.gameObject.SetActive(show);
+        if (show)
+        {
+            PlayMenu.gameObject.SetActive(show);
+            PlayMenu.StartAnimation();
+        }
+        else
+        {
+            PlayMenu.EndAnimation();
+        }
     }
 
     private void ShowSkinSelectionMenu(bool show)
     {
-        SkinSelection.gameObject.SetActive(show);
+        if (show)
+        {
+            SkinSelection.gameObject.SetActive(show);
+            SkinSelection.StartAnimation();
+        }
+        else
+        {
+            SkinSelection.EndAnimation();
+        }
     }
 
     private void UpdateScore(int score)
@@ -124,6 +168,13 @@ public class UIManager : MonoBehaviour
 
     public void ChangeSkin()
     {
+        StartCoroutine(ChangeSkinAnimation());
+    }
+
+    private IEnumerator ChangeSkinAnimation()
+    {
+        SkinSelection.StartAnimation();
+        yield return new WaitForSeconds(0.2f);
         SceneManager.LoadScene(SkinSelectorScene);
     }
 

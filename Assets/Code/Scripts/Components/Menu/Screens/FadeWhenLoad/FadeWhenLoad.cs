@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuComponent : MonoBehaviour
+public class FadeWhenLoad : MonoBehaviour
 {
     [Tooltip("Animate function will be called after this delay ends")]
     [SerializeField] private float AnimationStartDelay = 0f;
@@ -11,16 +11,19 @@ public class MenuComponent : MonoBehaviour
     [Tooltip("List Of animation that will be shown at the hide menu")]
     [SerializeField] private List<UI_Animator> EndAnimationList;
 
-    public void StartAnimation()
+    private void Start()
     {
-        if (gameObject.activeSelf)
-            StartCoroutine(AnimateCoroutine());
+        Animate();
     }
 
-    public void EndAnimation()
+    public void Animate()
     {
-        if(gameObject.activeSelf)
-            StartCoroutine(EndAnimateCoroutine());
+        StartCoroutine(AnimateCoroutine());
+    }
+
+    public void End()
+    {
+        StartCoroutine(EndAnimateCoroutine());
     }
 
     private IEnumerator AnimateCoroutine()
@@ -38,17 +41,12 @@ public class MenuComponent : MonoBehaviour
     private IEnumerator EndAnimateCoroutine()
     {
         if (EndAnimationList == null)
-        {
-            gameObject.SetActive(false);
             StopAllCoroutines();
-        }
 
         yield return new WaitForSeconds(AnimationStartDelay);
         for (int i = 0; i < EndAnimationList.Count; i++)
         {
             EndAnimationList[i].StartAnimation();
         }
-        gameObject.SetActive(false);
     }
 }
-
