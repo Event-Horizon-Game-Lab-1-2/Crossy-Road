@@ -161,10 +161,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDurationSquishSquash: 0.2
-  particles: {fileID: 7302953545865188249, guid: 7393d11acb5bd664db92a23481161127, type: 3}
+  DeathParticles: {fileID: 7302953545865188249, guid: 7393d11acb5bd664db92a23481161127, type: 3}
   MeshSpeed: 5
   DrownSpeed: 3
-  MaxJumpHeight: 1
+  MaxJumpHeight: 0.5
   meshTransform: {fileID: 1407574779804491166}
   Target: {fileID: 0}
   JumpCurve:
@@ -173,26 +173,44 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.0018847
-      outSlope: 2.0018847
+      inSlope: 2.154881
+      outSlope: 2.154881
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.38770938
+      value: 0.8354676
+      inSlope: 1.9956105
+      outSlope: 1.9956105
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.6926564
+    - serializedVersion: 3
       time: 0.5
       value: 1.0009423
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.19791126
+      outSlope: -0.19791126
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.5784588
+      value: 0.8542674
+      inSlope: -2.2824466
+      outSlope: -2.2824466
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.13668731
+    - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2.0018847
-      outSlope: -2.0018847
+      inSlope: -2.0265336
+      outSlope: -2.0265336
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

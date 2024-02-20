@@ -738,6 +738,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9006262446015014797, guid: 2d0b7494f8783a942a02ae5adafe7a58, type: 3}
+      propertyPath: DelayBetweenInputs
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 9094993283555199401, guid: 2d0b7494f8783a942a02ae5adafe7a58, type: 3}
       propertyPath: m_Name
       value: InputComponent
