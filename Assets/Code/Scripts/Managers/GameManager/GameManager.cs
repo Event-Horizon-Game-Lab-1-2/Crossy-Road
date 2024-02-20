@@ -145,11 +145,11 @@ public class GameManager : MonoBehaviour
         //gameplay events
         PlayerManager.OnDeath += (DeathType deathType) =>
         {
-            if(OnPlayerDeath != null)
-                OnPlayerDeath();
             int newMoney = Score / MoneyAfterRowAmount;
             newMoney += PlayerPrefs.GetInt("PlayerMoney");
             PlayerPrefs.SetInt("PlayerMoney", newMoney);
+            if (OnPlayerDeath != null)
+                OnPlayerDeath();
             IsPlayerAlive = false;
         };
     }

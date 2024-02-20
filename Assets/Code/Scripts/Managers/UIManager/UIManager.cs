@@ -18,9 +18,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text Score;
     [SerializeField] TMP_Text TopScore;
     [SerializeField] TMP_Text Money;
+    [SerializeField] TMP_Text NewMoneyAmount;
     //Skin Selector scene index
     [SerializeField] int SkinSelectorScene = 1;
 
+    private int LastMoneyAmount;
 
     private MenuState CurrentState;
     private MenuState OldState;
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateScore(0);
         UpdateMoneyAmount();
+        LastMoneyAmount = PlayerPrefs.GetInt("PlayerMoney");
     }
 
     private void SetState(MenuState menuState)
@@ -125,6 +128,9 @@ public class UIManager : MonoBehaviour
         {
             DeathScreen.gameObject.SetActive(show);
             DeathScreen.StartAnimation();
+            int moneyObtained = PlayerPrefs.GetInt("PlayerMoney") - LastMoneyAmount;
+            string newtext = "Money Obtained: " + moneyObtained + "$";
+            NewMoneyAmount.text = newtext;
         }
         else
         {
