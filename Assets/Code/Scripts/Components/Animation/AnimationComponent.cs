@@ -4,27 +4,19 @@ using static DeathTypeClass;
 
 public class AnimationComponent : MonoBehaviour
 {
-
-    Vector3 direction;
-
     //Transform TargetTransform;
-
     public float timeDurationSquishSquash = 0.2f;
-
-    public GameObject particles;
-
+    public GameObject DeathParticles;
 
     [SerializeField] public float MeshSpeed = 5f;
     [SerializeField] public float DrownSpeed = 0.2f;
     [SerializeField] private float MaxJumpHeight = 1f;
-
 
     [SerializeField] Transform meshTransform;
 
     [HideInInspector] public Transform Target;
 
     [SerializeField] private AnimationCurve JumpCurve;
-
 
     private void Awake()
     {
@@ -33,25 +25,33 @@ public class AnimationComponent : MonoBehaviour
 
     private IEnumerator FollowTarget()
     {
-        while (true)
+        //follow target except for y
+        float progress = 0f;
+        //get to target
+        while (progress < 1f)
         {
-            if (Target != null)
-            {
-                if (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
-                    meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
-                else
-                    meshTransform.position = Target.position;
-            }
+            meshTransform.position = Vector3.Lerp(meshTransform.position, new Vector3(Target.position.x, meshTransform.position.y, Target.position.z), progress);
+            progress += Time.fixedDeltaTime * MeshSpeed;
+            yield return null;
+        }
+
+        //stay on target
+        while(true)
+        {
+            if(Target.position == null)
+                StopAllCoroutines();
+            meshTransform.position = Target.position;
             yield return null;
         }
     }
 
     private IEnumerator ForceToTarget()
     {
-        while (Vector3.Distance(meshTransform.position, Target.position) > 0.1f)
+        while(true)
         {
-            //smooth damp -> interpolazione che dipende dal tempo che viene passata
-            meshTransform.position = Vector3.Lerp(meshTransform.position, Target.position, Time.fixedDeltaTime * MeshSpeed);
+            if(Target.position == null)
+                yield break;
+            meshTransform.position = Target.position;
             yield return null;
         }
     }
@@ -102,7 +102,6 @@ public class AnimationComponent : MonoBehaviour
     private IEnumerator Rotate(Vector3 dirToGo) //quando cambia direzione ruota
     {
         Vector3 rotationToDo = Vector3.zero;
-        direction = dirToGo;
 
         if (dirToGo == new Vector3(1, 0, 0)) //davanti a destra
         {
@@ -126,56 +125,43 @@ public class AnimationComponent : MonoBehaviour
         yield return null;
     }
 
-
     private void Move()
     {
-        StopCoroutine(FollowTarget());
+        StopAllCoroutines();
         StartCoroutine(Jump());
         StartCoroutine(FollowTarget());
     }
 
-    private bool isJumping = false;
-
     private IEnumerator Jump() // quando passa da una cella all'altra
     {
-
-        if (isJumping) yield break;
-        isJumping = true;
-
-        Vector3 position;
-
-
+        Vector3 newPos;
         float timePassed = 0f;
 
         while (timePassed < 1)
         {
-            timePassed += Time.deltaTime * 1 / InputComponent.InputRecoveryTime;
-
             float myHeight = JumpCurve.Evaluate(timePassed) * MaxJumpHeight;
+            newPos = meshTransform.position;
+            newPos.y = myHeight;
+            meshTransform.position = newPos;
 
-
-            position = meshTransform.position;
-            position.y = myHeight;
-            meshTransform.position = position;
-
+            timePassed += Time.deltaTime * (1 / InputComponent.InputRecoveryTime);
+            Debug.Log(timePassed);
             yield return null;
         }
-        isJumping = false;
     }
 
 
     private IEnumerator Drown() //quando affoga nell'acqua >:D
     {
-        //StartCoroutine(Jump());
-        StartCoroutine(Jump());
-        yield return StartCoroutine(ForceToTarget());
+        StartCoroutine(FollowTarget());
+        yield return StartCoroutine(Jump());
 
         Vector3 initialPosition = meshTransform.position;
         Vector3 finalPosition = new Vector3(meshTransform.position.x, -3f, meshTransform.position.z);
 
         float timePassed = 0f;
 
-        Instantiate(particles, Target.position + (Vector3.up * 0.25f), Quaternion.Euler(Vector3.left * 90));
+        Instantiate(DeathParticles, Target.position + (Vector3.up * 0.25f), Quaternion.Euler(Vector3.left * 90));
 
         while (timePassed < 1f)
         {
@@ -193,6 +179,8 @@ public class AnimationComponent : MonoBehaviour
     {
         Vector3 lastScale = new Vector3(1.5f, 0.1f, 1);
         Vector3 firstScale = new Vector3(1, 1, 1);
+
+        meshTransform.position = new Vector3(meshTransform.position.x, 0f, meshTransform.position.z);
 
         float timePassed = 0f;
         while (timePassed < 0.2f)
@@ -212,27 +200,34 @@ public class AnimationComponent : MonoBehaviour
 
     private void Die(DeathType deathType)
     {
-        //DisconnectAllEvents();
-        StopAllCoroutines();
-        StartCoroutine(ForceToTarget());
+        DisconnectAllEvents();
         switch (deathType)
         {
             //Squash
             case DeathType.Squash:
                 {
+                    StopAllCoroutines();
                     StartCoroutine(SquishedByVehicle());
                     break;
                 }
             //Drown
             case DeathType.Drown:
                 {
+                    StopAllCoroutines();
                     StartCoroutine(Drown());
                     break;
                 }
             //Toothless Victory Royale
             case DeathType.Idling:
                 {
+                    StopAllCoroutines();
                     MeshSpeed = float.MaxValue;
+                    StartCoroutine(FollowTarget());
+                    break;
+                }
+            case DeathType.OutOfBound:
+                {
+                    Debug.Log("I'm Dead");
                     StartCoroutine(FollowTarget());
                     break;
                 }

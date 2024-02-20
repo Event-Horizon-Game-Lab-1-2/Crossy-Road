@@ -96,8 +96,9 @@ public class MovementComponent : MonoBehaviour
 
     void SuspendMovement()
     {
-        TileTransform = null;
-        StopAllCoroutines();
-        this.enabled = false;
+        InputComponent.OnDirectionChanged -= DirectionChanged;
+        InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
+        GameManager.OnPlayerDeath -= SuspendMovement;
+        OnMove -= OnMove;
     }
 }
