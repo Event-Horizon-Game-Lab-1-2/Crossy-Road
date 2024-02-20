@@ -109,11 +109,12 @@ public class GameManager : MonoBehaviour
             //Call new score event
             OnScoreChange(Score);
 
-            if(Score > PlayerTopScore)
+            if(Score >= PlayerTopScore)
             { 
-                PlayerTopScore = Score;
+                PlayerTopScore = Score +1;
                 PlayerPrefs.SetInt("TopScore", PlayerTopScore);
-            } 
+            }
+            
         }
     }
 
