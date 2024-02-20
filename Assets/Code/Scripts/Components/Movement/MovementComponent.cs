@@ -79,8 +79,6 @@ public class MovementComponent : MonoBehaviour
             // se il raggio colpisce qualcosa, fai qualcosa
             Debug.DrawRay(transform.position + Vector3.up / 2 + dirToGo, Vector3.down * RaycastFloorLenght, Color.red, 10f);
             transform.position = TileTransform.position;
-            
-            //StartCoroutine(StayOnTile());
         }
         else
         {
