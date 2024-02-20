@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        TopScore.text = PlayerPrefs.GetInt("TopScore").ToString();
     }
 
     private void SetState(MenuState menuState)
@@ -158,6 +158,7 @@ public class UIManager : MonoBehaviour
     private void UpdateScore(int score)
     {
         Score.text = score.ToString();
+        TopScore.text = PlayerPrefs.GetInt("TopScore").ToString();
     }
 
     public void SendRestartRequest()
