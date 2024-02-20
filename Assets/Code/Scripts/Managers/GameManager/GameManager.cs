@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
                 PlayerTopScore = Score +1;
                 PlayerPrefs.SetInt("TopScore", PlayerTopScore);
             }
-            
         }
     }
 
