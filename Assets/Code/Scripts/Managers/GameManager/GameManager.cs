@@ -25,13 +25,15 @@ public class GameManager : MonoBehaviour
     public delegate void PauseRequest(bool pause);
     public static event PauseRequest OnPauseRequest = new PauseRequest((bool pause) => { });
 
-
     private enum GameState
     {
         Playing,
         Paused,
         Menu
     }
+
+    [Header("Game Option")]
+    [SerializeField] int MoneyAfterRowAmount = 5;
 
     [Header("Gizsmos Options")]
     [SerializeField] Vector3 PlayerRowVisualizer = new Vector3(15f, 5f, 1f);
@@ -66,24 +68,18 @@ public class GameManager : MonoBehaviour
         IsPlayerAlive = true;
         Resetting = false;
 
-
         if (!PlayerPrefs.HasKey("selectedSkin"))
-        {
             PlayerPrefs.SetInt("selectedSkin", 0);
-        }
 
         if (!PlayerPrefs.HasKey("TopScore"))
-        {
             PlayerPrefs.SetInt("TopScore", 0);
-
-        }
         else
             PlayerTopScore = PlayerPrefs.GetInt("TopScore");
-    }
 
-    private void Start()
-    {
-        OnScoreChange(0);
+        if(!PlayerPrefs.HasKey("PlayerMoney"))
+            PlayerPrefs.SetInt("PlayerMoney", 0);
+        else
+            PlayerTopScore = PlayerPrefs.GetInt("TopScore");
     }
 
     private void DirectionChanged(Vector3 direction)
@@ -151,6 +147,9 @@ public class GameManager : MonoBehaviour
         {
             if(OnPlayerDeath != null)
                 OnPlayerDeath();
+            int newMoney = Score / MoneyAfterRowAmount;
+            newMoney += PlayerPrefs.GetInt("PlayerMoney");
+            PlayerPrefs.SetInt("PlayerMoney", newMoney);
             IsPlayerAlive = false;
         };
     }

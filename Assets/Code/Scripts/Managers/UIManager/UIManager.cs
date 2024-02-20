@@ -17,8 +17,10 @@ public class UIManager : MonoBehaviour
     //player current score
     [SerializeField] TMP_Text Score;
     [SerializeField] TMP_Text TopScore;
-
+    [SerializeField] TMP_Text Money;
+    //Skin Selector scene index
     [SerializeField] int SkinSelectorScene = 1;
+
 
     private MenuState CurrentState;
     private MenuState OldState;
@@ -38,7 +40,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        TopScore.text = PlayerPrefs.GetInt("TopScore").ToString();
+        UpdateScore(0);
+        UpdateMoneyAmount();
     }
 
     private void SetState(MenuState menuState)
@@ -161,6 +164,11 @@ public class UIManager : MonoBehaviour
         TopScore.text = PlayerPrefs.GetInt("TopScore").ToString();
     }
 
+    private void UpdateMoneyAmount()
+    {
+        Money.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
+    }
+
     public void SendRestartRequest()
     {
         OnResetRequest();
@@ -186,6 +194,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameStarted += () => SetState(MenuState.Play);
         //Player Death
         GameManager.OnPlayerDeath += () => SetState(MenuState.DeathScreen);
+        GameManager.OnPlayerDeath += () => UpdateMoneyAmount();
         //Pause
         GameManager.OnPauseRequest += (bool show) =>
         {
