@@ -145,7 +145,6 @@ public class AnimationComponent : MonoBehaviour
             meshTransform.position = newPos;
 
             timePassed += Time.deltaTime * (1 / InputComponent.InputRecoveryTime);
-            Debug.Log(timePassed);
             yield return null;
         }
     }
@@ -155,6 +154,7 @@ public class AnimationComponent : MonoBehaviour
     {
         StartCoroutine(FollowTarget());
         yield return StartCoroutine(Jump());
+        StopCoroutine(FollowTarget());
 
         Vector3 initialPosition = meshTransform.position;
         Vector3 finalPosition = new Vector3(meshTransform.position.x, -3f, meshTransform.position.z);
@@ -171,7 +171,7 @@ public class AnimationComponent : MonoBehaviour
             timePassed += Time.deltaTime * DrownSpeed;
             yield return null;
         }
-
+        meshTransform.position = finalPosition;
         StopAllCoroutines();
     }
 
