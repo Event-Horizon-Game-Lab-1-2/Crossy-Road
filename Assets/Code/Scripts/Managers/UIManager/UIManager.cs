@@ -195,10 +195,14 @@ public class UIManager : MonoBehaviour
 
     public void FullScreen()
     {
-        if(Screen.fullScreenMode != FullScreenMode.ExclusiveFullScreen)
-            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        if (Screen.fullScreenMode == FullScreenMode.Windowed)
+        {
+            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+        }
         else
-            Screen.fullScreenMode = FullScreenMode.Windowed;
+        {
+            Screen.SetResolution(960, 540, FullScreenMode.Windowed);
+        }
     }
 
 
