@@ -152,6 +152,7 @@ public class AnimationComponent : MonoBehaviour
 
             yield return null;
         }
+        meshTransform.position = Target.position;
     }
 
 
