@@ -1,32 +1,35 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 using TMPro;
+using static SkinManager;
 
 public class SkinManager : MonoBehaviour
 {
+    public delegate void SkinIndexChanged();
+    public event SkinIndexChanged OnSkinIndexChanged;
 
-    public int selectedSkin = 0;
-
-    public TMP_Text TextSkin;
-
-    //public GameObject[] skins;
-    [SerializeField] List<PlayableCharacter> Skins = new List<PlayableCharacter> ();
+    [SerializeField] public int SelectedSkin;
+    [SerializeField] private TMP_Text TextSkin;
+    [SerializeField] List<PlayableCharacter> Skins = new List<PlayableCharacter>();
 
     private void Awake()
     {
-        //Debug.Log(Skins.Count);
-        if(TextSkin != null)
-            TextSkin.text = Skins[selectedSkin].SkinName;
+        if(PlayerPrefs.HasKey("selectedSkin"))
+            SelectedSkin = PlayerPrefs.GetInt("selectedSkin");
+        else
+            SelectedSkin = 0;
+
+        if (TextSkin != null)
+            TextSkin.text = Skins[SelectedSkin].SkinName;        
     }
 
     private void Start()
     {
-        for(int i = 1; i < Skins.Count; i++)
+        for(int i = 0; i < Skins.Count; i++)
         {
-            Skins[i].SkinPrefabTransform.gameObject.SetActive(false);
+            if(i != SelectedSkin)
+                Skins[i].SkinPrefabTransform.gameObject.SetActive(false);
         }
     }
 
@@ -35,36 +38,54 @@ public class SkinManager : MonoBehaviour
         return Skins[index].SkinPrefabTransform;
     }
 
+    public List<PlayableCharacter> GetSkins()
+    {
+        return Skins;
+    }
+
+
     public void NextOption()
     {
+        //Hide old skin
+        Skins[SelectedSkin].SkinPrefabTransform.gameObject.SetActive(false);
+        SelectedSkin++;
 
-        Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(false);
-        selectedSkin++;
-        if (selectedSkin > Skins.Count - 1)
+        if (SelectedSkin > Skins.Count - 1)
         {
-            selectedSkin = 0;
+            SelectedSkin = 0;
         }
-        Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
+        OnSkinIndexChanged();
 
-        TextSkin.text = Skins[selectedSkin].SkinName;
+        //Show new skin
+        Skins[SelectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
+        TextSkin.text = Skins[SelectedSkin].SkinName;
     }
 
     public void BackOption()
     {
-        Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(false);
-        selectedSkin--;
-        if (selectedSkin < 0)
-        {
-            selectedSkin = Skins.Count - 1;
-        }
-        Skins[selectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
+        //Hide old skin
+        Skins[SelectedSkin].SkinPrefabTransform.gameObject.SetActive(false);
+        SelectedSkin--;
 
-        TextSkin.text = Skins[selectedSkin].SkinName;
+        if (SelectedSkin < 0)
+        {
+            SelectedSkin = Skins.Count - 1;
+        }
+        OnSkinIndexChanged();
+
+        //Show new skin
+        Skins[SelectedSkin].SkinPrefabTransform.gameObject.SetActive(true);
+        TextSkin.text = Skins[SelectedSkin].SkinName;
     }
 
     public void PlayGame()
     {
-        PlayerPrefs.SetInt("selectedSkin", selectedSkin);
-        SceneManager.LoadScene(Skins[selectedSkin].LevelIndex);
+        PlayerPrefs.SetInt("selectedSkin", SelectedSkin);
+        SceneManager.LoadScene(Skins[SelectedSkin].LevelIndex);
+    }
+
+    private void OnDisable()
+    {
+        OnSkinIndexChanged -= OnSkinIndexChanged;
     }
 }

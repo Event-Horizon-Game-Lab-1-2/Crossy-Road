@@ -20,7 +20,8 @@ public class AnimationComponent : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(FollowTarget());
+        if(Target != null)
+            StartCoroutine(FollowTarget());
     }
 
     private IEnumerator FollowTarget()
@@ -211,6 +212,7 @@ public class AnimationComponent : MonoBehaviour
             case DeathType.Squash:
                 {
                     StopAllCoroutines();
+                    StartCoroutine(FollowTarget());
                     StartCoroutine(SquishedByVehicle());
                     break;
                 }
