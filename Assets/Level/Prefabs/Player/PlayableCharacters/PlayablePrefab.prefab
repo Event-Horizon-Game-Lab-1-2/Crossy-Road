@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDurationSquishSquash: 0.2
   DeathParticles: {fileID: 7302953545865188249, guid: 7393d11acb5bd664db92a23481161127, type: 3}
-  MeshSpeed: 5
+  MeshSpeed: 1
   DrownSpeed: 3
   MaxJumpHeight: 0.5
   meshTransform: {fileID: 1407574779804491166}

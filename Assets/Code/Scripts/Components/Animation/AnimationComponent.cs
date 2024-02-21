@@ -220,14 +220,11 @@ public class AnimationComponent : MonoBehaviour
             //Toothless Victory Royale
             case DeathType.Idling:
                 {
-                    StopAllCoroutines();
                     MeshSpeed = float.MaxValue;
-                    StartCoroutine(FollowTarget());
                     break;
                 }
             case DeathType.OutOfBound:
                 {
-                    Debug.Log("I'm Dead");
                     StartCoroutine(FollowTarget());
                     break;
                 }
