@@ -193,6 +193,15 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SkinSelectorScene);
     }
 
+    public void FullScreen()
+    {
+        if(Screen.fullScreenMode != FullScreenMode.ExclusiveFullScreen)
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        else
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+    }
+
+
     private void OnEnable()
     {
         //All events are unsubscribed OnDisable instance of that class
