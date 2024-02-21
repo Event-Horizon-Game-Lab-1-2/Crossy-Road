@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Fade : UI_Animator
 {
-    [SerializeField] private RawImage ObjectToAnimate;
+    [SerializeField] private CanvasGroup ObjectToAnimate;
     [SerializeField] private AnimationCurve FadeCurve;
     [SerializeField] private float FadeSpeed = 1f;
     [SerializeField][Range(0f, 1f)] private float StartValue = 0f;
     [SerializeField][Range(0f, 1f)] private float EndValue = 1f;
 
-    private Color OriginalColor;
+    private float OriginalColorAlpha;
 
     private void Start()
     {
@@ -21,8 +21,8 @@ public class Fade : UI_Animator
             return;
         }
 
-        OriginalColor = ObjectToAnimate.color;
-        ObjectToAnimate.color = new Color(OriginalColor.r, OriginalColor.g, OriginalColor.b, StartValue);
+        OriginalColorAlpha = ObjectToAnimate.alpha;
+        ObjectToAnimate.alpha = StartValue;
     }
 
     public override void StartAnimation()
@@ -37,7 +37,7 @@ public class Fade : UI_Animator
         while (progress < 1f)
         {
             float colorFade = Mathf.Lerp(StartValue, EndValue, curveProgress);
-            ObjectToAnimate.color = new Color(OriginalColor.r, OriginalColor.g, OriginalColor.b, colorFade);
+            ObjectToAnimate.alpha = colorFade;
 
             //get animated fade based on animation curve
             float animatedMovement = FadeCurve.Evaluate(curveProgress);
@@ -46,6 +46,6 @@ public class Fade : UI_Animator
             curveProgress += Time.deltaTime * FadeSpeed;
             yield return null;
         }
-        ObjectToAnimate.color = OriginalColor;
+        ObjectToAnimate.alpha = OriginalColorAlpha;
     }
 }

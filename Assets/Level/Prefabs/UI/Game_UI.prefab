@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1615876541353489742}
   - component: {fileID: 4064555311984410999}
   - component: {fileID: 7011332101964475896}
+  - component: {fileID: 7707980024611632373}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -72,6 +73,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!225 &7707980024611632373
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344636546258386051}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &559595781496986773
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +818,7 @@ GameObject:
   - component: {fileID: 3501756341790763450}
   - component: {fileID: 2449032424199311720}
   - component: {fileID: 8171202964234824223}
+  - component: {fileID: 3229676901152854854}
   m_Layer: 0
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -850,6 +864,7 @@ MonoBehaviour:
   StartAnimationList:
   - {fileID: 2449032424199311720}
   - {fileID: 8171202964234824223}
+  - {fileID: 3229676901152854854}
   EndAnimationList: []
 --- !u!114 &2449032424199311720
 MonoBehaviour:
@@ -903,7 +918,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8575f76e250da44b3d78945e0a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToAnimate: {fileID: 1478321218310298391}
+  ObjectToAnimate: {fileID: 5198904711584183158}
+  FadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FadeSpeed: 15
+  StartValue: 0
+  EndValue: 1
+--- !u!114 &3229676901152854854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5250842472252933223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8575f76e250da44b3d78945e0a4994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToAnimate: {fileID: 1315256574136353721}
   FadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1386,6 +1441,7 @@ GameObject:
   - component: {fileID: 4593458910153630484}
   - component: {fileID: 1015875496921608949}
   - component: {fileID: 1478321218310298391}
+  - component: {fileID: 5198904711584183158}
   m_Layer: 0
   m_Name: DeathScreenImage
   m_TagString: Untagged
@@ -1447,6 +1503,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!225 &5198904711584183158
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104803211266841125}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7457066146566654308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1842,7 @@ GameObject:
   - component: {fileID: 3220523928806311921}
   - component: {fileID: 8372373180426804278}
   - component: {fileID: 2450722425366476401}
+  - component: {fileID: 1315256574136353721}
   m_Layer: 0
   m_Name: NewMoneyAmount
   m_TagString: Untagged
@@ -1897,6 +1966,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &1315256574136353721
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252612271311704517}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8343143185631415314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8575f76e250da44b3d78945e0a4994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToAnimate: {fileID: 7011332101964475896}
+  ObjectToAnimate: {fileID: 7707980024611632373}
   FadeCurve:
     serializedVersion: 2
     m_Curve:

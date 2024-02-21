@@ -140,11 +140,16 @@ public class AnimationComponent : MonoBehaviour
         while (timePassed < 1)
         {
             float myHeight = JumpCurve.Evaluate(timePassed) * MaxJumpHeight;
-            newPos = meshTransform.position;
-            newPos.y = myHeight;
-            meshTransform.position = newPos;
+
+            if (myHeight > Target.position.y)
+            {
+                newPos = meshTransform.position;
+                newPos.y = myHeight;
+                meshTransform.position = newPos;
+            }
 
             timePassed += Time.deltaTime * (1 / InputComponent.InputRecoveryTime);
+
             yield return null;
         }
     }
