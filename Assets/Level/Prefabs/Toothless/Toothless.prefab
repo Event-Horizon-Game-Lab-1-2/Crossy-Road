@@ -132,7 +132,7 @@ MonoBehaviour:
   StartingPos: {x: 0, y: 5, z: 30}
   TargetToPickUpOffset: {x: 0, y: 2, z: 0}
   TargetToPickUp: {fileID: 0}
-  EndingPos: {x: 0, y: 5, z: -15}
+  EndingPos: {x: 0, y: 5, z: -30}
   DeathSpeed: 1.5
   DeathObject: {fileID: 3225846446556058360}
   SoundCurve:

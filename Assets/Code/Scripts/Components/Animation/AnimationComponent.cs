@@ -36,13 +36,12 @@ public class AnimationComponent : MonoBehaviour
         }
 
         //stay on target
-        while(true)
+        while(Target.position != null)
         {
-            if(Target.position == null)
-                StopAllCoroutines();
             meshTransform.position = Target.position;
             yield return null;
         }
+        StopAllCoroutines();
     }
 
     private IEnumerator ForceToTarget()
@@ -225,7 +224,8 @@ public class AnimationComponent : MonoBehaviour
             //Toothless Victory Royale
             case DeathType.Idling:
                 {
-                    MeshSpeed = float.MaxValue;
+                    StopAllCoroutines();
+                    StartCoroutine(ForceToTarget());
                     break;
                 }
             case DeathType.OutOfBound:

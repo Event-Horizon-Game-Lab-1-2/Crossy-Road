@@ -31,20 +31,14 @@ public class FlyingDeath : MonoBehaviour
     {
         DeathObject.gameObject.SetActive(false);
     }
-    //private void Start()
-    //{
-    //    TargetToPickUp = TargetToPickUp.GetComponent<AnimationComponent>().Target;
-    //}
 
     private IEnumerator PickupPlayer()
     {
         DeathObject.gameObject.SetActive(true);
-
         AudioSource.Play();
         transform.position = TargetToPickUp.position;
         float progress = 0f;
         float audioProgress = 0f;
-        Debug.Log(TargetToPickUp.position);
         //move
         while (progress <= 1f)
         {
@@ -57,8 +51,6 @@ public class FlyingDeath : MonoBehaviour
             progress += Time.deltaTime * DeathSpeed;
             yield return null;
         }
-        Debug.Log(TargetToPickUp.position);
-        Debug.Log(DeathObject.position);
         //pick up player
         progress = 0f;
         Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
@@ -76,8 +68,7 @@ public class FlyingDeath : MonoBehaviour
         }
 
         DeathObject.gameObject.SetActive(false);
-        TargetToPickUp.transform.gameObject.SetActive(false);
-
+        TargetToPickUp.gameObject.SetActive(false);
     }
 
     private void Die(DeathType deathType)

@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
+using static DeathTypeClass;
 
 public class MovementComponent : MonoBehaviour
 {
@@ -29,14 +27,21 @@ public class MovementComponent : MonoBehaviour
     {
         InputComponent.OnDirectionChanged += DirectionChanged;
         InputComponent.OnDirectionConfirmed += DirectionConfirmed;
-        GameManager.OnPlayerDeath += SuspendMovement;
+        PlayerManager.OnDeath += OnDeath;
+    }
+
+    private void OnDeath(DeathType deathType)
+    {
+        if (deathType == DeathType.Idling)
+            StopAllCoroutines();
+        else
+            SuspendMovement();
     }
 
     private void OnDisable()
     {
         InputComponent.OnDirectionChanged -= DirectionChanged;
         InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
-        GameManager.OnPlayerDeath -= SuspendMovement;
         OnMove -= OnMove;
     }
 
@@ -96,7 +101,7 @@ public class MovementComponent : MonoBehaviour
     {
         InputComponent.OnDirectionChanged -= DirectionChanged;
         InputComponent.OnDirectionConfirmed -= DirectionConfirmed;
-        GameManager.OnPlayerDeath -= SuspendMovement;
+        PlayerManager.OnDeath -= OnDeath;
         OnMove -= OnMove;
     }
 }
