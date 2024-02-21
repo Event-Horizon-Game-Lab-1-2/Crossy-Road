@@ -20,9 +20,9 @@ public class Tween : UI_Animator
         RectSize = ObjectToAnimate.rect.size;
     }
 
-    public override void StartAnimation()
+    public override IEnumerator StartAnimation()
     {
-        StartCoroutine(AnimationCoroutine());
+        yield return AnimationCoroutine();
     }
 
     IEnumerator AnimationCoroutine()

@@ -11,8 +11,6 @@ public class Fade : UI_Animator
     [SerializeField][Range(0f, 1f)] private float StartValue = 0f;
     [SerializeField][Range(0f, 1f)] private float EndValue = 1f;
 
-    private float OriginalColorAlpha;
-
     private void Start()
     {
         if (ObjectToAnimate == null)
@@ -20,14 +18,12 @@ public class Fade : UI_Animator
             enabled = false;
             return;
         }
-
-        OriginalColorAlpha = ObjectToAnimate.alpha;
         ObjectToAnimate.alpha = StartValue;
     }
 
-    public override void StartAnimation()
+    public override IEnumerator StartAnimation()
     {
-        StartCoroutine(FadeAnimation());
+        yield return FadeAnimation();
     }
 
     private IEnumerator FadeAnimation()
@@ -46,6 +42,5 @@ public class Fade : UI_Animator
             curveProgress += Time.deltaTime * FadeSpeed;
             yield return null;
         }
-        ObjectToAnimate.alpha = OriginalColorAlpha;
     }
 }

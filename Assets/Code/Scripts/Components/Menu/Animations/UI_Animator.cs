@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class UI_Animator : MonoBehaviour
 {
-    public virtual void StartAnimation()
+    public virtual IEnumerator StartAnimation()
     {
-
+        yield return null;
     }
 }

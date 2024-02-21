@@ -11,6 +11,13 @@ public class MenuComponent : MonoBehaviour
     [Tooltip("List Of animation that will be shown at the hide menu")]
     [SerializeField] private List<UI_Animator> EndAnimationList;
 
+    WaitForSeconds WaitTime;
+
+    private void Awake()
+    {
+        WaitTime = new WaitForSeconds(AnimationStartDelay);
+    }
+
     public void StartAnimation()
     {
         if (gameObject.activeSelf)
@@ -19,7 +26,7 @@ public class MenuComponent : MonoBehaviour
 
     public void EndAnimation()
     {
-        if(gameObject.activeSelf)
+        if (gameObject.activeSelf)
             StartCoroutine(EndAnimateCoroutine());
     }
 
@@ -28,27 +35,52 @@ public class MenuComponent : MonoBehaviour
         if (StartAnimationList == null)
             StopAllCoroutines();
 
-        yield return new WaitForSeconds(AnimationStartDelay);
+        yield return WaitTime;
+
         for (int i = 0; i < StartAnimationList.Count; i++)
         {
-            StartAnimationList[i].StartAnimation();
+            StartCoroutine(StartAnimationList[i].StartAnimation());
         }
     }
 
+    private List<IEnumerator> animations = new List<IEnumerator>();
     private IEnumerator EndAnimateCoroutine()
     {
-        if (EndAnimationList == null)
+        //wait
+        yield return WaitTime;
+
+        if (EndAnimationList != null)
         {
+            foreach (var animation in EndAnimationList)
+                animations.Add(animation.StartAnimation());
+            //wait the end of all animations
+            yield return WaitForAll(animations);
+
             gameObject.SetActive(false);
             StopAllCoroutines();
         }
+    }
 
-        yield return new WaitForSeconds(AnimationStartDelay);
-        for (int i = 0; i < EndAnimationList.Count; i++)
+    public IEnumerator WaitForAll(List<IEnumerator> coroutines)
+    {
+        int count = 0;
+
+        foreach (IEnumerator coroutine in coroutines)
         {
-            EndAnimationList[i].StartAnimation();
+            StartCoroutine(RunCoroutine(coroutine));
         }
-        gameObject.SetActive(false);
+
+        while (count > 0)
+        {
+            yield return null;
+        }
+
+        IEnumerator RunCoroutine(IEnumerator c)
+        {
+            count++;
+            yield return StartCoroutine(c);
+            count--;
+
+        }
     }
 }
-
