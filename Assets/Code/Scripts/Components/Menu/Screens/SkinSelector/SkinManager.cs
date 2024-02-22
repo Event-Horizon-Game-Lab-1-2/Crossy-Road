@@ -35,6 +35,8 @@ public class SkinManager : MonoBehaviour
 
     public Transform GetSkin(int index)
     {
+        if (SceneManager.GetActiveScene().buildIndex != Skins[index].LevelIndex)
+            SceneManager.LoadScene(Skins[index].LevelIndex);
         return Skins[index].SkinPrefabTransform;
     }
 
