@@ -400,6 +400,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 196059354}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &392278107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9118707007938332245, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+  m_PrefabInstance: {fileID: 1593861066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &392278112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392278107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286f45605fb41c049bf1a5bef9a3d6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToAnimate: {fileID: 1412942096}
 --- !u!1 &639693666
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +623,11 @@ Transform:
   - {fileID: 1001021911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1412942096 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5139952939049605408, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+  m_PrefabInstance: {fileID: 1593861066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1577075456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,10 +741,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5250842472252933223, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667015038593352151, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096892435113987310, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_Name
+      value: SkinButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058785474773358736, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: EndAnimationList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058785474773358736, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: EndAnimationList.Array.data[1]
+      value: 
+      objectReference: {fileID: 392278112}
+    - target: {fileID: 7354416585054807395, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779356038431547230, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118707007938332245, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9118707007938332245, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 392278112}
   m_SourcePrefab: {fileID: 100100000, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
 --- !u!4 &1593861067 stripped
 Transform:
