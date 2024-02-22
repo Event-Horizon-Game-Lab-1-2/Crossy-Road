@@ -10,24 +10,52 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: PossibleSpawners.Array.data[0].Spawner
+      value: 
+      objectReference: {fileID: 1809392240244054217}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[1].Spawner
       value: 
-      objectReference: {fileID: 7342540336295330262}
+      objectReference: {fileID: 8054223014970393483}
+    - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: PossibleSpawners.Array.data[2].Spawner
+      value: 
+      objectReference: {fileID: 8049326248085516142}
+    - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: PossibleSpawners.Array.data[3].Spawner
+      value: 
+      objectReference: {fileID: 158636682282994124}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[0].SpawnProbability
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[1].SpawnProbability
-      value: 0.5
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: PossibleSpawners.Array.data[2].SpawnProbability
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: PossibleSpawners.Array.data[3].SpawnProbability
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294527124593570163, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: ObjectsToSpawn.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: ObjectsToSpawn.Array.data[0].ObjectTransform
+      value: 
+      objectReference: {fileID: 4101565433415509072, guid: 29ad0a912c9919949b2f1eb9cd12238f, type: 3}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: ObjectsToSpawn.Array.data[1].ObjectTransform
       value: 
@@ -94,14 +122,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8600629411532059261, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7342540336295330262}
+      addedObject: {fileID: 8054223014970393483}
+    - targetCorrespondingSourceObject: {fileID: 8600629411532059261, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8049326248085516142}
+    - targetCorrespondingSourceObject: {fileID: 8600629411532059261, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 158636682282994124}
   m_SourcePrefab: {fileID: 100100000, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
 --- !u!1 &289162468138477272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8600629411532059261, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
   m_PrefabInstance: {fileID: 8311636491547825317}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7342540336295330262
+--- !u!114 &8054223014970393483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,16 +148,87 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectsToSpawn:
+  - ObjectTransform: {fileID: 4101565433415509072, guid: 072186eb3689ea64793125c418ef23dc, type: 3}
+    SpawnProbability: 0.33333334
   - ObjectTransform: {fileID: 4101565433415509072, guid: c69bd1b69fe47624c957d05769a977f3, type: 3}
-    SpawnProbability: 1
+    SpawnProbability: 0.33333334
+  - ObjectTransform: {fileID: 4101565433415509072, guid: 355e8eadf55b06646a0840c5ce38c02e, type: 3}
+    SpawnProbability: 0.33333334
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 0.45
+  MaxSpeed: 0.4
   MinSpeed: 0.15
+  MaxObject: 2
+  MinObject: 1
+  MaxDistance: 4.5
+  MinDistance: 3
+  SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
+  SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &8049326248085516142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289162468138477272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9344b435829541748a07d5aa28b0a506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToSpawn:
+  - ObjectTransform: {fileID: 4101565433415509072, guid: 5b4d5d755e867234198c7d30b239f794, type: 3}
+    SpawnProbability: 0.5
+  - ObjectTransform: {fileID: 4101565433415509072, guid: 765e9a280227845499b848807b97ffa2, type: 3}
+    SpawnProbability: 0.5
+  SpawnStartPos: 9
+  SpawnEndPos: -9
+  RandomSpeed: 1
+  MaxSpeed: 1.5
+  MinSpeed: 0.6
+  MaxObject: 1
+  MinObject: 1
+  MaxDistance: 2
+  MinDistance: 1.5
+  SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
+  SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &158636682282994124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289162468138477272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9344b435829541748a07d5aa28b0a506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToSpawn:
+  - ObjectTransform: {fileID: 4101565433415509072, guid: 582dc7c8629efe048a7d85e661f229da, type: 3}
+    SpawnProbability: 0.5
+  - ObjectTransform: {fileID: 4101565433415509072, guid: d669b5ffb382ad24b97de4d08f846488, type: 3}
+    SpawnProbability: 0.5
+  SpawnStartPos: 9
+  SpawnEndPos: -9
+  RandomSpeed: 1
+  MaxSpeed: 1.5
+  MinSpeed: 0.5
   MaxObject: 3
   MinObject: 1
-  MaxDistance: 5
+  MaxDistance: 4
   MinDistance: 2.5
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1809392240244054217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+  m_PrefabInstance: {fileID: 8311636491547825317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289162468138477272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9344b435829541748a07d5aa28b0a506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

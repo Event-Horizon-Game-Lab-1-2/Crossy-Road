@@ -979,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[3].Unlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[0].SkinPrize
@@ -987,27 +987,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[1].SkinPrize
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[2].SkinPrize
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[3].SkinPrize
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[0].LevelIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[1].LevelIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[2].LevelIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 333306411491380740, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: Skins.Array.data[3].LevelIndex
@@ -1018,6 +1018,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2066568155874324919, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340355332193273745, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1141,13 +1145,37 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6222957602190250646, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287111335337106829, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7101725574595184038, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109148171505592093, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830939752126089643, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_Name
       value: SkinSelector
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806930801936654142, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031168712544699797, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183336717848948534, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

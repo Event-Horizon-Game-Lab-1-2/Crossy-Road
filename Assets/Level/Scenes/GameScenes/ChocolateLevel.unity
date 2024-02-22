@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1258061536018039880, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2066568155874324919, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -527,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 3415377604510464584, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: MeshHolder
       value: 
-      objectReference: {fileID: 1059417895}
+      objectReference: {fileID: 0}
     - target: {fileID: 5536897534461426579, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -556,11 +560,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5512136734990145427, guid: ae63d34541dfbb3438450aa9dff81608, type: 3}
   m_PrefabInstance: {fileID: 5119152869354097807}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1059417895 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5570510530745022656, guid: 9e1c6a3b9213b864fbe77e3c37302aba, type: 3}
-  m_PrefabInstance: {fileID: 749908249}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1072772997
 GameObject:
