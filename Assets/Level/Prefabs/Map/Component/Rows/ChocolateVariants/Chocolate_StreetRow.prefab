@@ -30,23 +30,27 @@ PrefabInstance:
       objectReference: {fileID: 158636682282994124}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[0].SpawnProbability
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[1].SpawnProbability
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[2].SpawnProbability
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 332761562132677921, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: PossibleSpawners.Array.data[3].SpawnProbability
-      value: 0.25
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1294527124593570163, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: MaxSpeed
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: ObjectsToSpawn.Array.size
@@ -161,8 +165,8 @@ MonoBehaviour:
   MinSpeed: 0.15
   MaxObject: 2
   MinObject: 1
-  MaxDistance: 4.5
-  MinDistance: 3
+  MaxDistance: 6
+  MinDistance: 4.5
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &8049326248085516142
@@ -184,9 +188,9 @@ MonoBehaviour:
     SpawnProbability: 0.5
   SpawnStartPos: 9
   SpawnEndPos: -9
-  RandomSpeed: 1
-  MaxSpeed: 1.5
-  MinSpeed: 0.6
+  RandomSpeed: 0
+  MaxSpeed: 1
+  MinSpeed: 1
   MaxObject: 1
   MinObject: 1
   MaxDistance: 2
@@ -213,12 +217,12 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 1.5
-  MinSpeed: 0.5
+  MaxSpeed: 0.5
+  MinSpeed: 0.25
   MaxObject: 3
   MinObject: 1
-  MaxDistance: 4
-  MinDistance: 2.5
+  MaxDistance: 8
+  MinDistance: 4
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1809392240244054217 stripped

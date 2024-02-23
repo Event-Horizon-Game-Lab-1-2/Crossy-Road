@@ -116,7 +116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7401904429748479313, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
       propertyPath: Speed
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7401904429748479313, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
       propertyPath: ObjectsToSpawn.Array.data[0].ObjectTransform
