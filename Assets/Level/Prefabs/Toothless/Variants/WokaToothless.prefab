@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2317763009706451786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3490532059116790482}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+      propertyPath: m_Name
+      value: Toothless
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+--- !u!4 &2855528798452614305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64f1516d708c0444fa53317877a1efa3, type: 3}
+  m_PrefabInstance: {fileID: 2317763009706451786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7582588191769503720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8,6 +82,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3406849660760725109, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+      propertyPath: DeathObject
+      value: 
+      objectReference: {fileID: 2855528798452614305}
     - target: {fileID: 6433989803745396026, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,10 +128,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7976056148672625099, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
       propertyPath: m_Name
-      value: Toothless
+      value: WokaToothless
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5790419829338009191, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6433989803745396026, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2855528798452614305}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+--- !u!4 &3490532059116790482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6433989803745396026, guid: 88cad813b05121c43b90350fd4dc33ec, type: 3}
+  m_PrefabInstance: {fileID: 7582588191769503720}
+  m_PrefabAsset: {fileID: 0}
