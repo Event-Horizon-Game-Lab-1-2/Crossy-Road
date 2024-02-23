@@ -23,6 +23,8 @@ PrefabInstance:
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinSpeed
       value: 0.1
+      propertyPath: MaxObject
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
@@ -91,6 +93,8 @@ PrefabInstance:
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxObject
       value: 3
+      propertyPath: MaxObject
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
@@ -123,6 +127,12 @@ PrefabInstance:
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
       value: 3
+      propertyPath: MaxObject
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
+      propertyPath: MinObject
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: ObjectsToSpawn.Array.data[0].ObjectTransform
