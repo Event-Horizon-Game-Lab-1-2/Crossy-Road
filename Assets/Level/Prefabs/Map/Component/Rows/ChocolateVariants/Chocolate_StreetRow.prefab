@@ -49,6 +49,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: MaxObject
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: MinObject
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: ObjectsToSpawn.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -159,7 +167,7 @@ MonoBehaviour:
   RandomSpeed: 1
   MaxSpeed: 0.4
   MinSpeed: 0.15
-  MaxObject: 2
+  MaxObject: 4
   MinObject: 1
   MaxDistance: 4.5
   MinDistance: 3
@@ -185,7 +193,7 @@ MonoBehaviour:
   SpawnStartPos: 9
   SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 1.5
+  MaxSpeed: 1
   MinSpeed: 0.6
   MaxObject: 1
   MinObject: 1
@@ -215,8 +223,8 @@ MonoBehaviour:
   RandomSpeed: 1
   MaxSpeed: 1.5
   MinSpeed: 0.5
-  MaxObject: 3
-  MinObject: 1
+  MaxObject: 4
+  MinObject: 2
   MaxDistance: 4
   MinDistance: 2.5
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
