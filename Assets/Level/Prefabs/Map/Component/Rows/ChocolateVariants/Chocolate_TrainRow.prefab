@@ -1,66 +1,2050 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &627802518477147585
+--- !u!1001 &761896520258016524
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6018380268277984697}
+    m_TransformParent: {fileID: 1886123517601809531}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
       propertyPath: m_Name
-      value: Railroad Candy
+      value: CandyTrainTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
---- !u!4 &1097996969043847722 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &2458935274414667387 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c71e51cccf735a4fb2c58b39fe9dad8, type: 3}
-  m_PrefabInstance: {fileID: 627802518477147585}
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 761896520258016524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &774864719067036904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &2471903456575954847 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 774864719067036904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1556913009597416930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &4401824852680451733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 1556913009597416930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1988768050140556515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &3680758396677132180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 1988768050140556515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3001270685052802304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &84318844962846327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 3001270685052802304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3154894849429569377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &235691750134995990 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 3154894849429569377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3309932471114740941
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &387897017003612090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 3309932471114740941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3536904689847930310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &1844422307031854769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 3536904689847930310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4038995039584946882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &1189034780826184117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4038995039584946882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4126705106432113367
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &1281318270025144736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4126705106432113367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4689118582830982790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7610574031693989361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4689118582830982790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4859014570612074713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1886123517601809531}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7774224792877239214 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4859014570612074713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4925623075376136808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7842592503915028767 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4925623075376136808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4945475185519609332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7794872481459463811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 4945475185519609332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5234444142172458105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &6929161265179553550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 5234444142172458105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5582203692310321436
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7348415458883402347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 5582203692310321436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5643444127142142715
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &7411978079988236684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 5643444127142142715}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6088095740331370699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &9002812831648254908 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6088095740331370699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6139266897598510725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &9060722333019297266 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6139266897598510725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6258033016619144172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &9103419290387493019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6258033016619144172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6323336070690655364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &9172751504796446707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6323336070690655364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6349524991377319977
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &8111865927785417566 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6349524991377319977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6495611918003471857
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &8261894045263472262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6495611918003471857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6544642050569575040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &8241047486046976503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 6544642050569575040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7060182724226608569
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &5293953343458922190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7060182724226608569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7183039082497950512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 861142491962099902}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &5414012569938944071 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7183039082497950512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7424308790610716852
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &5730084790516140995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7424308790610716852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7514516952031051779
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &4667353300554376052 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7514516952031051779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7672406479966237695
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &4824750792730136712 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7672406479966237695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7852918899914569665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &4933135259037848758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7852918899914569665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7958054883501803890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 547104285506297507}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &5115412441555806725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 7958054883501803890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8104299116035867980
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &6410145471786427963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 8104299116035867980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8145939170202376115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9117425135249284350}
+    m_Modifications:
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681426892934323238, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+      propertyPath: m_Name
+      value: CandyTrainTile (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+--- !u!4 &6449463387459318980 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2922036003889488759, guid: 28b5919413dbe134f857d2c1b927c4ec, type: 3}
+  m_PrefabInstance: {fileID: 8145939170202376115}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9074289415171419601
 PrefabInstance:
@@ -70,6 +2054,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22
+      objectReference: {fileID: 0}
     - target: {fileID: 3109318172463852562, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
       propertyPath: m_Name
       value: Chocolate_TrainRow
@@ -114,6 +2102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7124320776506172906, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7401904429748479313, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
       propertyPath: Speed
       value: 0.35
@@ -123,15 +2115,159 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8222683542807633042, guid: 04ef791d22e996a438926b6826722742, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9116065062929219631, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 803409036970748000, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8270588373612605516, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 228730147168081411, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 1074830888068469004, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 1375002591935604565, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 3052840695160275336, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 7126818745345609573, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 2395310838846197988, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 770106622047048076, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4374429928234048981, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 7169631695593730896, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 5083586376587021583, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4861126422402319623, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4431708311987021841, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 3967686945322921442, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8614934253526637889, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8558836666117963766, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8719703845717094473, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4894253745305993242, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 3038603431461345573, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4062623381967901371, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8200582747849129601, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8393270066607830482, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 775009056609509370, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 6394319996504933767, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 8801733723185349640, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 830330818596316543, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 6964082463998647099, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 7504095714598580386, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 6598429499269245322, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 2592269127762761242, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - {fileID: 4609478539339691453, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3344994552301535336, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1097996969043847722}
+      addedObject: {fileID: 5414012569938944071}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7411978079988236684}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4401824852680451733}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5293953343458922190}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1844422307031854769}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7348415458883402347}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 387897017003612090}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7610574031693989361}
+    - targetCorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3680758396677132180}
+    - targetCorrespondingSourceObject: {fileID: 7476680707965430186, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2458935274414667387}
+    - targetCorrespondingSourceObject: {fileID: 7476680707965430186, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7774224792877239214}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4667353300554376052}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5730084790516140995}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6929161265179553550}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5115412441555806725}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 84318844962846327}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2471903456575954847}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9002812831648254908}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9060722333019297266}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4824750792730136712}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9172751504796446707}
+    - targetCorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7842592503915028767}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8261894045263472262}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1281318270025144736}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6449463387459318980}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9103419290387493019}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189034780826184117}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6410145471786427963}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4933135259037848758}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7794872481459463811}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8111865927785417566}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 235691750134995990}
+    - targetCorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8241047486046976503}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
---- !u!4 &6018380268277984697 stripped
+--- !u!4 &547104285506297507 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3344994552301535336, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8825347005675172722, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+  m_PrefabInstance: {fileID: 9074289415171419601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &861142491962099902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8511027786000131439, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+  m_PrefabInstance: {fileID: 9074289415171419601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1886123517601809531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7476680707965430186, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
+  m_PrefabInstance: {fileID: 9074289415171419601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9117425135249284350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 245943156944761135, guid: 647e1d128685ab944bf709454a4bf554, type: 3}
   m_PrefabInstance: {fileID: 9074289415171419601}
   m_PrefabAsset: {fileID: 0}
