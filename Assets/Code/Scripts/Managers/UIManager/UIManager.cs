@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
             case MenuState.DeathScreen:
             {
                 ShowTitleScreen(false);
-                ShowPlayMenu(false);
+                ShowPlayMenu(true);
                 ShowPauseMenu(false);
                 ShowDeathMenu(true);
                 ShowSkinSelectionMenu(false);
