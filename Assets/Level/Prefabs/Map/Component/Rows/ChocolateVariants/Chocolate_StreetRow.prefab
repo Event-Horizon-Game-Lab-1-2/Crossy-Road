@@ -2037,6 +2037,14 @@ PrefabInstance:
       value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: MaxSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
+      propertyPath: MinSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: MaxObject
       value: 3
       objectReference: {fileID: 0}
@@ -2321,8 +2329,8 @@ MonoBehaviour:
   SpawnStartPos: 15.5
   SpawnEndPos: -15.5
   RandomSpeed: 1
-  MaxSpeed: 0.9
-  MinSpeed: 0.6
+  MaxSpeed: 0.7
+  MinSpeed: 0.4
   MaxObject: 1
   MinObject: 1
   MaxDistance: 2
@@ -2349,8 +2357,8 @@ MonoBehaviour:
   SpawnStartPos: 15.5
   SpawnEndPos: -15.5
   RandomSpeed: 1
-  MaxSpeed: 0.8
-  MinSpeed: 0.5
+  MaxSpeed: 0.6
+  MinSpeed: 0.35
   MaxObject: 3
   MinObject: 2
   MaxDistance: 4
