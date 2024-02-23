@@ -10,6 +10,8 @@ public class Tween : UI_Animator
     [SerializeField] private AnimationCurve MovementCurve;
     [Tooltip("Animation of the animation")]
     [SerializeField] private float AnimationSpeed = 1f;
+    [Tooltip("Dellay time for the animation")]
+    [SerializeField] private float StartAnimationAfterSec = 0f;
     
     [SerializeField] private Vector2 Direction = Vector2.up;
     [SerializeField] private float Distance = 0f;
@@ -22,6 +24,7 @@ public class Tween : UI_Animator
 
     public override IEnumerator StartAnimation()
     {
+        yield return new WaitForSeconds(StartAnimationAfterSec);
         yield return AnimationCoroutine();
     }
 

@@ -10,7 +10,8 @@ public class Fade : UI_Animator
     [SerializeField] private float FadeSpeed = 1f;
     [SerializeField][Range(0f, 1f)] private float StartValue = 0f;
     [SerializeField][Range(0f, 1f)] private float EndValue = 1f;
-
+    [Tooltip("Dellay time for the animation")]
+    [SerializeField] private float StartAnimationAfterSec = 0f;
     private void Start()
     {
         if (ObjectToAnimate == null)
@@ -23,6 +24,7 @@ public class Fade : UI_Animator
 
     public override IEnumerator StartAnimation()
     {
+        yield return new WaitForSeconds(StartAnimationAfterSec);
         yield return FadeAnimation();
     }
 
