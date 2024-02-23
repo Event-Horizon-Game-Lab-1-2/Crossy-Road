@@ -54,11 +54,12 @@ public class FlyingDeath : MonoBehaviour
         //pick up player
         progress = 0f;
         Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
-        while (progress <= 1f && TargetToPickUp)
+        while (progress <= 1f)
         {
             //position
             DeathObject.position = Vector3.Lerp(objectToPickUpStartpos, EndingPos, progress);
-            TargetToPickUp.position = DeathObject.position - TargetToPickUpOffset;
+            if(TargetToPickUp)
+                TargetToPickUp.position = DeathObject.position - TargetToPickUpOffset;
             //audio
             audioProgress = Mathf.Lerp(0.5f, 1f, progress);
             AudioSource.volume = SoundCurve.Evaluate(audioProgress);
