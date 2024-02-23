@@ -2038,13 +2038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: MaxObject
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: MinObject
       value: 2
-      propertyPath: MaxSpeed
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7657418979878210668, guid: 3105f2c028e0aa44984c6533e27ec3ed, type: 3}
       propertyPath: SpawnEndPos
@@ -2297,7 +2295,7 @@ MonoBehaviour:
   RandomSpeed: 1
   MaxSpeed: 0.4
   MinSpeed: 0.15
-  MaxObject: 4
+  MaxObject: 3
   MinObject: 1
   MaxDistance: 6
   MinDistance: 4.5
@@ -2322,14 +2320,9 @@ MonoBehaviour:
     SpawnProbability: 0.5
   SpawnStartPos: 15.5
   SpawnEndPos: -15.5
-  SpawnStartPos: 9
-  SpawnEndPos: -9
   RandomSpeed: 1
-  MaxSpeed: 1
+  MaxSpeed: 0.9
   MinSpeed: 0.6
-  RandomSpeed: 0
-  MaxSpeed: 1
-  MinSpeed: 1
   MaxObject: 1
   MinObject: 1
   MaxDistance: 2
@@ -2356,18 +2349,12 @@ MonoBehaviour:
   SpawnStartPos: 15.5
   SpawnEndPos: -15.5
   RandomSpeed: 1
-  MaxSpeed: 1.5
+  MaxSpeed: 0.8
   MinSpeed: 0.5
-  MaxObject: 4
+  MaxObject: 3
   MinObject: 2
   MaxDistance: 4
   MinDistance: 2.5
-  MaxSpeed: 0.5
-  MinSpeed: 0.25
-  MaxObject: 3
-  MinObject: 1
-  MaxDistance: 8
-  MinDistance: 4
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1809392240244054217 stripped

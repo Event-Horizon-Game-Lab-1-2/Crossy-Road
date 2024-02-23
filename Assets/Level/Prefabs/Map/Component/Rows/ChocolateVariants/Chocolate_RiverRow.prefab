@@ -352,17 +352,19 @@ PrefabInstance:
       objectReference: {fileID: 27764929809660905, guid: e47da1eb7e7410c45808125a2196f4fd, type: 3}
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxSpeed
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinSpeed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxObject
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1369198376679548451, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxDistance
@@ -426,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxSpeed
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinSpeed
@@ -435,8 +437,6 @@ PrefabInstance:
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxObject
       value: 3
-      propertyPath: MaxObject
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3431622176350344167, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
@@ -464,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 7208972896409537713, guid: 3e780eb2b748f074786e094675c4bbde, type: 3}
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MaxSpeed
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinSpeed
@@ -477,12 +477,6 @@ PrefabInstance:
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: MinObject
       value: 3
-      propertyPath: MaxObject
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
-      propertyPath: MinObject
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4719514483150987576, guid: a6c534f08770f4b43b629b58df2e7d78, type: 3}
       propertyPath: SpawnEndPos
