@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.95
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -674,6 +674,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3949193132920270624, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 716.3999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949193132920270624, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 33.80005
+      objectReference: {fileID: 0}
     - target: {fileID: 4581790139826940652, guid: fae3fca5966cadb46a210a8c72f31e99, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -903,6 +911,14 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1017153545}
+    - target: {fileID: 6016179186156383373, guid: dc50ea79794684b40901fdca307855ac, type: 3}
+      propertyPath: m_Depth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016179186156383373, guid: dc50ea79794684b40901fdca307855ac, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

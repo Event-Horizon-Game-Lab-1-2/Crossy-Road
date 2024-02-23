@@ -21,6 +21,7 @@ public class MovementComponent : MonoBehaviour
             gameObject.transform.position = TileTransform.position + Vector3.up / 2;
             yield return null;
         }
+        Debug.Log("TILE LOST");
     }
 
     private void OnEnable()

@@ -6,27 +6,33 @@ public class PlayerManager : MonoBehaviour
     public delegate void DeathTriggered(DeathType deathType);
     public static event DeathTriggered OnDeath = new DeathTriggered( (DeathType deathType) => { } );
 
-    private bool dead;
+    private bool Dead;
+    private bool CanDie;
 
     private void Awake()
     {
-        dead = false;
+        Dead = false;
+        CanDie = true;
     }
 
     private void OnBecameInvisible()
     {
+        if (!CanDie)
+            return;
         if (GameManager.Resetting)
             return;
-        if (dead)
-            return;
-        if(OnDeath != null)
+
+        if (Dead)
+            Destroy(gameObject, 1f);
+
+        if (OnDeath != null && !Dead)
             OnDeath(DeathType.Idling);
-        dead = true;
+        Dead = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (dead)
+        if (Dead)
             return;
         if (other == null)
             return;
@@ -36,10 +42,10 @@ public class PlayerManager : MonoBehaviour
             return;
         else
         {
-            dead = true;
+            Dead = true;
             OnDeath(deathTrigger.deathType);
-            if (deathTrigger.deathType == DeathType.OutOfBound)
-                Destroy(gameObject, 1f);
+            if (deathTrigger.deathType == DeathType.Idling)
+                CanDie = false;
         }
     }
 

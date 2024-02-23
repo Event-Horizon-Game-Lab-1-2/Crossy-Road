@@ -54,7 +54,7 @@ public class FlyingDeath : MonoBehaviour
         //pick up player
         progress = 0f;
         Vector3 objectToPickUpStartpos = TargetToPickUp.position + TargetToPickUpOffset;
-        while (progress <= 1f)
+        while (progress <= 1f && TargetToPickUp)
         {
             //position
             DeathObject.position = Vector3.Lerp(objectToPickUpStartpos, EndingPos, progress);
@@ -68,7 +68,8 @@ public class FlyingDeath : MonoBehaviour
         }
 
         DeathObject.gameObject.SetActive(false);
-        TargetToPickUp.gameObject.SetActive(false);
+        if(TargetToPickUp)
+            TargetToPickUp.gameObject.SetActive(false);
     }
 
     private void Die(DeathType deathType)

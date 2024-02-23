@@ -37,7 +37,7 @@ public class AnimationComponent : MonoBehaviour
         }
 
         //stay on target
-        while(Target.position != null)
+        while(Target)
         {
             meshTransform.position = Target.position;
             yield return null;
@@ -49,7 +49,7 @@ public class AnimationComponent : MonoBehaviour
     {
         while(true)
         {
-            if(Target.position == null)
+            if(!Target)
                 yield break;
             meshTransform.position = Target.position;
             yield return null;
