@@ -118,7 +118,7 @@ public class DinamicSpawner : Spawner
         //Adjust generated object position
         //First object position defines the position of all the other
         //get the first object position
-        ListOfTransform[0].position = transform.position + (Vector3.right * UnityEngine.Random.Range(SpawnStartPos, SpawnEndPos));
+        ListOfTransform[0].position = transform.position + (Vector3.right * UnityEngine.Random.Range(SpawnStartPos/2.5f, SpawnEndPos/2.5f));
         //load all positions based on the previous object position
         for (int i = 1; i < ListOfTransform.Count; i++)
         {
