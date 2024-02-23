@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7882637638038257803, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
+      propertyPath: DeathParticles
+      value: 
+      objectReference: {fileID: 7302953545865188249, guid: bbfeb16dfc609674e8a363320b69bf13, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4333845889655534462, guid: 191e4a07b656aad4cbdcf40a190188a5, type: 3}
