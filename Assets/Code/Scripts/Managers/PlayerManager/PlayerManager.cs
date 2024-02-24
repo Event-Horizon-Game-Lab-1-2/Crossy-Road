@@ -17,14 +17,10 @@ public class PlayerManager : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        if (!CanDie)
-            return;
         if (GameManager.Resetting)
             return;
-
         if (Dead)
             Destroy(gameObject, 1f);
-
         if (OnDeath != null && !Dead)
             OnDeath(DeathType.Idling);
         Dead = true;

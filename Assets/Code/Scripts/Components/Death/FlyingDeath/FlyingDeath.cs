@@ -69,8 +69,6 @@ public class FlyingDeath : MonoBehaviour
         }
 
         DeathObject.gameObject.SetActive(false);
-        if(TargetToPickUp)
-            TargetToPickUp.gameObject.SetActive(false);
     }
 
     private void Die(DeathType deathType)

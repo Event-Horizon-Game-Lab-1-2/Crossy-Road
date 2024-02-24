@@ -668,14 +668,14 @@ MonoBehaviour:
   ObjectsToSpawn:
   - ObjectTransform: {fileID: 7116380060199860000, guid: 26d80dd0a3943844f817b615976a252a, type: 3}
     SpawnProbability: 1
-  SpawnStartPos: 9
-  SpawnEndPos: -9
+  SpawnStartPos: 15
+  SpawnEndPos: -15
   RandomSpeed: 1
-  MaxSpeed: 0.4
-  MinSpeed: 0.2
-  MaxObject: 2
-  MinObject: 1
-  MaxDistance: 6
+  MaxSpeed: 0.2
+  MinSpeed: 0.1
+  MaxObject: 3
+  MinObject: 2
+  MaxDistance: 7
   MinDistance: 5
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
@@ -694,15 +694,15 @@ MonoBehaviour:
   ObjectsToSpawn:
   - ObjectTransform: {fileID: 4535365672437891003, guid: 04a045d8dd9dea94aaa5df3a8b532c28, type: 3}
     SpawnProbability: 1
-  SpawnStartPos: 9
-  SpawnEndPos: -9
+  SpawnStartPos: 15
+  SpawnEndPos: -15
   RandomSpeed: 1
-  MaxSpeed: 0.4
-  MinSpeed: 0.2
-  MaxObject: 3
-  MinObject: 1
-  MaxDistance: 3
-  MinDistance: 2.5
+  MaxSpeed: 0.22
+  MinSpeed: 0.12
+  MaxObject: 4
+  MinObject: 2
+  MaxDistance: 4
+  MinDistance: 3
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}
   SpawnerPreviewColor_End: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &4719514483150987576
@@ -720,13 +720,13 @@ MonoBehaviour:
   ObjectsToSpawn:
   - ObjectTransform: {fileID: 3114076000715246668, guid: 9476b3bcb249e7341bece8a8f68a82cc, type: 3}
     SpawnProbability: 1
-  SpawnStartPos: 9
-  SpawnEndPos: -9
+  SpawnStartPos: 15
+  SpawnEndPos: -15
   RandomSpeed: 1
-  MaxSpeed: 0.4
-  MinSpeed: 0.2
-  MaxObject: 3
-  MinObject: 1
+  MaxSpeed: 0.25
+  MinSpeed: 0.15
+  MaxObject: 5
+  MinObject: 3
   MaxDistance: 5
   MinDistance: 3
   SpawnerPreviewColor_Start: {r: 0, g: 1, b: 0, a: 1}

@@ -2254,6 +2254,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6997486272805854538, guid: cc5a91a28a1f3de42a21b801af9a915e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.307
+      objectReference: {fileID: 0}
     - target: {fileID: 8383096740515873976, guid: cc5a91a28a1f3de42a21b801af9a915e, type: 3}
       propertyPath: m_Name
       value: CandyRiverBorderTile (1)
