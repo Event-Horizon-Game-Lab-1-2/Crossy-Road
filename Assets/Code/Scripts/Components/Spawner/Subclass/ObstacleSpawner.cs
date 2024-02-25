@@ -10,6 +10,7 @@ public class ObstacleSpawner : Spawner
     [SerializeField] private int SpawnTilesAmount = 9;
     [SerializeField] private Vector3 SpawnTilesOffset = Vector3.zero;
     [SerializeField] private bool SpawnOnCenter = false;
+    [SerializeField] private bool AutoSpawn = false;
     [Space]
     [Header("Max Spawnable obstacles")]
     [SerializeField] private int MaxSpawnAmount = 5;
@@ -33,6 +34,8 @@ public class ObstacleSpawner : Spawner
         TilePosition.RemoveAt( SpawnTilesAmount / 2 );
 
         ObjectSpawned = new List<Transform>();
+        if (AutoSpawn)
+            Spawn();
     }
 
     public override void Spawn()

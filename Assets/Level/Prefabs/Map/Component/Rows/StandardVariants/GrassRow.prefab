@@ -2395,6 +2395,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 542547171679673143}
+    - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6704663295924078290}
+    - targetCorrespondingSourceObject: {fileID: 4279304334840819086, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 600689541316010942}
   m_SourcePrefab: {fileID: 100100000, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
 --- !u!4 &974579687992332180 stripped
 Transform:
@@ -2458,9 +2464,62 @@ MonoBehaviour:
   SpawnTilesAmount: 9
   SpawnTilesOffset: {x: -4, y: 0, z: 0}
   SpawnOnCenter: 0
+  AutoSpawn: 0
   MaxSpawnAmount: 3
   MinSpawnAmount: 1
   SpanwerPreviewColor: {r: 1, g: 0, b: 1, a: 1}
+--- !u!114 &6704663295924078290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711435958594849324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03731c0631c534e45b5b32ec978aeb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToSpawn:
+  - ObjectTransform: {fileID: 601551804111373366, guid: 6799634789ffb604b8ab164905c9510b, type: 3}
+    SpawnProbability: 0.33333334
+  - ObjectTransform: {fileID: 8581874983009930227, guid: 9e23f740e512d2e4a9c0f9689c01cc51, type: 3}
+    SpawnProbability: 0.33333334
+  - ObjectTransform: {fileID: 8935636633428643692, guid: f7ba7b001f3fbc34b8f6370ae9aa27d8, type: 3}
+    SpawnProbability: 0.33333334
+  SpawnTilesAmount: 10
+  SpawnTilesOffset: {x: 5, y: 0, z: 0}
+  SpawnOnCenter: 0
+  AutoSpawn: 1
+  MaxSpawnAmount: 5
+  MinSpawnAmount: 1
+  SpanwerPreviewColor: {r: 0.34901962, g: 0, b: 0.34901962, a: 1}
+--- !u!114 &600689541316010942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4711435958594849324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03731c0631c534e45b5b32ec978aeb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToSpawn:
+  - ObjectTransform: {fileID: 601551804111373366, guid: 6799634789ffb604b8ab164905c9510b, type: 3}
+    SpawnProbability: 0.33333334
+  - ObjectTransform: {fileID: 8935636633428643692, guid: f7ba7b001f3fbc34b8f6370ae9aa27d8, type: 3}
+    SpawnProbability: 0.33333334
+  - ObjectTransform: {fileID: 8581874983009930227, guid: 9e23f740e512d2e4a9c0f9689c01cc51, type: 3}
+    SpawnProbability: 0.33333334
+  SpawnTilesAmount: 10
+  SpawnTilesOffset: {x: -14, y: 0, z: 0}
+  SpawnOnCenter: 0
+  AutoSpawn: 1
+  MaxSpawnAmount: 5
+  MinSpawnAmount: 1
+  SpanwerPreviewColor: {r: 0.34901962, g: 0, b: 0.34901962, a: 1}
 --- !u!4 &6164983429755855638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3427007665173284020, guid: 768c4b798e45ac44584dd3681bd8b0a0, type: 3}
